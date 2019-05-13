@@ -1,12 +1,10 @@
 # Agate amp-access integration
 
 
-Check out a live [example](https://s3.eu-west-2.amazonaws.com/agate-amp/example.html).
-Here is the [source code](./src/example/index.html).
+Check out a working [example](https://s3.eu-west-2.amazonaws.com/agate-amp/example.html) and the [source code](./src/example/index.html).
 
 
-
-Please follow these intructions to integrate amp-access abd Agate.
+Please follow these intructions to integrate amp-access and Agate.
 
 ## Agate CSS
 	<link href='https://s3.eu-west-2.amazonaws.com/agate-amp/style.css" rel='stylesheet' type='text/css'>
