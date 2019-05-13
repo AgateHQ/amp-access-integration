@@ -2,10 +2,15 @@ const path = require('path');
 const S3Uploader = require('webpack-s3-uploader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
  
  
 module.exports = {
-  entry: "./src/css/style.css", // string | object | array
+  mode: 'production',
+  entry: [
+    "./src/css/style.css"
+
+  ],
   output: {
     path: path.resolve(__dirname, "build"), // string
   },
@@ -32,6 +37,10 @@ module.exports = {
       // both options are optional
       filename: 'style.css',
     }),
+    new CopyPlugin([
+      { from: 'src/example/index.html', to: 'example.html' },
+      { from: 'src/img', to: 'img' },
+    ]),
     new S3Uploader({
       s3Options: {
         accessKeyId: process.env.AWS_KEY_ID,
