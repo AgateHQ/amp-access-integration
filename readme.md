@@ -14,12 +14,12 @@ Please follow these intructions to integrate amp-access and Agate.
    
 	<script id="amp-access" type="application/json">
 	{
-		"authorization": "http://localhost:8002/api/authorization?rid=READER_ID&url=CANONICAL_URL",
+		"authorization": "https://evening-springs-39131.herokuapp.com/api/authorization?rid=READER_ID&url=CANONICAL_URL",
 		"noPingback": true,
 		"login": {
-			"sign-in": "http://localhost:8002/account/login?rid=READER_ID&url=CANONICAL_URL",
-			"sign-out": "http://localhost:8002/account/logout?rid=READER_ID&url=CANONICAL_URL",
-			"register": "http://localhost:8001/account/login?rid=READER_ID&url=CANONICAL_URL"
+			"sign-in": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL",
+			"sign-out": "https://evening-springs-39131.herokuapp.com/account/logout?rid=READER_ID&url=CANONICAL_URL",
+			"register": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL"
 		},
 		"authorizationFallbackResponse": {
 		"error": true,
