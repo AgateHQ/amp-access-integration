@@ -8,11 +8,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: [
-    "./src/css/style.css"
+    path.resolve(__dirname, "../src/css/style.css")
 
   ],
   output: {
-    path: path.resolve(__dirname, "build"), // string
+    path: path.resolve(__dirname, "../build"), // string
   },
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
@@ -38,8 +38,8 @@ module.exports = {
       filename: 'style.css',
     }),
     new CopyPlugin([
-      { from: 'src/example/index.html', to: 'example.html' },
-      { from: 'src/img', to: 'img' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'example.html' },
+      { from: path.resolve(__dirname, '../src/img/*'), to: 'img' },
     ]),
     new S3Uploader({
       s3Options: {
