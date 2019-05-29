@@ -1,0 +1,151 @@
+.amp-access-agate__container {
+  background: #333B4D;
+  font-family: 'Source Sans Pro', sans-serif;
+  color:white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.amp-access-agate__main {
+  padding: 1.5rem 1.5rem;
+}
+
+.amp-access-agate__header {
+  background: #2E3646;
+  text-align: center;
+  border-bottom: 2px solid #595E6A;
+  width: 100%;
+  padding: 0.5rem 0 1rem 0;
+}
+.amp-access-agate__header button {
+  margin-top: 0.5rem;
+}
+
+.amp-access-agate__footer {
+  border-top: 2px solid #595E6A;
+  padding: 1rem 1.5rem;
+  background: #2a3140;
+  display: flex;
+  align-items: flex-end;
+}
+
+.amp-access-agate__container p {
+  margin: 1rem 0 0 0;
+}
+
+.amp-access-agate__container p.sub-text {
+  margin-top: 0.5rem;
+  color: #7F848F;
+}
+
+.amp-access-agate__gauge {
+  margin: 2rem 0 1rem 0;
+}
+
+.amp-access-agate__footer__brand {
+  margin:0;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Notice */
+
+.amp-access-agate__notice p {
+  display: inline-block;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.amp-access-agate__notice footer p {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.amp-access-agate__notice footer a {
+ text-decoration: underline;
+ cursor: pointer;
+}
+.amp-access-agate__footer__account{
+  flex:1;
+  text-align: right;
+  color: #1BB580;
+}
+
+.amp-access-agate__balance__amount {
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+/* Buttons */
+
+.amp-access-agate__button {
+  opacity: 0.9;
+  transition: 0.4s;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  background: #1BB580;
+  color: white;
+  border-radius: 2rem;
+  border: none;
+  padding: 0.75rem 2rem;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+  width:100%;
+}
+
+.amp-access-agate__button:hover {
+  opacity:1;
+}
+
+.amp-access-agate__button--thin {
+  width:auto;
+}
+
+.amp-access-agate__button--danger {
+  background: #D75452;
+}
+
+.amp-access-agate__button--secondary {
+  background: #6f7490;
+}
+
+/* Pricing */
+
+.amp-access-agate__pricing {
+  background: #505766; 
+  padding: 0.75rem 0;
+  border-radius: 0.25rem;
+  display: flex;
+}
+.amp-access-agate__pricing__item{
+      width: 50%;
+      text-align: center;
+}
+
+.amp-access-agate__pricing__item--first {
+  border-right: 1px solid #2E3646;
+}
+.amp-access-agate__pricing__item__amount {
+  display: inline-block;
+}
+
+.amp-access-agate__pricing__item__price {
+  font-weight: 600;
+}
+
+/* Warning */
+
+.amp-access-agate__warning {
+  background:#D75452;
+  padding: 1.5rem;
+  margin: 1rem 0; 
+  display: inline-block;
+}
+p.amp-access-agate__warning__text {
+  margin: 0rem; 
+}
+

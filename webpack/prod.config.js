@@ -8,7 +8,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: [
-    path.resolve(__dirname, "../src/css/style.css")
+    path.resolve(__dirname, "../src/css/agate.css"),
+    path.resolve(__dirname, "../src/css/main.css")
 
   ],
   output: {
@@ -35,7 +36,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'style.css',
+      filename: 'amp-access-agate__css',
     }),
     new CopyPlugin([
       { from: path.resolve(__dirname, '../src/example/index.html'), to: 'example.html' },

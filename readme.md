@@ -7,7 +7,7 @@ Check out a working [example](https://s3.eu-west-2.amazonaws.com/agate-amp/examp
 Please follow these intructions to integrate amp-access and Agate.
 
 ## Agate CSS
-	<link href='https://s3.eu-west-2.amazonaws.com/agate-amp/style.css" rel='stylesheet' type='text/css'>
+	<link href='https://s3.eu-west-2.amazonaws.com/agate-amp/amp-access-agate__css" rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 	
  ## Amp Access Configuration
@@ -63,7 +63,7 @@ Premium article can  protected using the following markup, it will only be visib
 
 Include the following Mustache template where the agate dialog should be displayed. This can be customised as required.
 
-	<div class="amp-access-agate-container">
+	<div class="amp-access-agate__container">
 		<div class="amp-access-agate__main">
 			
 			// Page notice for authenticated user
@@ -72,8 +72,8 @@ Include the following Mustache template where the agate dialog should be display
 					<p>We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.</p>
 					<p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
 					<p>Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
-					<button  on="tap:amp-access.login-sign-in" class='amp-access-agate-button' role="button" ref="buttonLogin">Pay per article</button>
-					<button  on="tap:amp-access.login-register" class='amp-access-agate-button' role="button" ref="buttonLogin">Register</button>
+					<button  on="tap:amp-access.login-sign-in" class='amp-access-agate__button' role="button" ref="buttonLogin">Pay per article</button>
+					<button  on="tap:amp-access.login-register" class='amp-access-agate__button' role="button" ref="buttonLogin">Register</button>
 				</template>
 			</section>
 			
@@ -87,7 +87,7 @@ Include the following Mustache template where the agate dialog should be display
 						<section class="amp-access-agate__gauge">
 							<p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span>  until free</p>
 					</section>
-					<button  on="tap:amp-access.login-sign-out" class='amp-access-agate-button' role="button" ref="buttonLogout">Logout</button>
+					<button  on="tap:amp-access.login-sign-out" class='amp-access-agate__button' role="button" ref="buttonLogout">Logout</button>
 					{{#warning}}
 						<section ref="warning" class="amp-access-agate__warning">
 							<p ref="warningText"  class="amp-access-agate__warning__text">{{warning}}</p>

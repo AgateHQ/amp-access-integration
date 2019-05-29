@@ -5,7 +5,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'development',
   entry: [
-    path.resolve(__dirname, "../src/css/style.css")
+    path.resolve(__dirname, "../src/css/agate.css"),
+    path.resolve(__dirname, "../src/css/main.css")
 
   ],
   output: {
@@ -22,7 +23,8 @@ module.exports = {
   watch: true,
  
   devServer: {
-    contentBase: '../build'
+    contentBase: '../build',
+    port: 8000
   },
   plugins: [
     new CopyPlugin([

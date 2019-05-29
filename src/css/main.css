@@ -1,0 +1,108 @@
+
+  
+    body {
+      margin: 0;
+      font-family: 'Georgia', Serif;
+    }
+
+    .brand-logo {
+      font-family: 'Open Sans';
+    }
+
+    .content-container p {
+
+    }
+
+    header,
+    .standfirst, 
+    .article-body {
+      padding: 15px;
+    }
+
+    .full-bleed {
+      margin: 0 -15px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      color: #6f757a;
+      padding: 15px 0;
+      font-size: .9em;
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+
+      background: #f4f4f4;
+      padding: 0 15px;
+
+      font-size: .8em;
+
+      border: solid #dcdcdc;
+      border-width: 1px 0;
+    }
+
+    .header-time {
+      color: #a8a3ae;
+      font-family: 'Roboto';
+      font-size: 12px;
+    }
+
+    .author p {
+      margin: 5px;
+    }
+
+    .byline {
+      font-family: 'Roboto';
+      display: inline-block;
+    }
+
+    .byline p {
+      line-height: normal;
+    }
+
+    .byline .brand {
+      color: #6f757a;
+    }
+
+    .standfirst {
+      color: #6f757a;
+    }
+
+    .mailto {
+      text-decoration: none;
+    }
+
+    #author-avatar {
+      margin: 10px;
+      border: 5px solid #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    h1 {
+      margin: 5px 0;
+      font-weight: normal;
+    }
+
+  
+
+    hr {
+      margin: 0;
+    }
+
+    amp-img {
+      background-color: #f4f4f4;
+    }
+
+    .error-section {
+      margin: 16px;
+      margin-top: 24px;
+      padding: 16px;
+      background: #fa7;
+    }
