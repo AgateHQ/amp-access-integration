@@ -7,7 +7,7 @@ Check out a working [example](https://s3.eu-west-2.amazonaws.com/agate-amp/examp
 Please follow these intructions to integrate amp-access and Agate.
 
 ## Agate CSS
-	<link href='https://s3.eu-west-2.amazonaws.com/agate-amp/amp-access-agate__css" rel='stylesheet' type='text/css'>
+	<link href='https://s3.eu-west-2.amazonaws.com/agate-amp/agate.css' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 	
  ## Amp Access Configuration
@@ -19,7 +19,7 @@ Please follow these intructions to integrate amp-access and Agate.
 		"login": {
 			"sign-in": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL",
 			"sign-out": "https://evening-springs-39131.herokuapp.com/account/logout?rid=READER_ID&url=CANONICAL_URL",
-			"register": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL"
+			"sign-up": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL"
 		},
 		"authorizationFallbackResponse": {
 		"error": true,
@@ -63,50 +63,68 @@ Premium article can  protected using the following markup, it will only be visib
 
 Include the following Mustache template where the agate dialog should be displayed. This can be customised as required.
 
-	<div class="amp-access-agate__container">
-		<div class="amp-access-agate__main">
-			
-			// Page notice for authenticated user
-			<section amp-access="NOT user" class="amp-access-agate__notice">
-				<template amp-access-template type="amp-mustache">
-					<p>We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.</p>
+<div amp-access="NOT error" class="amp-access-agate__container">
+		<template amp-access-template type="amp-mustache">
+		{{^wallet}}
+				<main class="amp-access-agate__notice amp-access-agate__main">
+					<p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.</p> 
 					<p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
-					<p>Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
-					<button  on="tap:amp-access.login-sign-in" class='amp-access-agate__button' role="button" ref="buttonLogin">Pay per article</button>
-					<button  on="tap:amp-access.login-register" class='amp-access-agate__button' role="button" ref="buttonLogin">Register</button>
-				</template>
-			</section>
-			
-			// wallet view non authenticated user
-			<section amp-access="user" >
-				<template amp-access-template type="amp-mustache">
-					<section class="amp-access-agate__balance">
-						<h1 class="amp-access-agate__balance__title">Your Wallet balance:</h1>
-						<p class="amp-access-agate__balance__amount" ref="balance" class="">{{wallet.balance}}</p>
-						</section>
-						<section class="amp-access-agate__gauge">
-							<p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span>  until free</p>
+					<p>
+					Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
+				<button  on="tap:amp-access.login-sign-up" class='amp-access-agate__button' role="button" ref="buttonLogin">Pay per article</button>
+					<footer>
+						<p>Already have an account?  <a  on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
+					</footer>
+				</main>
+		{{/wallet}}
+		{{#wallet}}
+			<section  class="amp-access-agate__wallet">
+				<header class="amp-access-agate__header">
+					<div class="amp-access-agate__balance">
+							<span class="amp-access-agate__balance__title">Available:</span>
+							<span class="amp-access-agate__balance__amount" ref="balance">{{wallet.balance}}</span>
+						</div>
+						<button  on="tap:amp-access.login-top-up" class='amp-access-agate__button amp-access-agate__button--thin' role="button">Top up</button>
+				</header>
+				<main class="amp-access-agate__main">
+					<section class="amp-access-agate__pricing">
+						<div class="amp-access-agate__pricing__item amp-access-agate__pricing__item--first ">
+							<div class="amp-access-agate__pricing__item__title">Price:</div>
+							<div class="amp-access-agate__pricing__item__price">{{publisher.article_cost}} /article</div>
+						</div>
+						<div class="amp-access-agate__pricing__item">
+							<div class="amp-access-agate__pricing__item__title">Free point:</div>
+							<div class="amp-access-agate__pricing__item__price">{{publisher.cap_cost}}/week</div>
+						</div>
 					</section>
-					<button  on="tap:amp-access.login-sign-out" class='amp-access-agate__button' role="button" ref="buttonLogout">Logout</button>
-					{{#warning}}
+					<section class="amp-access-agate__gauge">
+						{{#subscriber}}
+							<p class="highlight">Subscriber</p>
+							{{#freeUntilDate}}
+								<p class="sub-text">(Free until {{wallet.freeUntilDate}})</p>
+							{{/freeUntilDate}}
+							{{/subscriber}}
+						{{^subscriber}}
+						<p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span> until free this week</p>
+						<p class="sub-text">(updates on {{wallet.freeUntilDate}})</p>
+						{{/subscriber}}
+					</section>
+					<footer>
+						{{#warning}}
 						<section ref="warning" class="amp-access-agate__warning">
 							<p ref="warningText"  class="amp-access-agate__warning__text">{{warning}}</p>
 						</section>
-					{{/warning}}
-				</template>
+						{{/warning}}
+						<button  on="tap:amp-access.login-sign-out" class='amp-access-agate__button amp-access-agate__button--secondary'>Logout</button>
+					</footer>
+					</main>
 			</section>
-			
-			// agate footer
-			<section amp-access="publisher" >
-				<template amp-access-template type="amp-mustache">
-				<footer class="amp-access-agate__footer">
-					<a href="http://www.agate.one/"  target="blank" class="amp-access-agate__footer__brand">agate</a>
-					{{#user}}
-						<a ref="account" target="blank" href=“{{account}}”class="amp-access-agate__footer__account">My Account</a>
-					{{/user}}
-				</footer>
-				</template>
-			</section>
-			
-		</div>
+			{{/wallet}} 
+			<footer class="amp-access-agate__footer">
+				<a href="http://www.agate.one/"  target="_blank" class="amp-access-agate__footer__brand">agate</a>
+				{{#user}}
+				<a ref="account" target="_blank" href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"class="amp-access-agate__footer__account">My Account</a>
+				{{/user}}
+			</footer>
+		</template>
 	</div>
