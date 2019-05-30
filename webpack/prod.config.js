@@ -9,11 +9,10 @@ module.exports = {
   mode: 'production',
   entry: [
     path.resolve(__dirname, "../src/css/agate.css"),
-    path.resolve(__dirname, "../src/css/main.css")
-
   ],
   output: {
-    path: path.resolve(__dirname, "../build"), // string
+    path: path.resolve(__dirname, "../build/"), // string
+
   },
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
@@ -36,11 +35,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'amp-access-agate__css',
+      filename: 'agate.css',
     }),
     new CopyPlugin([
       { from: path.resolve(__dirname, '../src/example/index.html'), to: 'example.html' },
       { from: path.resolve(__dirname, '../src/img/*'), to: 'img' },
+      { from: path.resolve(__dirname, '../src/css/main.css'), to: 'main.css' },
     ]),
     new S3Uploader({
       s3Options: {
