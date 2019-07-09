@@ -1,10 +1,31 @@
 <!doctype html>
 <html ⚡>
+
 <head>
   <meta charset="utf-8">
   <title>Lorem Ipsum | PublisherName</title>
-  <link rel="canonical" href="amp-access-agate.html" >
+  <link rel="canonical" href="amp-access-agate.html">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+  <!-- AMP Axate -->
+  <script id="amp-access" type="application/json">
+    {
+      "noPingback": true,
+      "authorization": "https://staging.agate.io/api/authorisation?domain=localhost&rid=READER_ID&url=CANONICAL_URL",
+      "login": {
+        "sign-in": "https://account-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
+        "sign-out": "https://staging.agate.io/api/users/sign_out",
+        "sign-up": "https://account-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=local&url_from=CANONICAL_URL",
+        "top-up": "https://account-staging.agate.io/top-up?domain=localhost&uid=339&jwt_token=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzksImlhdCI6MTU1ODQzNzI3NiwianRpIjoiNmUxODNlYjAxZWExZjQyOWFhYjg1NjZjMjJjYjBlYWQifQ.Qjf92yBQ2XJ1jGpl7NtLtYZcYZhSoVMVMAx5OtoHJJ0&from=CANONICAL_URL"
+      },
+      "authorizationFallbackResponse": {
+          "error": true,
+          "user": false
+      }
+    }
+  </script>
+
+  <!--
   <script id="amp-access" type="application/json">
     {
       "noPingback": true,
@@ -21,7 +42,10 @@
       }
     }
   </script>
+  -->
+
   <link href='./agate.css' rel='stylesheet' type='text/css'>
+
   <link href='./main.css' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Georgia|Open+Sans|Roboto' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
@@ -29,10 +53,77 @@
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
   <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
   <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-   <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <style amp-boilerplate>
+    body {
+      -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      animation: -amp-start 8s steps(1, end) 0s 1 normal both
+    }
+
+    @-webkit-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-moz-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-ms-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-o-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+  </style><noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none
+      }
+    </style>
+  </noscript>
   <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <script  src="./main.js"></script>
+  <script src="./main.js"></script>
 </head>
+
 <body>
   <header>
     <div class="brand-logo">
@@ -42,66 +133,73 @@
   <main role="main">
     <article>
       <figure>
-        <amp-img
-            src="img/hero@1x.jpg"
-            srcset="img/hero@1x.jpg 1x, img/hero@2x.jpg 2x"
-            layout="responsive" width="360" placeholder
-            alt="Curabitur convallis, urna quis pulvinar feugiat, purus diam posuere turpis, sit amet tincidunt purus justo et mi."
-            height="216">
+        <amp-img src="img/hero@1x.jpg" srcset="img/hero@1x.jpg 1x, img/hero@2x.jpg 2x" layout="responsive" width="360"
+          placeholder
+          alt="Curabitur convallis, urna quis pulvinar feugiat, purus diam posuere turpis, sit amet tincidunt purus justo et mi."
+          height="216">
         </amp-img>
       </figure>
 
       <div class="content-container">
         <header>
           <h1 itemprop="headline">Lorem Ipsum test</h1>
-          <time class="header-time" itemprop="datePublished"
-              datetime="2015-09-14 13:00">September 14, 2015</time>
+          <time class="header-time" itemprop="datePublished" datetime="2015-09-14 13:00">September 14, 2015</time>
         </header>
         <div class="author">
-          <amp-img src="img/sample.jpg" id="author-avatar" placeholder
-              height="50" width="50">
+          <amp-img src="img/sample.jpg" id="author-avatar" placeholder height="50" width="50">
           </amp-img>
           <div class="byline">
             <p>
-              by <span itemscope itemtype="http://schema.org/Person"
-              itemprop="author"><b>Lorem Ipsum</b>
-              <a class="mailto" href="mailto:lorem.ipsum@example.com">
-              lorem.ipsum@</a></span>
+              by <span itemscope itemtype="http://schema.org/Person" itemprop="author"><b>Lorem Ipsum</b>
+                <a class="mailto" href="mailto:lorem.ipsum@example.com">
+                  lorem.ipsum@</a></span>
             </p>
             <p class="brand">PublisherName News Reporter<p>
           </div>
         </div>
 
+        <div amp-access="NOT error AND access" class="amp-access-agate__container">
+          <template amp-access-template type="amp-mustache">
+            <main class="amp-access-agate__notice amp-access-agate__main">
+              <p>Hello human, you're logged in. Thanks for doing that.</p>
+            </main>
+            </template>
+        </div>
 
-        <div amp-access="NOT error AND NOT access"  amp-access-hide >
+
+
+        <div amp-access="NOT error AND NOT access" amp-access-hide>
           <p class="standfirst">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus
-              luctus nunc ut elit cursus, et imperdiet diam vehicula.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus
+            luctus nunc ut elit cursus, et imperdiet diam vehicula.
           </p>
         </div>
-        <div amp-access="NOT error" class="amp-access-agate__container">
+        <div amp-access="NOT error AND access" class="amp-access-agate__container">
           <template amp-access-template type="amp-mustache">
-          {{^wallet}}
-              <main class="amp-access-agate__notice amp-access-agate__main">
-                <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.</p> 
-                <p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
-                <p>
+            {{^wallet}}
+            <main class="amp-access-agate__notice amp-access-agate__main">
+              <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.
+              </p>
+              <p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
+              <p>
                 Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
-              <button  on="tap:amp-access.login-sign-up" class='amp-access-agate__button' role="button" ref="buttonLogin">Pay per article</button>
-                <footer>
-                  <p>Already have an account?  <a  on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
-                </footer>
-              </main>
-          {{/wallet}}
-          {{#wallet}}
-            <section  class="amp-access-agate__wallet">
+              <button on="tap:amp-access.login-sign-up" class='amp-access-agate__button' role="button"
+                ref="buttonLogin">Pay per article</button>
+              <footer>
+                <p>Already have an account? <a on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
+              </footer>
+            </main>
+            {{/wallet}}
+            {{#wallet}}
+            <section class="amp-access-agate__wallet">
               <header class="amp-access-agate__header">
                 <div class="amp-access-agate__balance">
-                    <span class="amp-access-agate__balance__title">Available:</span>
-                    <span class="amp-access-agate__balance__amount" ref="balance">{{wallet.balance}}</span>
-                  </div>
-                  <button  on="tap:amp-access.login-top-up" class='amp-access-agate__button amp-access-agate__button--thin' role="button">Top up</button>
+                  <span class="amp-access-agate__balance__title">Available:</span>
+                  <span class="amp-access-agate__balance__amount" ref="balance">{{wallet.balance}}</span>
+                </div>
+                <button on="tap:amp-access.login-top-up" class='amp-access-agate__button amp-access-agate__button--thin'
+                  role="button">Top up</button>
               </header>
               <main class="amp-access-agate__main">
                 <section class="amp-access-agate__pricing">
@@ -116,11 +214,11 @@
                 </section>
                 <section class="amp-access-agate__gauge">
                   {{#subscriber}}
-                    <p class="highlight">Subscriber</p>
-                    {{#freeUntilDate}}
-                      <p class="sub-text">(Free until {{wallet.freeUntilDate}})</p>
-                    {{/freeUntilDate}}
-                    {{/subscriber}}
+                  <p class="highlight">Subscriber</p>
+                  {{#freeUntilDate}}
+                  <p class="sub-text">(Free until {{wallet.freeUntilDate}})</p>
+                  {{/freeUntilDate}}
+                  {{/subscriber}}
                   {{^subscriber}}
                   <p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span> until free this week</p>
                   <p class="sub-text">(updates on {{wallet.freeUntilDate}})</p>
@@ -129,27 +227,30 @@
                 <footer>
                   {{#warning}}
                   <section ref="warning" class="amp-access-agate__warning">
-                    <p ref="warningText"  class="amp-access-agate__warning__text">{{warning}}</p>
+                    <p ref="warningText" class="amp-access-agate__warning__text">{{warning}}</p>
                   </section>
                   {{/warning}}
-                  <button  on="tap:amp-access.login-sign-out" class='amp-access-agate__button amp-access-agate__button--secondary'>Logout</button>
+                  <button on="tap:amp-access.login-sign-out"
+                    class='amp-access-agate__button amp-access-agate__button--secondary'>Logout</button>
                 </footer>
-                </main>
+              </main>
             </section>
-            {{/wallet}} 
+            {{/wallet}}
             <footer class="amp-access-agate__footer">
-              <a href="http://www.agate.one/"  target="_blank" class="amp-access-agate__footer__brand">agate</a>
+              <a href="http://www.agate.one/" target="_blank" class="amp-access-agate__footer__brand">agate</a>
               {{#user}}
-              <a ref="account" target="_blank" href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"class="amp-access-agate__footer__account">My Account</a>
+              <a ref="account" target="_blank"
+                href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"
+                class="amp-access-agate__footer__account">My Account</a>
               {{/user}}
             </footer>
           </template>
         </div>
 
-        <section amp-access="error" class="amp-access-agate__container" amp-access-hide >
+        <section amp-access="error" class="amp-access-agate__container" amp-access-hide>
           <section ref="warning" class="amp-access-agate__warning">
-              <p ref="warningText"  class="amp-access-agate__warning__text">  Oops... Something broke.</p>
-            </section>
+            <p ref="warningText" class="amp-access-agate__warning__text"> Oops... Something broke.</p>
+          </section>
         </section>
 
         <div amp-access="access" amp-access-hide class="article-body" itemprop="articleBody">
@@ -205,12 +306,9 @@
           </p>
 
           <figure>
-            <amp-img class="full-bleed" placeholder
-                src="img/sea@1x.jpg"
-                srcset="img/sea@1x.jpg 1x, img/sea@2x.jpg 2x"
-                layout="responsive" width="360"
-                alt="Fusce pretium tempor justo, vitae consequat dolor maximus eget."
-                height="216">
+            <amp-img class="full-bleed" placeholder src="img/sea@1x.jpg" srcset="img/sea@1x.jpg 1x, img/sea@2x.jpg 2x"
+              layout="responsive" width="360" alt="Fusce pretium tempor justo, vitae consequat dolor maximus eget."
+              height="216">
             </amp-img>
             <figcaption>
               Fusce pretium tempor justo, vitae consequat dolor maximus eget.
@@ -250,4 +348,5 @@
     <div class="brand-logo">PublisherLogo</div>
   </footer>
 </body>
+
 </html>
