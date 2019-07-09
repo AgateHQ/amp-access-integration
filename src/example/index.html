@@ -14,7 +14,7 @@
       "authorization": "https://staging.agate.io/api/authorisation?domain=localhost&rid=READER_ID&url=CANONICAL_URL",
       "login": {
         "sign-in": "https://account-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
-        "sign-out": "https://staging.agate.io/api/users/sign_out",
+        "sign-out": "https://staging.agate.io/api/amp_logout?url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
         "sign-up": "https://account-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=local&url_from=CANONICAL_URL",
         "top-up": "https://account-staging.agate.io/top-up?domain=localhost&uid=339&jwt_token=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzksImlhdCI6MTU1ODQzNzI3NiwianRpIjoiNmUxODNlYjAxZWExZjQyOWFhYjg1NjZjMjJjYjBlYWQifQ.Qjf92yBQ2XJ1jGpl7NtLtYZcYZhSoVMVMAx5OtoHJJ0&from=CANONICAL_URL"
       },
@@ -60,6 +60,24 @@
       -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
       animation: -amp-start 8s steps(1, end) 0s 1 normal both
     }
+
+    [debug-messages] { 
+      pointer-events: none;
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      font: 10px monospace;
+    }
+
+    [debug] {
+      background: dodgerblue;
+      opacity: .75;
+      color: white;
+      padding: 5px 10px;
+      margin: 0 0 10px 0;
+
+    }
+
 
     @-webkit-keyframes -amp-start {
       from {
@@ -158,26 +176,32 @@
           </div>
         </div>
 
-        <div amp-access="NOT error AND access" class="amp-access-agate__container">
+
+
+        <!-- DEBUG  -->
+        <div debug-messages>
+          <p debug amp-access="loggedIn">Logged In</p>
+          <p debug amp-access="NOT error AND NOT access">No errors, but not logged-in</p>
+          <p debug amp-access="NOT error AND access">No errors, and logged-in</p>
+          <p debug amp-access="error">Error!</p>
           <template amp-access-template type="amp-mustache">
-            <main class="amp-access-agate__notice amp-access-agate__main">
-              <p>Hello human, you're logged in. Thanks for doing that.</p>
-            </main>
-            </template>
+            <p debug>{{#wallet}}Wallet always exitis{{/wallet}}</p> 
+          </template>
         </div>
+        <!-- DEBUG  -->
 
 
 
         <div amp-access="NOT error AND NOT access" amp-access-hide>
           <p class="standfirst">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Standfirst - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus
             luctus nunc ut elit cursus, et imperdiet diam vehicula.
           </p>
         </div>
-        <div amp-access="NOT error AND access" class="amp-access-agate__container">
+
+        <div amp-access="NOT error AND NOT access" class="amp-access-agate__container">
           <template amp-access-template type="amp-mustache">
-            {{^wallet}}
             <main class="amp-access-agate__notice amp-access-agate__main">
               <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.
               </p>
@@ -190,7 +214,11 @@
                 <p>Already have an account? <a on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
               </footer>
             </main>
-            {{/wallet}}
+          </template>
+        </div>
+
+        <div amp-access="NOT error AND access" class="amp-access-agate__container">
+          <template amp-access-template type="amp-mustache">
             {{#wallet}}
             <section class="amp-access-agate__wallet">
               <header class="amp-access-agate__header">
@@ -230,8 +258,10 @@
                     <p ref="warningText" class="amp-access-agate__warning__text">{{warning}}</p>
                   </section>
                   {{/warning}}
-                  <button on="tap:amp-access.login-sign-out"
-                    class='amp-access-agate__button amp-access-agate__button--secondary'>Logout</button>
+                  <button 
+                    on="tap:amp-access.login-sign-out"
+                    class='amp-access-agate__button amp-access-agate__button--secondary'>Logout
+                  </button>
                 </footer>
               </main>
             </section>
@@ -340,6 +370,7 @@
             torquent per conubia nostra, per inceptos himenaeos.
           </p>
         </div>
+
       </div>
     </article>
   </main>
