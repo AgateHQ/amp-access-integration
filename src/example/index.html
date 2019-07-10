@@ -61,7 +61,7 @@
       animation: -amp-start 8s steps(1, end) 0s 1 normal both
     }
 
-    [debug-messages] {
+    [axate-debug-messages] {
       pointer-events: none;
       position: fixed;
       top: 15px;
@@ -160,7 +160,7 @@
 
       <div class="content-container">
         <header>
-          <h1 itemprop="headline">Lorem Ipsum test</h1>
+          <h1 itemprop="headline">Lorem Ipsum Test</h1>
           <time class="header-time" itemprop="datePublished" datetime="2015-09-14 13:00">September 14, 2015</time>
         </header>
         <div class="author">
@@ -179,8 +179,8 @@
 
 
 
-        <!-- DEBUG  -->
-        <div debug-messages>
+        <!-- Debug -->
+        <div axate-debug-messages>
           <p debug amp-access="loggedIn">Logged In</p>
           <p debug amp-access="NOT error AND NOT access">No errors, but not logged-in</p>
           <p debug amp-access="NOT error AND access">No errors, and logged-in</p>
@@ -189,10 +189,13 @@
             <p debug>{{#wallet}}Wallet always exitis{{/wallet}}</p>
           </template>
         </div>
-        <!-- DEBUG  -->
+        <!-- Debug -->
 
 
 
+        <!-- 
+          Axate Component - Publication - Begin Article Stand First 
+        -->
         <div amp-access="NOT error AND NOT access" amp-access-hide>
           <p class="standfirst">
             Standfirst - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -200,7 +203,12 @@
             luctus nunc ut elit cursus, et imperdiet diam vehicula.
           </p>
         </div>
+        <!-- Axate Component - Publication - Begin Article Stand First -->
 
+
+        <!-- 
+          Axate Component - Component - Begin Wallet/Notice 
+        -->
         <div amp-access="NOT error AND NOT access" class="amp-access-agate__container">
           <template amp-access-template type="amp-mustache">
             <main class="amp-access-agate__notice amp-access-agate__main">
@@ -217,7 +225,7 @@
             </main>
           </template>
         </div>
-
+        <!-- Axate Component - Begin Wallet -->
         <div amp-access="NOT error AND access" class="amp-access-agate__container">
           <template amp-access-template type="amp-mustache">
             {{#wallet}}
@@ -276,13 +284,16 @@
             </footer>
           </template>
         </div>
-
+        <!-- Axate Component - End Wallet -->
         <section amp-access="error" class="amp-access-agate__container" amp-access-hide>
           <section ref="warning" class="amp-access-agate__warning">
             <p ref="warningText" class="amp-access-agate__warning__text"> Oops... Something broke.</p>
           </section>
         </section>
 
+        <!-- 
+          Axate Component - Component - Begin Wallet/Notice 
+        -->
         <div amp-access="access" amp-access-hide class="article-body" itemprop="articleBody">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
