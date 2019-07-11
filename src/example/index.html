@@ -9,40 +9,31 @@
 
   <!-- AMP Axate -->
   <script id="amp-access" type="application/json">
-    {
-      "noPingback": true,
-      "authorization": "https://staging.agate.io/api/authorisation?domain=localhost&rid=READER_ID&url=CANONICAL_URL",
-      "login": {
-        "sign-in": "https://account-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
-        "sign-out": "https://staging.agate.io/api/amp_logout?url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
-        "sign-up": "https://account-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=local&url_from=CANONICAL_URL",
-        "top-up": "https://account-staging.agate.io/top-up?domain=localhost&uid=339&jwt_token=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzksImlhdCI6MTU1ODQzNzI3NiwianRpIjoiNmUxODNlYjAxZWExZjQyOWFhYjg1NjZjMjJjYjBlYWQifQ.Qjf92yBQ2XJ1jGpl7NtLtYZcYZhSoVMVMAx5OtoHJJ0&from=CANONICAL_URL"
-      },
-      "authorizationFallbackResponse": {
-          "error": true,
-          "user": false
+  {
+    "noPingback": true,
+    "authorization": "https://staging.agate.io/api/authorisation?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&premium=true",
+    "login": {
+      "sign-in": "https://account-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
+      "sign-out": "https://staging.agate.io/api/amp_logout?url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
+      "sign-up": "https://account-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=localhost&url_from=CANONICAL_URL",
+      "top-up": "https://account-staging.agate.io/top-up?domain=localhost&uid=339&jwt_token=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzksImlhdCI6MTU1ODQzNzI3NiwianRpIjoiNmUxODNlYjAxZWExZjQyOWFhYjg1NjZjMjJjYjBlYWQifQ.Qjf92yBQ2XJ1jGpl7NtLtYZcYZhSoVMVMAx5OtoHJJ0&from=CANONICAL_URL",
+      "set-threshold-yes": "https://staging.agate.io/amp/set_threshold?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&amount=100",
+      "set-threshold-no": "https://staging.agate.io/amp/set_threshold?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&amount=0",
+      "authorise-charge-true": "https://staging.agate.io/amp/authorise_charge?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&charge_automatically=true",
+      "authorise-charge-false": "https://staging.agate.io/amp/authorise_charge?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&charge_automatically=false"
+    },
+    "debug": {
+      "devug_object": {
+        "key001": "value001",
+        "key002": "value002"
       }
+    },
+    "authorizationFallbackResponse": {
+        "error": true,
+        "user": false
     }
+  }
   </script>
-
-  <!--
-  <script id="amp-access" type="application/json">
-    {
-      "noPingback": true,
-      "authorization": "https://evening-springs-39131.herokuapp.com/api/authorization?rid=READER_ID&url=CANONICAL_URL",
-      "login": {
-        "sign-in": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL",
-        "sign-out": "https://evening-springs-39131.herokuapp.com/account/logout?rid=READER_ID&url=CANONICAL_URL",
-        "sign-up": "https://account-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=local&url_from=CANONICAL_URL",
-        "top-up": "https://account-staging.agate.io/top-up?domain=undefined&wallet_id=336&uid=339&jwt_token=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzksImlhdCI6MTU1ODQzNzI3NiwianRpIjoiNmUxODNlYjAxZWExZjQyOWFhYjg1NjZjMjJjYjBlYWQifQ.Qjf92yBQ2XJ1jGpl7NtLtYZcYZhSoVMVMAx5OtoHJJ0&from=CANONICAL_URL"
-      },
-      "authorizationFallbackResponse": {
-          "error": true,
-          "user": false
-      }
-    }
-  </script>
-  -->
 
   <link href='./agate.css' rel='stylesheet' type='text/css'>
 
@@ -61,22 +52,6 @@
       animation: -amp-start 8s steps(1, end) 0s 1 normal both
     }
 
-    [axate-debug-messages] {
-      pointer-events: none;
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      font: 10px monospace;
-    }
-
-    [debug] {
-      background: dodgerblue;
-      opacity: .75;
-      color: white;
-      padding: 5px 10px;
-      margin: 0 0 10px 0;
-
-    }
 
 
     @-webkit-keyframes -amp-start {
@@ -143,13 +118,17 @@
 </head>
 
 <body>
+
   <header>
     <div class="brand-logo">
       PublisherLogo
     </div>
   </header>
+
   <main role="main">
+
     <article>
+
       <figure>
         <amp-img src="img/hero@1x.jpg" srcset="img/hero@1x.jpg 1x, img/hero@2x.jpg 2x" layout="responsive" width="360"
           placeholder
@@ -159,6 +138,7 @@
       </figure>
 
       <div class="content-container">
+
         <header>
           <h1 itemprop="headline">Lorem Ipsum Test</h1>
           <time class="header-time" itemprop="datePublished" datetime="2015-09-14 13:00">September 14, 2015</time>
@@ -169,33 +149,14 @@
           <div class="byline">
             <p>
               by <span itemscope itemtype="http://schema.org/Person" itemprop="author"><b>Lorem Ipsum</b>
-                <a class="mailto" href="mailto:lorem.ipsum@example.com">
-                  lorem.ipsum@example.com
+                <a class="mailto" href="mailto:lorem@ipsum.com">
+                  lorem@ipsum.com
                 </a></span>
             </p>
             <p class="brand">PublisherName News Reporter<p>
           </div>
         </div>
 
-
-
-        <!-- Debug -->
-        <div axate-debug-messages>
-          <p debug amp-access="loggedIn">Logged In</p>
-          <p debug amp-access="NOT error AND NOT access">No errors, but not logged-in</p>
-          <p debug amp-access="NOT error AND access">No errors, and logged-in</p>
-          <p debug amp-access="error">Error!</p>
-          <template amp-access-template type="amp-mustache">
-            <p debug>{{#wallet}}Wallet always exitis{{/wallet}}</p>
-          </template>
-        </div>
-        <!-- Debug -->
-
-
-
-        <!-- 
-          Axate Component - Publication - Begin Article Stand First 
-        -->
         <div amp-access="NOT error AND NOT access" amp-access-hide>
           <p class="standfirst">
             Standfirst - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -203,97 +164,8 @@
             luctus nunc ut elit cursus, et imperdiet diam vehicula.
           </p>
         </div>
-        <!-- Axate Component - Publication - Begin Article Stand First -->
 
-
-        <!-- 
-          Axate Component - Component - Begin Wallet/Notice 
-        -->
-        <div amp-access="NOT error AND NOT access" class="amp-access-agate__container">
-          <template amp-access-template type="amp-mustache">
-            <main class="amp-access-agate__notice amp-access-agate__main">
-              <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.
-              </p>
-              <p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
-              <p>
-                Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
-              <button on="tap:amp-access.login-sign-up" class='amp-access-agate__button' role="button"
-                ref="buttonLogin">Pay per article</button>
-              <footer>
-                <p>Already have an account? <a on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
-              </footer>
-            </main>
-          </template>
-        </div>
-        <!-- Axate Component - Begin Wallet -->
-        <div amp-access="NOT error AND access" class="amp-access-agate__container">
-          <template amp-access-template type="amp-mustache">
-            {{#wallet}}
-            <section class="amp-access-agate__wallet">
-              <header class="amp-access-agate__header">
-                <div class="amp-access-agate__balance">
-                  <span class="amp-access-agate__balance__title">Available:</span>
-                  <span class="amp-access-agate__balance__amount" ref="balance">{{wallet.balance}}</span>
-                </div>
-                <button on="tap:amp-access.login-top-up" class='amp-access-agate__button amp-access-agate__button--thin'
-                  role="button">Top up</button>
-              </header>
-              <main class="amp-access-agate__main">
-                <section class="amp-access-agate__pricing">
-                  <div class="amp-access-agate__pricing__item amp-access-agate__pricing__item--first ">
-                    <div class="amp-access-agate__pricing__item__title">Price:</div>
-                    <div class="amp-access-agate__pricing__item__price">{{publisher.article_cost}} /article</div>
-                  </div>
-                  <div class="amp-access-agate__pricing__item">
-                    <div class="amp-access-agate__pricing__item__title">Free point:</div>
-                    <div class="amp-access-agate__pricing__item__price">{{publisher.cap_cost}}/week</div>
-                  </div>
-                </section>
-                <section class="amp-access-agate__gauge">
-                  {{#subscriber}}
-                  <p class="highlight">Subscriber</p>
-                  {{#freeUntilDate}}
-                  <p class="sub-text">(Free until {{wallet.freeUntilDate}})</p>
-                  {{/freeUntilDate}}
-                  {{/subscriber}}
-                  {{^subscriber}}
-                  <p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span> until free this week</p>
-                  <p class="sub-text">(updates on {{wallet.freeUntilDate}})</p>
-                  {{/subscriber}}
-                </section>
-                <footer>
-                  {{#warning}}
-                  <section ref="warning" class="amp-access-agate__warning">
-                    <p ref="warningText" class="amp-access-agate__warning__text">{{warning}}</p>
-                  </section>
-                  {{/warning}}
-                  <button on="tap:amp-access.login-sign-out"
-                    class='amp-access-agate__button amp-access-agate__button--secondary'>Logout
-                  </button>
-                </footer>
-              </main>
-            </section>
-            {{/wallet}}
-            <footer class="amp-access-agate__footer">
-              <a href="http://www.agate.one/" target="_blank" class="amp-access-agate__footer__brand">agate</a>
-              {{#user}}
-              <a ref="account" target="_blank"
-                href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"
-                class="amp-access-agate__footer__account">My Account</a>
-              {{/user}}
-            </footer>
-          </template>
-        </div>
-        <!-- Axate Component - End Wallet -->
-        <section amp-access="error" class="amp-access-agate__container" amp-access-hide>
-          <section ref="warning" class="amp-access-agate__warning">
-            <p ref="warningText" class="amp-access-agate__warning__text"> Oops... Something broke.</p>
-          </section>
-        </section>
-
-        <!-- 
-          Axate Component - Component - Begin Wallet/Notice 
-        -->
+        <!-- Publishers Premium Content -->
         <div amp-access="access" amp-access-hide class="article-body" itemprop="articleBody">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -381,6 +253,212 @@
             torquent per conubia nostra, per inceptos himenaeos.
           </p>
         </div>
+
+
+
+
+
+        <!-- 
+          Axate AMP - Begin
+        -->
+        <!-- Axate AMP - Component - Wallet Handle -->
+        <template amp-access-template type="amp-mustache">
+          <div class="amp-access-agate__waller-handle">
+            <svg width="24px" height="22px" viewBox="0 0 121 113" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g>
+                  <g>
+                    <path
+                      d="M120.7402,98.5964 C120.7402,106.2604 114.5252,112.4754 106.8592,112.4754 C99.1922,112.4754 92.9772,106.2604 92.9772,98.5964 C92.9772,90.9284 99.1922,84.7134 106.8592,84.7134 C114.5252,84.7134 120.7402,90.9284 120.7402,98.5964"
+                      id="Fill-1" fill="#FFFFFF"></path>
+                    <path
+                      d="M49.8677,87.4714 L30.1997,87.4714 L58.5677,35.1814 L86.1547,86.0284 C90.3497,79.6174 97.4767,75.3284 105.6357,75.0264 L68.3987,6.3884 C66.4417,2.7834 62.6687,0.5364 58.5677,0.5364 C54.4637,0.5364 50.6887,2.7834 48.7367,6.3884 L1.5757,93.3264 C-0.3053,96.7914 -0.2233,100.9914 1.7927,104.3784 C3.8117,107.7704 7.4647,109.8454 11.4057,109.8454 L49.8677,109.8454 C56.0447,109.8454 61.0537,104.8364 61.0537,98.6594 C61.0537,92.4814 56.0447,87.4714 49.8677,87.4714"
+                      id="Fill-3" fill="#FFFFFF"></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </template>
+
+
+
+        <!-- 
+          Axate - Begin Debug 
+        -->
+        <div data-axate-debug="messages">
+          <p data-axate-debug="msg" amp-access="loggedIn">Logged-in</p>
+          <p data-axate-debug="msg" amp-access="NOT error AND NOT loggedIn">No errors, but not logged-in</p>
+          <p data-axate-debug="msg" amp-access="error">Error!</p>
+          <div amp-access="loggedIn">
+            <template amp-access-template type="amp-mustache">
+              {{#wallet}}<p data-axate-debug="msg">Wallet</p>{{/wallet}}
+            </template>
+          </div>
+          <div amp-access="NOT error AND loggedIn">
+            <template amp-access-template type="amp-mustache">
+              {{#notice}}
+                {{#status}}<p data-axate-debug="msg">Notice</p>{{/status}}
+              {{/notice}}
+            </template>
+          </div>
+        </div>
+        <!-- Axate - End Debug -->
+
+
+        <div amp-access="NOT error AND NOT loggedIn" class="amp-access-agate__container">
+          <template amp-access-template type="amp-mustache">
+            <main class="amp-access-agate__notice amp-access-agate__main">
+              <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.
+              </p>
+              <p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
+              <p>
+                Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
+              <button on="tap:amp-access.login-sign-up" class='amp-access-agate__button' role="button"
+                ref="buttonLogin">Pay per article</button>
+              <footer>
+                <p>Already have an account? <a on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
+              </footer>
+            </main>
+          </template>
+        </div>
+
+
+        <div amp-access="NOT error AND loggedIn">
+          <template amp-access-template type="amp-mustache">
+            {{#notice}}
+            <h2>{{title}}</h2>
+            <p>{{description}}</p>
+
+            {{#type}}
+
+              {{#is_amount_gt_threshold}}
+                <code>Wallet Amount Greater Than Threshold</code>
+              {{/is_amount_gt_threshold}}
+              
+              {{#is_insuf_balance}}
+                <code>Insufficient Balance Warning/Notice</code>
+              {{/is_insuf_balance}}
+
+              {{#is_new_pricing}}
+                <code>Updated Publication Pricing</code>
+              {{/is_new_pricing}}
+
+              {{#is_new_publication}}
+                <button on="tap:amp-access.login-set-threshold-yes" class='amp-access-agate__button' role="button">
+                  Auto Charge
+                </button>
+                <button on="tap:amp-access.login-set-threshold-no" class='amp-access-agate__button' role="button">
+                  Manually Charge
+                </button>
+              {{/is_new_publication}}
+              
+              {{#is_show_finish_no_funds_notice}}
+                <code>Show Finish Notice - Unfunded</code>
+              {{/is_show_finish_no_funds_notice}}
+              
+              {{#is_show_finish_notice}}
+                <code>Show Finish Notice</code>
+                <button
+                  class="amp-access-agate__button" role="button"
+                  on="tap:amp-access.login-authorise-charge-false"
+                >
+                  I only want to authorise this charge
+                </button>
+                <button 
+                  class="amp-access-agate__button" role="button"                  
+                  on="tap:amp-access.login-authorise-charge-true"
+                >
+                  I want to authorise every charge
+                </button>
+              {{/is_show_finish_notice}}
+
+              {{#on_subscription}}
+                <code>On Subscription</code>
+              {{/on_subscription}}
+
+
+            {{/type}}
+
+            {{/notice}}
+          </template>
+        </div>
+
+
+        <!-- Axate AMP - Component - Wallet -->
+        <section amp-access="NOT error AND loggedIn" class="amp-access-agate__container">
+          <template amp-access-template type="amp-mustache">
+            {{#wallet}}
+            <section class="amp-access-agate__wallet">
+              <header class="amp-access-agate__header">
+                <div class="amp-access-agate__balance">
+                  <span class="amp-access-agate__balance__title">Available:</span>
+                  <span class="amp-access-agate__balance__amount" ref="balance">
+                    {{wallet.balance}}
+                  </span>
+                </div>
+                <button on="tap:amp-access.login-top-up" class='amp-access-agate__button amp-access-agate__button--thin'
+                  role="button">Top up</button>
+              </header>
+              <main class="amp-access-agate__main">
+                <section class="amp-access-agate__pricing">
+                  <div class="amp-access-agate__pricing__item amp-access-agate__pricing__item--first ">
+                    <div class="amp-access-agate__pricing__item__title">Price:</div>
+                    <div class="amp-access-agate__pricing__item__price">{{publisher.article_cost}} /article</div>
+                  </div>
+                  <div class="amp-access-agate__pricing__item">
+                    <div class="amp-access-agate__pricing__item__title">Free point:</div>
+                    <div class="amp-access-agate__pricing__item__price">{{publisher.cap_cost}}/week</div>
+                  </div>
+                </section>
+                <section class="amp-access-agate__gauge">
+                  {{#subscriber}}
+                  <p class="highlight">Subscriber</p>
+                  {{#freeUntilDate}}
+                  <p class="sub-text">(Free until {{wallet.freeUntilDate}})</p>
+                  {{/freeUntilDate}}
+                  {{/subscriber}}
+                  {{^subscriber}}
+                  <p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span> until free this week</p>
+                  <p class="sub-text">(updates on {{wallet.freeUntilDate}})</p>
+                  {{/subscriber}}
+                </section>
+                <footer>
+                  {{#warning}}
+                  <section ref="warning" class="amp-access-agate__warning">
+                    <p ref="warningText" class="amp-access-agate__warning__text">{{warning}}</p>
+                  </section>
+                  {{/warning}}
+                  <button on="tap:amp-access.login-sign-out"
+                    class='amp-access-agate__button amp-access-agate__button--secondary'>Logout
+                  </button>
+                </footer>
+              </main>
+            </section>
+            {{/wallet}}
+            <footer class="amp-access-agate__footer">
+              <a href="http://www.axate.com/" target="_blank" class="amp-access-agate__footer__brand">Axate</a>
+              {{#user}}
+              <a ref="account" target="_blank"
+                href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"
+                class="amp-access-agate__footer__account">My Account</a>
+              {{/user}}
+            </footer>
+          </template>
+
+          <!-- Axate AMP - Component - Error -->
+          <section amp-access="error" class="amp-access-agate__container" amp-access-hide>
+            <section ref="warning" class="amp-access-agate__warning">
+              <p ref="warningText" class="amp-access-agate__warning__text">Oops... Something broke.</p>
+            </section>
+          </section>
+
+        </section>
+
+
+        <!-- 
+          Axate AMP - End 
+        -->
 
       </div>
     </article>
