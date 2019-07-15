@@ -1,36 +1,6 @@
-
-
 /**
- * Debug
+ * Lorem Ipsum Publication
  */
-[data-axate-debug="messages"] { 
-  pointer-events: none;
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  font: 10px monospace;
-}
-
-[data-axate-debug="msg"] {
-  background: dodgerblue;
-  opacity: .75;
-  color: white;
-  padding: 5px 10px;
-  margin: 0 0 5px 0;
-}
-
-[amp-access="error"] {
-  background: firebrick;
-}
-
-.amp-access-agate__waller-handle {
-  position: fixed;
-  top: 100px;
-  left: 0;
-  outline: 1px solid red;
-  background: dodgerblue;
-  padding: 10px;
-}
 
 body {
   margin: 0;

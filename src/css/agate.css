@@ -1,3 +1,85 @@
+/**
+ * Axate
+ */
+
+
+
+ /**
+  * $axate-green: #1BB580; 
+  * $axate-red: #D9534F; 
+  * $axate-amber: #F0AD4E; 
+
+  */
+
+ /* Debug */
+
+[data-axate-debug="messages"] { 
+  pointer-events: none;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font: 10px monospace;
+}
+
+[data-axate-debug="msg"] {
+  background: dodgerblue;
+  opacity: .75;
+  color: white;
+  padding: 5px 10px;
+  margin: 0 0 5px 0;
+}
+
+[amp-access="error"] {
+  background: firebrick;
+}
+
+
+/**
+ * Walet Handle
+ */
+.axate__wallet-handle {
+  /* outline: 10px solid rgba(0,255,255,.5); */
+  z-index: 9999;
+  position: fixed;
+  top: 55px;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 0 4px 4px 0;
+}
+
+.axate__wallet-handle a {
+  /* outline: 10px solid rgba(0,0,255,.5); */
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  display: block;
+  top: 0; 
+  left: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='22' viewBox='0 0 121 113' xmlns='http%3A//www.w3.org/2000/svg'%3E%3Cg fill='%23FFF' fill-rule='evenodd'%3E%3Cpath d='M120.74 98.596c0 7.664-6.215 13.88-13.88 13.88-7.668 0-13.883-6.216-13.883-13.88 0-7.668 6.215-13.883 13.882-13.883 7.666 0 13.881 6.215 13.881 13.883M49.868 87.471H30.2l28.368-52.29 27.587 50.847c4.195-6.41 11.322-10.7 19.48-11.002L68.4 6.388A11.189 11.189 0 0058.568.536a11.18 11.18 0 00-9.831 5.852L1.576 93.326a11.18 11.18 0 00.217 11.052 11.187 11.187 0 009.613 5.467h38.462c6.177 0 11.186-5.009 11.186-11.186 0-6.178-5.01-11.188-11.186-11.188'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px; 
+}
+
+/* .axate__wallet-handle, */
+.axate__wallet-handle .status__default {
+  background-color: #1BB580;
+}
+.axate__wallet-handle > .status__free {
+  /* TODO - Add free point background image */
+}
+.axate__wallet-handle .status__warning, 
+.axate__wallet-handle .status__balance-low {
+  background-color: #F0AD4E;
+}
+.axate__wallet-handle .status__error {
+  background-color: #D9534F;
+}
+
+
+
 .amp-access-agate__container {
   background: #333B4D;
   font-family: 'Source Sans Pro', sans-serif;
@@ -83,6 +165,8 @@
   margin: 0;
 }
 
+
+
 /* Buttons */
 
 .amp-access-agate__button {
@@ -102,6 +186,8 @@
   width:100%;
 }
 
+
+
 .amp-access-agate__button:hover {
   opacity:1;
 }
@@ -117,6 +203,10 @@
 .amp-access-agate__button--secondary {
   background: #6f7490;
 }
+
+
+
+
 
 /* Pricing */
 
