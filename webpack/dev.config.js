@@ -29,6 +29,8 @@ module.exports = {
   plugins: [
     new CopyPlugin([
       { from: path.resolve(__dirname, '../src/example/index.html'), to: 'index.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'debug-001.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'debug-002.html' },
       { from: path.resolve(__dirname, '../src/img'), to: 'img' },
     ]),
   ]
