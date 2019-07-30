@@ -11,7 +11,7 @@
   <script id="amp-access" type="application/json">
   {
     "noPingback": true,
-    "authorization": "https://staging.agate.io/api/authorisation?domain=CANONICAL_URL&rid=READER_ID&url=DOCUMENT_REFERRER&premium=true",
+    "authorization": "https://staging.agate.io/api/authorisation?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&premium=true",
     "login": {
 
       "sign-in": "https://account-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
@@ -370,12 +370,12 @@
                   {{/is_show_finish_no_funds_notice}}
 
                   {{#is_show_finish_notice}}
-                    <button class="amp-access-agate__button" role="button" on="tap:amp-access.login-authorise-charge-false">
-                      Authorise this charge
-                    </button>
-                    <button class="amp-access-agate__button" role="button" on="tap:amp-access.login-authorise-charge-true">
-                      Authorise every charge
-                    </button>
+                  <button class="amp-access-agate__button" role="button" on="tap:amp-access.login-authorise-charge-true">
+                    Authorise every charge
+                  </button>
+                  <a href="#" on="tap:amp-access.login-authorise-charge-false">
+                    Only authorise this charge
+                  </a>
                   {{/is_show_finish_notice}}
 
                   {{#on_subscription}}
@@ -500,18 +500,18 @@
                       </p>
                       {{/isGaugeEmpty}}
                       {{#isGaugeStateOne}}
-                      <p class="axate-gauge-inner-text">
-                        <strong>#.##</strong><span>isGaugeStateOne</span>
+                      <p class="axate-gauge-inner-text" title="isGaugeStateOne">
+                        <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
                       </p>
                       {{/isGaugeStateOne}}
                       {{#isGaugeStateTwo}}
-                      <p class="axate-gauge-inner-text">
-                        <strong>#.##</strong><span>isGaugeStateTwo</span>
+                      <p class="axate-gauge-inner-text" title="isGaugeStateTwo">
+                          <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
                       </p>
                       {{/isGaugeStateTwo}}
                       {{#isGaugeFull}}
                       <p class="axate-gauge-inner-text">
-                        <strong>#.##</strong><span>isGaugeFull</span>
+                          <strong>Free</strong><span>{{wallet.freeUntilDate}}</span>
                       </p>
                       {{/isGaugeFull}}
 
@@ -519,51 +519,18 @@
 
                   </div>
 
-
-                  <!-- =============== OLD STYLE ==================== -->
-                  <!-- <section class="amp-access-agate__pricing">
-                    <div class="amp-access-agate__pricing__item amp-access-agate__pricing__item--first ">
-                      <div class="amp-access-agate__pricing__item__title">Price:</div>
-                      <div class="amp-access-agate__pricing__item__price">{{publisher.article_cost}} /article</div>
-                    </div>
-                    <div class="amp-access-agate__pricing__item">
-                      <div class="amp-access-agate__pricing__item__title">Free point:</div>
-                      <div class="amp-access-agate__pricing__item__price">{{publisher.cap_cost}}/week</div>
-                    </div>
-                  </section>
-
-                  <section class="amp-access-agate__gauge">
-                    {{#subscriber}}
-                    <p class="highlight">Subscriber</p>
-                    {{#freeUntilDate}}
-                    <p class="sub-text">(Free until {{wallet.freeUntilDate}})</p>
-                    {{/freeUntilDate}}
-                    {{/subscriber}}
-                    {{^subscriber}}
-                    <p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span> until free this week</p>
-                    <p class="sub-text">(updates on {{wallet.freeUntilDate}})</p>
-                    {{/subscriber}}
-                  </section> -->
-
                   <footer>
                     {{#warning}}
                     <section ref="warning" class="amp-access-agate__warning">
                       <p ref="warningText" class="amp-access-agate__warning__text">{{warning}}</p>
                     </section>
                     {{/warning}}
-                    <!-- <button on="tap:amp-access.login-sign-out"
-                      class='amp-access-agate__button amp-access-agate__button--secondary'>Logout
-                    </button> -->
                   </footer>
-                  <!-- =============== OLD STYLE ==================== -->
-
-
 
                 </main>
 
               </section>
               {{/wallet}}
-
 
 
               <footer class="amp-access-agate__footer">
