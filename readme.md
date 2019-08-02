@@ -73,15 +73,15 @@ Premium article can  protected using the following markup, it will only be visib
 Include the following Mustache template where the agate dialog should be displayed. This can be customised as required.
 
 ```html
-<div amp-access="NOT error" class="amp-access-agate__container">
+<div amp-access="NOT error" class="amp-access-axate__container">
   <template amp-access-template type="amp-mustache">
     {{^wallet}}
-    <main class="amp-access-agate__notice amp-access-agate__main">
+    <main class="amp-access-axate__notice amp-access-axate__main">
       <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.</p>
       <p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
       <p>
         Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
-      <button on="tap:amp-access.login-sign-up" class='amp-access-agate__button' role="button" ref="buttonLogin">Pay per
+      <button on="tap:amp-access.login-sign-up" class='amp-access-axate__button' role="button" ref="buttonLogin">Pay per
         article</button>
       <footer>
         <p>Already have an account? <a on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
@@ -89,27 +89,27 @@ Include the following Mustache template where the agate dialog should be display
     </main>
     {{/wallet}}
     {{#wallet}}
-    <section class="amp-access-agate__wallet">
-      <header class="amp-access-agate__header">
-        <div class="amp-access-agate__balance">
-          <span class="amp-access-agate__balance__title">Available:</span>
-          <span class="amp-access-agate__balance__amount" ref="balance">{{wallet.balance}}</span>
+    <section class="amp-access-axate__wallet">
+      <header class="amp-access-axate__header">
+        <div class="amp-access-axate__balance">
+          <span class="amp-access-axate__balance__title">Available:</span>
+          <span class="amp-access-axate__balance__amount" ref="balance">{{wallet.balance}}</span>
         </div>
-        <button on="tap:amp-access.login-top-up" class='amp-access-agate__button amp-access-agate__button--thin'
+        <button on="tap:amp-access.login-top-up" class='amp-access-axate__button amp-access-axate__button--thin'
           role="button">Top up</button>
       </header>
-      <main class="amp-access-agate__main">
-        <section class="amp-access-agate__pricing">
-          <div class="amp-access-agate__pricing__item amp-access-agate__pricing__item--first ">
-            <div class="amp-access-agate__pricing__item__title">Price:</div>
-            <div class="amp-access-agate__pricing__item__price">{{publisher.article_cost}} /article</div>
+      <main class="amp-access-axate__main">
+        <section class="amp-access-axate__pricing">
+          <div class="amp-access-axate__pricing__item amp-access-axate__pricing__item--first ">
+            <div class="amp-access-axate__pricing__item__title">Price:</div>
+            <div class="amp-access-axate__pricing__item__price">{{publisher.article_cost}} /article</div>
           </div>
-          <div class="amp-access-agate__pricing__item">
-            <div class="amp-access-agate__pricing__item__title">Free point:</div>
-            <div class="amp-access-agate__pricing__item__price">{{publisher.cap_cost}}/week</div>
+          <div class="amp-access-axate__pricing__item">
+            <div class="amp-access-axate__pricing__item__title">Free point:</div>
+            <div class="amp-access-axate__pricing__item__price">{{publisher.cap_cost}}/week</div>
           </div>
         </section>
-        <section class="amp-access-agate__gauge">
+        <section class="amp-access-axate__gauge">
           {{#subscriber}}
           <p class="highlight">Subscriber</p>
           {{#freeUntilDate}}
@@ -123,23 +123,36 @@ Include the following Mustache template where the agate dialog should be display
         </section>
         <footer>
           {{#warning}}
-          <section ref="warning" class="amp-access-agate__warning">
-            <p ref="warningText" class="amp-access-agate__warning__text">{{warning}}</p>
+          <section ref="warning" class="amp-access-axate__warning">
+            <p ref="warningText" class="amp-access-axate__warning__text">{{warning}}</p>
           </section>
           {{/warning}}
           <button on="tap:amp-access.login-sign-out"
-            class='amp-access-agate__button amp-access-agate__button--secondary'>Logout</button>
+            class='amp-access-axate__button amp-access-axate__button--secondary'>Logout</button>
         </footer>
       </main>
     </section>
     {{/wallet}}
-    <footer class="amp-access-agate__footer">
-      <a href="http://www.agate.one/" target="_blank" class="amp-access-agate__footer__brand">agate</a>
+    <footer class="amp-access-axate__footer">
+      <a href="http://www.agate.one/" target="_blank" class="amp-access-axate__footer__brand">agate</a>
       {{#user}}
       <a ref="account" target="_blank" href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"
-        class="amp-access-agate__footer__account">My Account</a>
+        class="amp-access-axate__footer__account">My Account</a>
       {{/user}}
     </footer>
   </template>
 </div>
 ```
+
+
+
+### References
+
+* [AMP Start GitHub](https://github.com/ampproject/ampstart)
+* [The AMP component catalogue](https://amp.dev/documentation/components/)
+* [Learn AMP by example](https://amp.dev/documentation/examples/)
+
+
+#### Examples
+
+* [AMP Poll](https://amp.dev/documentation/examples/interactivity-dynamic-content/poll/preview/?format=websites)

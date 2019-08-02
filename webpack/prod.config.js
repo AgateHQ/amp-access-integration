@@ -8,10 +8,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   mode: 'production',
   entry: [
-    path.resolve(__dirname, "../src/css/agate.css"),
+    path.resolve(__dirname, '../src/assets/css/axate.css'),
+    path.resolve(__dirname, '../src/assets/css/main.css'),
   ],
   output: {
-    path: path.resolve(__dirname, "../build/"), // string
+    path: path.resolve(__dirname, '../build/'), 
 
   },
   optimization: {
@@ -35,12 +36,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'agate.css',
+      filename: 'axate.css',
     }),
     new CopyPlugin([
-      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'example.html' },
-      { from: path.resolve(__dirname, '../src/img/*'), to: 'img' },
-      { from: path.resolve(__dirname, '../src/css/main.css'), to: 'main.css' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'index.html' },
+      { from: path.resolve(__dirname, '../src/assets/images'), to: 'images' },
+      { from: path.resolve(__dirname, '../src/assets/css'), to: 'css' },
     ]),
     new S3Uploader({
       s3Options: {
@@ -48,7 +49,7 @@ module.exports = {
         secretAccessKey: process.env.AWS_KEY_SECRET,
       },
       s3UploadOptions: {
-        Bucket: 'agate-amp'
+        Bucket: 'axate-amp'
       },
     })
   ]

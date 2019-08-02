@@ -7,34 +7,29 @@
   <link rel="canonical" href="amp-access-agate.html">
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
+  <link type="text/css" rel="stylesheet" href="./axate.css" />
+
+  <link type="text/css" rel="stylesheet" href="./main.css" />
+
+  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+  <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
+  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+
   <!-- AMP Axate -->
   <script id="amp-access" type="application/json">
   {
     "noPingback": true,
     "authorization": "https://staging.agate.io/api/authorisation?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&premium=true",
     "login": {
-
       "sign-in": "https://account-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
-
       "sign-out": "https://staging.agate.io/api/amp_logout?url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
-
       "sign-up": "https://account-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=localhost&url_from=CANONICAL_URL",
-
       "top-up": "https://account-staging.agate.io/top-up?domain=localhost&uid=339&jwt_token=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozMzksImlhdCI6MTU1ODQzNzI3NiwianRpIjoiNmUxODNlYjAxZWExZjQyOWFhYjg1NjZjMjJjYjBlYWQifQ.Qjf92yBQ2XJ1jGpl7NtLtYZcYZhSoVMVMAx5OtoHJJ0&from=CANONICAL_URL",
-
       "set-threshold-yes": "https://staging.agate.io/amp/set_threshold?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&amount=100",
-
       "set-threshold-no": "https://staging.agate.io/amp/set_threshold?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&amount=0",
-
-      "authorise-charge-true": "https://staging.agate.io/amp/authorise_charge?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&charge_automatically=true",
-
-      "authorise-charge-false": "https://staging.agate.io/amp/authorise_charge?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER&charge_automatically=false"
-    },
-    "debug": {
-      "devug_object": {
-        "key001": "value001",
-        "key002": "value002"
-      }
+      "authorise-charge-true": "https://staging.agate.io/amp/authorise_charge?charge_automatically=true&domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER",
+      "authorise-charge-false": "https://staging.agate.io/amp/authorise_charge?charge_automatically=false&domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&url_from=DOCUMENT_REFERRER"
     },
     "authorizationFallbackResponse": {
         "error": true,
@@ -43,15 +38,6 @@
   }
   </script>
 
-  <link href='./agate.css' rel='stylesheet' type='text/css'>
-
-  <link href='./main.css' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Georgia|Open+Sans|Roboto' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-
-  <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-  <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
-  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
   <style amp-boilerplate>
     body {
       -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
@@ -59,54 +45,42 @@
       -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
       animation: -amp-start 8s steps(1, end) 0s 1 normal both
     }
-
-
-
     @-webkit-keyframes -amp-start {
       from {
         visibility: hidden
       }
-
       to {
         visibility: visible
       }
     }
-
     @-moz-keyframes -amp-start {
       from {
         visibility: hidden
       }
-
       to {
         visibility: visible
       }
     }
-
     @-ms-keyframes -amp-start {
       from {
         visibility: hidden
       }
-
       to {
         visibility: visible
       }
     }
-
     @-o-keyframes -amp-start {
       from {
         visibility: hidden
       }
-
       to {
         visibility: visible
       }
     }
-
     @keyframes -amp-start {
       from {
         visibility: hidden
       }
-
       to {
         visibility: visible
       }
@@ -121,19 +95,40 @@
       }
     </style>
   </noscript>
+
   <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <!-- WebPack's JS Bundle -->
   <script src="./main.js"></script>
+
 </head>
 
 <body>
 
+    <form class="amp-access-axate__toggle-form" method="GET" action="https://staging.agate.io/amp/set_threshold" target="_top">
+      <fieldset>
 
+        <input name="amount" type="radio" value="100" id="toggle-threshold-100" checked />
+        <label for="toggle-threshold-100" aria-hidden="true"><span></span></label>
 
+        <input name="amount" type="radio" value="0" id="toggle-threshold-0" />
+        <label for="toggle-threshold-0" aria-hidden="true"><span></span></label>
+
+      
+        <input type="hidden" name="canonical_url" value="CANONICAL_URL" data-amp-replace="CANONICAL_URL" />
+        <input type="hidden" name="canonical_hostname" value="CANONICAL_HOSTNAME" data-amp-replace="CANONICAL_HOSTNAME" />
+        <input type="hidden" name="document_referer" type="hidden" data-amp-replace="DOCUMENT_REFERRER" />
+        <input type="hidden" name="external_referer" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
+        <input type="hidden" name="" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
+      </fieldset>
+      <input class="amp-access-axate__button amp-access-axate__button--thin" type="submit" value="OK" />
+    </form>
 
   <header>
+
     <div class="brand-logo">
       PublisherLogo
     </div>
+
   </header>
 
   <main role="main">
@@ -141,7 +136,7 @@
     <article>
 
       <figure>
-        <amp-img src="img/hero@1x.jpg" srcset="img/hero@1x.jpg 1x, img/hero@2x.jpg 2x" layout="responsive" width="360"
+        <amp-img src="images/hero@1x.jpg" srcset="images/hero@1x.jpg 1x, images/hero@2x.jpg 2x" layout="responsive" width="360"
           placeholder
           alt="Curabitur convallis, urna quis pulvinar feugiat, purus diam posuere turpis, sit amet tincidunt purus justo et mi."
           height="216">
@@ -155,7 +150,7 @@
           <time class="header-time" itemprop="datePublished" datetime="2015-09-14 13:00">September 14, 2015</time>
         </header>
         <div class="author">
-          <amp-img src="img/sample.jpg" id="author-avatar" placeholder height="50" width="50">
+          <amp-img src="images/sample.jpg" id="author-avatar" placeholder height="50" width="50">
           </amp-img>
           <div class="byline">
             <p>
@@ -244,7 +239,7 @@
           </p>
 
           <figure>
-            <amp-img class="full-bleed" placeholder src="img/sea@1x.jpg" srcset="img/sea@1x.jpg 1x, img/sea@2x.jpg 2x"
+            <amp-img class="full-bleed" placeholder src="images/sea@1x.jpg" srcset="images/sea@1x.jpg 1x, images/sea@2x.jpg 2x"
               layout="responsive" width="360" alt="Fusce pretium tempor justo, vitae consequat dolor maximus eget."
               height="216">
             </amp-img>
@@ -279,10 +274,6 @@
           </p>
         </div>
 
-
-
-
-
         <!-- 
           Axate AMP
         -->
@@ -291,17 +282,17 @@
           <div amp-access="NOT error">
             <template amp-access-template type="amp-mustache">
               {{^notice}}
-                <a class="status__default" href="#axate"></a>
+              <a class="status__default" href="#axate"></a>
               {{/notice}}
               {{#notice}}
-                {{#type}}
-                  {{^is_insuf_balance}}
-                    <a class="status__default" href="#axate"></a>
-                  {{/is_insuf_balance}}
-                  {{#is_insuf_balance}}
-                    <a class="status__balance-low" href="#axate"></a>
-                  {{/is_insuf_balance}}
-                {{/type}}
+              {{#type}}
+              {{^is_insuf_balance}}
+              <a class="status__default" href="#axate"></a>
+              {{/is_insuf_balance}}
+              {{#is_insuf_balance}}
+              <a class="status__balance-low" href="#axate"></a>
+              {{/is_insuf_balance}}
+              {{/type}}
               {{/notice}}
             </template>
           </div>
@@ -313,15 +304,15 @@
         </div>
         <!-- Axate Wallet - Component - Container -->
         <div id="axate">
-          <div amp-access="NOT error AND NOT loggedIn" class="amp-access-agate__container">
+          <div amp-access="NOT error AND NOT loggedIn" class="amp-access-axate__container">
             <template amp-access-template type="amp-mustache">
-              <main class="amp-access-agate__notice">
+              <main class="amp-access-axate__notice">
                 <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.
                 </p>
                 <p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
                 <p>
                   Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
-                <button on="tap:amp-access.login-sign-up" class="amp-access-agate__button" role="button"
+                <button on="tap:amp-access.login-sign-up" class="amp-access-axate__button" role="button"
                   ref="buttonLogin">Pay per article</button>
                 <footer>
                   <p>Already have an account? <a on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
@@ -330,57 +321,95 @@
             </template>
           </div>
 
-
+          <a class="amp-access-axate__article-link" href="#">Jump to article</a>
           <div amp-access="NOT error AND loggedIn">
             <template amp-access-template type="amp-mustache">
-                <main class="amp-access-agate__notice amp-access-agate__main">
+
+
+                {{CANONICAL_HOSTNAME}} - HELLO
+                {{READER_ID}}
+                {{DOCUMENT_REFERRER}}
+            
+              <main class="amp-access-axate__notice">
                 {{#notice}}
+                <h5 class="amp-access-axate__notice__logo">Axate</h5>
+                <h2>{{title}}</h2>
+                <p>{{description}}</p>
+                {{#type}}
+                {{#is_amount_gt_threshold}}
+                <div>Wallet Amount Greater Than Threshold</div>
+                <button 
+                  on="tap:amp-access.login-authorise-charge-true" 
+                  class="amp-access-axate__button" role="button">
+                  Continue Reading
+                </button>
+                {{/is_amount_gt_threshold}}
 
-                  <h2>{{title}}</h2>
-                  <p>{{description}}</p>
+                {{#is_insuf_balance}}
+                <code>Insufficient Balance Warning/Notice</code>
+                {{/is_insuf_balance}}
 
-                  {{#type}}
+                {{#is_new_pricing}}
+                <code>Updated Publication Pricing</code>
+                {{/is_new_pricing}}
 
-                    {{#is_amount_gt_threshold}}
-                      <div>Wallet Amount Greater Than Threshold</div>
-                      <button on="tap:amp-access.login-authorise-charge-true" class='amp-access-agate__button' role="button">
-                        Continue Reading
-                      </button>
-                    {{/is_amount_gt_threshold}}
+                <!-- Begin: Reader is new to Axate and this publication -->
+                {{#is_new_publication}}
 
-                    {{#is_insuf_balance}}
-                      <code>Insufficient Balance Warning/Notice</code>
-                    {{/is_insuf_balance}}
 
-                    {{#is_new_pricing}}
-                      <code>Updated Publication Pricing</code>
-                    {{/is_new_pricing}}
 
-                  {{#is_new_publication}}
-                    <button on="tap:amp-access.login-set-threshold-yes" class='amp-access-agate__button' role="button">
-                      Auto Charge
-                    </button>
-                    <button on="tap:amp-access.login-set-threshold-no" class='amp-access-agate__button' role="button">
-                      Manually Charge
-                    </button>
-                  {{/is_new_publication}}
+                <button on="tap:amp-access.login-set-threshold-yes" class="amp-access-axate__button" role="button">
+                  Auto Charge
+                </button>
+                <button on="tap:amp-access.login-set-threshold-no" class="amp-access-axate__button" role="button">
+                  Manually Charge
+                </button>
+                {{/is_new_publication}}
+                <!-- Begin: Reader is new to Axate and this publication -->
 
-                  {{#is_show_finish_no_funds_notice}}
-                    <code>Show Finish Notice - Unfunded</code>
-                  {{/is_show_finish_no_funds_notice}}
+                {{#is_show_finish_no_funds_notice}}
+                <!-- Show Finish Notice - Unfunded -->
+                <button on="tap:amp-access.login-top-up" class="amp-access-axate__button amp-access-axate__button--thin"
+                  role="button">
+                  Add funds
+                </button>
 
-                  {{#is_show_finish_notice}}
-                  <button class="amp-access-agate__button" role="button" on="tap:amp-access.login-authorise-charge-true">
-                    Authorise every charge
-                  </button>
-                  <a href="#" on="tap:amp-access.login-authorise-charge-false">
-                    Only authorise this charge
-                  </a>
-                  {{/is_show_finish_notice}}
+                <small><code>[TODO - Request &#x7B;publication.name&#x7D;]</code> is published independently of
+                  Axate.</small>
+                {{/is_show_finish_no_funds_notice}}
 
-                  {{#on_subscription}}
-                    <code>On Subscription</code>
-                  {{/on_subscription}}
+
+                {{#is_show_finish_notice}}
+                <form class="amp-access-axate__toggle-form" method="GET" action="https://staging.agate.io/amp/set_threshold" target="_top">
+                  <fieldset>
+
+                    <input name="amount" type="radio" value="100" id="toggle-threshold-100" checked />
+                    <label for="toggle-threshold-100" aria-hidden="true"><span></span></label>
+
+                    <input name="amount" type="radio" value="0" id="toggle-threshold-0" />
+                    <label for="toggle-threshold-0" aria-hidden="true"><span></span></label>
+
+                  
+                    <input type="hidden" name="canonical_url" value="CANONICAL_URL" data-amp-replace="CANONICAL_URL" />
+                    <input type="hidden" name="canonical_hostname" value="CANONICAL_HOSTNAME" data-amp-replace="CANONICAL_HOSTNAME" />
+                    <input type="hidden" name="document_referer" type="hidden" data-amp-replace="DOCUMENT_REFERRER" />
+                    <input type="hidden" name="external_referer" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
+                    <input type="hidden" name="" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
+                  </fieldset>
+                  <input class="amp-access-axate__button amp-access-axate__button--thin" type="submit" value="OK" />
+                </form>
+                <!--
+                  Not yet implemented
+                  - Personal Data Sharig Checkbox
+                -->
+                <small>&#x7B;&#x7B;publication.name&#x7D;&#x7D; is published independently of
+                  Axate.</small>
+                {{/is_show_finish_notice}}
+
+
+                {{#on_subscription}}
+                <code>On Subscription</code>
+                {{/on_subscription}}
 
                 {{/type}}
 
@@ -392,20 +421,18 @@
           <footer>
             <div class="brand-logo">PublisherLogo - Footer</div>
           </footer>
-            
-        
+
+
 
           <!-- Axate AMP - Component - Wallet -->
-          <section amp-access="NOT error AND loggedIn" class="amp-access-agate__container">
+          <section amp-access="NOT error AND loggedIn" class="amp-access-axate__container">
             <template amp-access-template type="amp-mustache">
 
 
-
               {{#wallet}}
-              <section class="amp-access-agate__wallet">
-                <header class="amp-access-agate__header">
-                  <div class="amp-access-agate__balance">
-
+              <section class="amp-access-axate__wallet">
+                <header class="amp-access-axate__header">
+                  <div class="amp-access-axate__balance">
 
                     <div amp-access="NOT error AND loggedIn">
                       <template amp-access-template type="amp-mustache">
@@ -419,47 +446,30 @@
                       </template>
                     </div>
 
-                    <div class="amp-access-agate-logo__container">
-                        <svg version="1.1" viewBox="0 0 81 16" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="none" fill-rule="evenodd">
-                        <g transform="translate(-90 -20)">
-                        <g transform="translate(90 20)">
-                        <path d="m17.158 13.992c0 1.0794-0.87934 1.9542-1.9639 1.9542-1.0848 0-1.9641-0.8748-1.9641-1.9542s0.87934-1.9542 1.9641-1.9542c1.0846 0 1.9639 0.8748 1.9639 1.9542" fill="#00A985"/>
-                        <path d="m7.1308 12.426h-2.7827l4.0136-7.362 3.9033 7.1588c0.59333-0.9022 1.6019-1.5064 2.7562-1.5486l-5.2684-9.6634c-0.27697-0.5078-0.8106-0.824-1.3911-0.824s-1.1145 0.3162-1.3911 0.824l-6.6726 12.239c-0.26611 0.488-0.25446 1.0792 0.030953 1.5562 0.28541 0.4772 0.80216 0.7694 1.3599 0.7694h5.4419c0.87392 0 1.5826-0.705 1.5826-1.5748s-0.7087-1.575-1.5826-1.575" fill="#FFFFFE"/>
-                        <path d="m30.014 8.0568c-0.6476-0.8588-1.6783-1.4314-2.877-1.4314-1.8224 0-2.997 1.503-2.997 3.1728 0 1.8134 1.3187 3.1492 3.0688 3.1492 1.1746 0 2.2057-0.5724 2.8053-1.4314v-3.4592zm3.1166 7.5148h-2.997v-0.9302c-0.95894 0.811-2.0616 1.1688-3.2366 1.1688-1.7261 0-3.3564-0.7634-4.3873-1.9562-0.9113-1.0496-1.4865-2.4812-1.4865-4.0558 0-3.4114 2.5413-6.0356 5.706-6.0356 1.3187 0 2.4935 0.4294 3.4044 1.169v-0.9306h2.997v11.571z" fill="#FFFFFE"/>
-                        <polyline points="40.38 7.2934 42.681 4.001 46.253 4.001 42.346 9.3928 46.805 15.572 43.113 15.572 40.38 11.659 37.646 15.572 33.954 15.572 38.414 9.3928 34.506 4.001 38.078 4.001 40.38 7.2934" fill="#FFFFFE"/>
-                        <path d="m54.86 8.0568c-0.6472-0.8588-1.6781-1.4314-2.877-1.4314-1.822 0-2.9966 1.503-2.9966 3.1728 0 1.8134 1.3185 3.1492 3.0688 3.1492 1.1748 0 2.2057-0.5724 2.8049-1.4314v-3.4592zm3.117 7.5148h-2.997v-0.9302c-0.95894 0.811-2.0618 1.1688-3.2366 1.1688-1.7261 0-3.3566-0.7634-4.3875-1.9562-0.9111-1.0496-1.4865-2.4812-1.4865-4.0558 0-3.4114 2.5413-6.0356 5.7062-6.0356 1.3187 0 2.4935 0.4294 3.4044 1.169v-0.9306h2.997v11.571z" fill="#FFFFFE"/>
-                        <path d="m77.692 8.2954c-0.095873-1.0258-1.0309-2.0278-2.3016-2.0278-1.2946 0-2.3496 0.978-2.4933 2.0278h4.7949zm2.9011 5.4392c-1.1268 1.336-2.9729 2.0756-4.7712 2.0756-3.4764 0-6.0897-2.3856-6.0897-6.012 0-3.2206 2.2057-6.0356 5.6581-6.0356 3.2127 0 5.4903 2.696 5.4903 5.9166 0 0.31-0.023918 0.6202-0.071955 0.8826h-8.0556c0.16783 1.6222 1.4863 2.7434 3.1407 2.7434 1.3185 0 2.3735-0.7394 2.9248-1.3358l1.7744 1.7652z" fill="#FFFFFE"/>
-                        <path d="m69.008 15.615c-0.40962 0.144-1.3503 0.2402-1.9532 0.2402-1.8811 0-3.2561-0.6246-4.0518-1.68-0.60298-0.7924-0.86849-1.824-0.86849-3.48v-4.0802h-2.7534v-2.6398h2.7534v-3.24h3.1353v3.24h3.8591v2.6398h-3.8591v4.4398c0 0.7202 0.1208 1.1524 0.38611 1.4642 0.31355 0.36 0.81985 0.5762 1.5917 0.5762 0.45826 0 1.0612-0.0722 1.2783-0.12l0.48218 2.6398" fill="#FFFFFE"/>
-                        </g>
-                        </g>
-                        </g>
-                        </svg>                        
+                    <h4 class="amp-access-axate-logo__container">
+                      Axate
+                    </h4>
 
-                    </div>
-
-                    <div class="amp-access-agate__balance__container">
-                      <span class="amp-access-agate__balance__amount" ref="balance">
-                          {{wallet.balance}}
-                        </span>
-                        <span class="amp-access-agate__balance__subtitle">
-                          Total balance
-                        </span>    
+                    <div class="amp-access-axate__balance__container">
+                      <span class="amp-access-axate__balance__amount" ref="balance">
+                        {{wallet.balance}}
+                      </span>
+                      <span class="amp-access-axate__balance__subtitle">
+                        Total balance
+                      </span>
                     </div>
 
                   </div>
-                  <button 
-                    on="tap:amp-access.login-top-up"
-                    class='amp-access-agate__button amp-access-agate__button--thin' role="button"
-                  >
+                  <button on="tap:amp-access.login-top-up"
+                    class="amp-access-axate__button amp-access-axate__button--thin" role="button">
                     Top up
                   </button>
 
                 </header>
-                <main class="amp-access-agate__main">
+                <main class="amp-access-axate__main">
 
 
-                  <div class="amp-access-agate__information">
+                  <div class="amp-access-axate__information">
 
                     <div class="axate-pricing-container">
                       <p class="axate-pricing-per-article">
@@ -506,12 +516,12 @@
                       {{/isGaugeStateOne}}
                       {{#isGaugeStateTwo}}
                       <p class="axate-gauge-inner-text" title="isGaugeStateTwo">
-                          <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
+                        <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
                       </p>
                       {{/isGaugeStateTwo}}
                       {{#isGaugeFull}}
                       <p class="axate-gauge-inner-text">
-                          <strong>Free</strong><span>{{wallet.freeUntilDate}}</span>
+                        <strong>Free</strong><span>{{wallet.freeUntilDate}}</span>
                       </p>
                       {{/isGaugeFull}}
 
@@ -521,8 +531,8 @@
 
                   <footer>
                     {{#warning}}
-                    <section ref="warning" class="amp-access-agate__warning">
-                      <p ref="warningText" class="amp-access-agate__warning__text">{{warning}}</p>
+                    <section ref="warning" class="amp-access-axate__warning">
+                      <p ref="warningText" class="amp-access-axate__warning__text">{{warning}}</p>
                     </section>
                     {{/warning}}
                   </footer>
@@ -533,27 +543,28 @@
               {{/wallet}}
 
 
-              <footer class="amp-access-agate__footer">
+              <footer class="amp-access-axate__footer">
                 {{#wallet}}
-                <a 
-                  ref="logout" 
-                  href="#"
-                  on="tap:amp-access.login-sign-out"
-                  class="amp-access-agate__footer__logout"
-                >
+                <a ref="logout" href="#" on="tap:amp-access.login-sign-out" class="amp-access-axate__footer__logout">
                   Logout
                 </a>
+
+                <a class="amp-access-axate__article-link" href="#">Jump to article</a>
+
                 <a ref="account" target="_blank"
                   href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"
-                  class="amp-access-agate__footer__account">My Account</a>
+                  class="amp-access-axate__footer__account">My Account</a>
                 {{/wallet}}
               </footer>
             </template>
 
             <!-- Axate AMP - Component - Error -->
-            <section amp-access="error" class="amp-access-agate__container" amp-access-hide>
-              <section ref="warning" class="amp-access-agate__warning">
-                <p ref="warningText" class="amp-access-agate__warning__text">Oops... Something broke.</p>
+            <section amp-access="error" class="amp-access-axate__container" amp-access-hide>
+              <section ref="warning" class="amp-access-axate__warning">
+                <p ref="warningText" class="amp-access-axate__warning__text">
+                  TODO - Improve this error message
+                </p>
+                <p ref="warningText" class="amp-access-axate__warning__text">Oops... Something broke.</p>
               </section>
             </section>
 

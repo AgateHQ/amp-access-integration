@@ -1,17 +1,96 @@
 /**
- * Axate
+ * Axate AMP - Manual/Custom Integration - Alpha
  */
 
 
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
 
- /**
-  * $axate-green: #1BB580; 
-  * $axate-red: #D9534F; 
-  * $axate-amber: #F0AD4E; 
 
-  */
 
- /* Debug */
+
+.amp-access-axate__toggle-form {
+  outline: 1px solid lime;
+}
+.amp-access-axate__toggle-form fieldset {
+  position: relative;
+  background: gray;
+  border-radius: 15px;
+  display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  height: 100px;
+}
+
+.amp-access-axate__toggle-form input[type="radio"] {
+  position: absolute;
+  cursor: pointer;
+  top: 0; 
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  z-index: 2;
+  opacity: 0;
+}
+.amp-access-axate__toggle-form input[type="radio"]:checked {
+  z-index: 1;
+}
+
+
+.amp-access-axate__toggle-form input#toggle-threshold-0[type="radio"] {
+  outline: 1px solid orange;
+  background: orange;
+}
+.amp-access-axate__toggle-form input#toggle-threshold-100[type="radio"] {
+  outline: 1px solid lime;
+  background: lime;
+}
+
+
+label[for] {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0; 
+  width: 100px;
+  height: 100px;
+}
+.amp-access-axate__toggle-form input[type="radio"]:checked + label[for="toggle-threshold-0"] span {
+  position: absolute;
+  display: block;
+  background: white;
+  border-radius: 20px;
+  top: 0;
+  left: 0; 
+  width: 20px;
+  height: 20px;
+
+}
+
+
+.amp-access-axate__toggle-form input#toggle-threshold-0[type="radio"]:checked + label[for="toggle-threshold-0"] {
+  background: green;
+}
+
+.amp-access-axate__toggle-form input#toggle-threshold-0[type="radio"]:checked + label[for="toggle-threshold-0"] span {
+
+}
+
+.amp-access-axate__toggle-form input#toggle-threshold-100[type="radio"]:checked + label [for="toggle-threshold-100"] {
+  background: red;
+
+} 
+.amp-access-axate__toggle-form input#toggle-threshold-100[type="radio"]:checked + label [for="toggle-threshold-100"] span {
+  background: red;
+
+} 
+
+
+
+
 
 [data-axate-debug="messages"] { 
   pointer-events: none;
@@ -34,7 +113,7 @@
 }
 
 
-.amp-access-agate__information {
+.amp-access-axate__information {
   displaY: flex;
 }
 
@@ -161,7 +240,7 @@
 
 
 
-.amp-access-agate__container {
+.amp-access-axate__container {
   background: #333B4D;
   font-family: 'Source Sans Pro', sans-serif;
   color:white;
@@ -169,26 +248,26 @@
   overflow: hidden;
 }
 
-.amp-access-agate__main {
+.amp-access-axate__main {
   padding: 2.5rem .5rem;
 }
 
-.amp-access-agate__header {
+.amp-access-axate__header {
   background: #2E3646;
   text-align: center;
   border-bottom: 1px solid #595E6A;
   width: 100%;
   padding: 0.5rem 0 0 0;
 }
-.amp-access-agate__header button {
-  /* margin-top: 0.5rem; */
+.amp-access-axate__header button {
+  /* Note: upgraded to default button style */ 
   margin: 0;
   top: 20px;
   padding: .5rem 2.5rem;
   position: relative;
 }
 
-.amp-access-agate__footer {
+.amp-access-axate__footer {
   border-top: 1px solid #595E6A;
   padding: 1rem 1.5rem;
   background: #333B4D; /*#2a3140*/;
@@ -196,25 +275,25 @@
   align-items: flex-end;
 }
 
-.amp-access-agate__container p {
+.amp-access-axate__container p {
   margin: 1rem 0 0 0;
 }
 
-.amp-access-agate__container p.sub-text {
+.amp-access-axate__container p.sub-text {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: #7F848F;
 }
 
-.amp-access-agate__container p.highlight {
+.amp-access-axate__container p.highlight {
   color: #1BB580;
 }
 
-.amp-access-agate__gauge {
+.amp-access-axate__gauge {
   margin: 2rem 0 1rem 0;
 }
 
-.amp-access-agate__footer__brand {
+.amp-access-axate__footer__brand {
   margin:0;
   font-size: 1.2rem;
   color: white;
@@ -223,61 +302,107 @@
   text-align: left;
 }
 
+
+
+/* Jump to article utility */
+.amp-access-axate__article-link {
+  outline: 1px solid red;
+  padding: 15px;
+
+}
+
+
 /* Notice */
-.amp-access-agate__notice {
+.amp-access-axate__notice {
+  font: 100% 'Source Sans Pro', sans-serif;;
   margin: .75rem; 
   padding: 1rem; 
+  text-align: center;
   box-shadow: 0 0 10px -6px rgba(0,0,0,.25);
   border: 1px solid rgba(0,0,0,.075);
+
 }
-
-
-.amp-access-agate__notice p {
+.amp-access-axate__notice svg {
+  width: 81px;
   display: inline-block;
-  margin: 0;
+  margin: .75rem;
+  outline: 1px solid red;
 }
 
-.amp-access-agate__notice h2 {
+/* Experiment - SVG in CSS logo */
+.amp-access-axate__notice h5.amp-access-axate__notice__logo {
+  display: inline-block;
+  width: 81px;
+  height: 0; 
+  padding-top: 16px;
+  margin: .75rem;
+  background-size: 81px;
+  background-repeat: no-repeat;
+  background-image: url('https://axate-amp.s3.eu-west-2.amazonaws.com/images/logo-axate-dark-transparent.svg');
+  overflow: hidden;
+}
+  
+
+.amp-access-axate__notice h2 {
+  text-align: left;
+  display: block;
   margin: 0 0 1rem 0;
 }
+.amp-access-axate__notice p {
+  text-align: left;
+  display: block;
+  margin: 0 0 1rem 0;
+}
+.amp-access-axate__notice small {
+  text-align: left;
+  display: block;
+  font-size: 11px;
+  color: #acacac;
+}
 
-.amp-access-agate__notice footer p {
+
+.amp-access-axate__notice footer p {
   margin-top: 1rem;
   font-size: 1rem;
 }
-.amp-access-agate__notice footer a {
+.amp-access-axate__notice footer a {
  text-decoration: underline;
  cursor: pointer;
 }
-.amp-access-agate__footer__logout{
+.amp-access-axate__footer__logout{
   flex: 1;
   text-align: left;
   color: rgba(255,255,255,.5);
 }
-.amp-access-agate__footer__account{
+.amp-access-axate__footer__account{
   flex: 1;
   text-align: right;
   color: rgba(255,255,255,.5);
 }
 
 
-.amp-access-agate-logo__container {
-  margin: 1rem; 
-}
-.amp-access-agate-logo__container svg {
+.amp-access-axate-logo__container {
+  display: inline-block;
   width: 81px;
+  height: 0; 
+  padding-top: 16px;
+  margin: 1rem; 
+  background-size: 81px;
+  background-repeat: no-repeat;
+  background-image: url('https://axate-amp.s3.eu-west-2.amazonaws.com/images/logo-axate-light-transparent.svg');
+  overflow: hidden;
 }
 
 
-.amp-access-agate__balance__container {
+.amp-access-axate__balance__container {
 }
-.amp-access-agate__balance__amount {
+.amp-access-axate__balance__amount {
   font-size: 45px;
   clear: both;
   display: block;
   margin: 0;
 }
-.amp-access-agate__balance__subtitle {
+.amp-access-axate__balance__subtitle {
   font-size: 1rem;
   display: block;
   color: rgba(255,255,255,.5);
@@ -288,7 +413,7 @@
 
 /* Buttons */
 
-.amp-access-agate__button {
+.amp-access-axate__button {
   opacity: 0.9;
   transition: 0.4s;
   font-family: 'Source Sans Pro', sans-serif;
@@ -297,29 +422,33 @@
   color: white;
   border-radius: 2rem;
   border: none;
-  padding: 0.75rem 2rem;
   align-items: center;
   text-transform: uppercase;
   cursor: pointer;
-  margin-top: 1rem;
-  width:100%;
+  width: 100%;
+  outline: 1px dotted red;
+  margin: .5rem 0 .75rem 0;
+  padding: .5rem 2.5rem;
+  position: relative;
+
 }
 
 
 
-.amp-access-agate__button:hover {
-  opacity:1;
+.amp-access-axate__button:hover, 
+.amp-access-axate__button:active {
+  opacity: 1; 
 }
 
-.amp-access-agate__button--thin {
-  width:auto;
+.amp-access-axate__button--thin {
+  width: auto;
 }
 
-.amp-access-agate__button--danger {
+.amp-access-axate__button--danger {
   background: #D75452;
 }
 
-.amp-access-agate__button--secondary {
+.amp-access-axate__button--secondary {
   background: #6f7490;
 }
 
@@ -329,37 +458,37 @@
 
 /* Pricing */
 
-.amp-access-agate__pricing {
+.amp-access-axate__pricing {
   background: #505766; 
   padding: 1.75rem 0 0.75rem 0;
   border-radius: 0.25rem;
   display: flex;
 }
-.amp-access-agate__pricing__item{
+.amp-access-axate__pricing__item{
       width: 50%;
       text-align: center;
 }
 
-.amp-access-agate__pricing__item--first {
+.amp-access-axate__pricing__item--first {
   border-right: 1px solid #2E3646;
 }
-.amp-access-agate__pricing__item__amount {
+.amp-access-axate__pricing__item__amount {
   display: inline-block;
 }
 
-.amp-access-agate__pricing__item__price {
+.amp-access-axate__pricing__item__price {
   font-weight: 600;
 }
 
 /* Warning */
 
-.amp-access-agate__warning {
+.amp-access-axate__warning {
   background:#D75452;
   padding: 1.5rem;
   margin: 1rem 0; 
   color:#fff;
 }
-p.amp-access-agate__warning__text {
+p.amp-access-axate__warning__text {
   margin: 0rem; 
 }
 
