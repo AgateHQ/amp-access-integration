@@ -1,158 +1,49 @@
-# Agate `amp-access` Integration
+<img src="https://axate-amp.s3.eu-west-2.amazonaws.com/images/logo-axate-dark-transparent.svg" alt="drawing" alt="Axate" width="100" />
 
-
-Check out a working [example](https://s3.eu-west-2.amazonaws.com/agate-amp/example.html) and the [source code](./src/example/index.html).
-
-
-Please follow these intructions to integrate amp-access and Agate.
-
-## Agate CSS
-
-```css
-<link href='https://s3.eu-west-2.amazonaws.com/agate-amp/agate.css' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
-```
-	
-## Amp Access Configuration
-
-```html   
-<script id="amp-access" type="application/json">
-{
-	"authorization": "https://evening-springs-39131.herokuapp.com/api/authorization?rid=READER_ID&url=CANONICAL_URL",
-	"noPingback": true,
-	"login": {
-		"sign-in": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL",
-		"sign-out": "https://evening-springs-39131.herokuapp.com/account/logout?rid=READER_ID&url=CANONICAL_URL",
-		"sign-up": "https://evening-springs-39131.herokuapp.com/account/login?rid=READER_ID&url=CANONICAL_URL"
-	},
-	"authorizationFallbackResponse": {
-		"error": true,
-		"user": false
-	}
-}
-</script>
-```
-	
-## Amp Components
-
-	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
-	<script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
-	<script async custom-template="**amp-mustache**" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-	<script async src="https://cdn.ampproject.org/v0.js"></script>
-
-## Standfirst
-
-The article preview can be achieved using the following markup, it will only be visible for user without premium access
-
-```
-<div amp-access="NOT error AND NOT access”  amp-access-hide >
-	<p class="standfirst">
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus
-	luctus nunc ut elit cursus, et imperdiet diam vehicula.
-	</p>
-</div>
-```
-
-## Premium content
-
-Premium article can  protected using the following markup, it will only be visible for authenticated users with sufficient funds.
-
-```html
-<div amp-access="access" amp-access-hide class="article-body" itemprop="articleBody">
-	<p>
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus
-	luctus nunc ut elit cursus, et imperdiet diam vehicula.
-	</p>
-</div>
-```
-
-## Agate Dialog
-
-Include the following Mustache template where the agate dialog should be displayed. This can be customised as required.
-
-```html
-<div amp-access="NOT error" class="amp-access-axate__container">
-  <template amp-access-template type="amp-mustache">
-    {{^wallet}}
-    <main class="amp-access-axate__notice amp-access-axate__main">
-      <p> We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.</p>
-      <p>Just create a wallet with our payment partner Agate and you'll be good to go.</p>
-      <p>
-        Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
-      <button on="tap:amp-access.login-sign-up" class='amp-access-axate__button' role="button" ref="buttonLogin">Pay per
-        article</button>
-      <footer>
-        <p>Already have an account? <a on="tap:amp-access.login-sign-in" ref="buttonLogin">Login here</a>.</p>
-      </footer>
-    </main>
-    {{/wallet}}
-    {{#wallet}}
-    <section class="amp-access-axate__wallet">
-      <header class="amp-access-axate__header">
-        <div class="amp-access-axate__balance">
-          <span class="amp-access-axate__balance__title">Available:</span>
-          <span class="amp-access-axate__balance__amount" ref="balance">{{wallet.balance}}</span>
-        </div>
-        <button on="tap:amp-access.login-top-up" class='amp-access-axate__button amp-access-axate__button--thin'
-          role="button">Top up</button>
-      </header>
-      <main class="amp-access-axate__main">
-        <section class="amp-access-axate__pricing">
-          <div class="amp-access-axate__pricing__item amp-access-axate__pricing__item--first ">
-            <div class="amp-access-axate__pricing__item__title">Price:</div>
-            <div class="amp-access-axate__pricing__item__price">{{publisher.article_cost}} /article</div>
-          </div>
-          <div class="amp-access-axate__pricing__item">
-            <div class="amp-access-axate__pricing__item__title">Free point:</div>
-            <div class="amp-access-axate__pricing__item__price">{{publisher.cap_cost}}/week</div>
-          </div>
-        </section>
-        <section class="amp-access-axate__gauge">
-          {{#subscriber}}
-          <p class="highlight">Subscriber</p>
-          {{#freeUntilDate}}
-          <p class="sub-text">(Free until {{wallet.freeUntilDate}})</p>
-          {{/freeUntilDate}}
-          {{/subscriber}}
-          {{^subscriber}}
-          <p><span ref="remainingUntilFree">{{wallet.remainingUntilFree}}</span> until free this week</p>
-          <p class="sub-text">(updates on {{wallet.freeUntilDate}})</p>
-          {{/subscriber}}
-        </section>
-        <footer>
-          {{#warning}}
-          <section ref="warning" class="amp-access-axate__warning">
-            <p ref="warningText" class="amp-access-axate__warning__text">{{warning}}</p>
-          </section>
-          {{/warning}}
-          <button on="tap:amp-access.login-sign-out"
-            class='amp-access-axate__button amp-access-axate__button--secondary'>Logout</button>
-        </footer>
-      </main>
-    </section>
-    {{/wallet}}
-    <footer class="amp-access-axate__footer">
-      <a href="http://www.agate.one/" target="_blank" class="amp-access-axate__footer__brand">agate</a>
-      {{#user}}
-      <a ref="account" target="_blank" href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"
-        class="amp-access-axate__footer__account">My Account</a>
-      {{/user}}
-    </footer>
-  </template>
-</div>
-```
+> Axate is a federated payment wallet for digital media.
 
 
 
-### References
+
+## Axate AMP Sample Code
+
+**Note: these developer docs are a work in progress**
+
+> Please note: these docs are actively in development, and are a work in progress
+
+
+### Instructions
+
+> For step by step instructions, see: [Integrating Axate AMP](https://github.com/AgateHQ/axate-developer-docs/blob/master/docs/amp/readme.md).  
+
+
+### [Axate AMP Live Demo](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html)
+
+
+
+Use this sample code as a starting point for your own custom Axate or AMP integration.
+
+**Running locally**
+
+* `yarn` or `npm install`
+* `yarn start` or `npm run start`
+
+_If you'd like to deploy an instance to S3, we use the BBC's [`webpack-s3-uploader`](https://github.com/bbc/webpack-s3-uploader).  
+See it's documentation and `webpack/prod.config.js`._
+
+
+
+
+
+### Further Reading
 
 * [AMP Start GitHub](https://github.com/ampproject/ampstart)
 * [The AMP component catalogue](https://amp.dev/documentation/components/)
 * [Learn AMP by example](https://amp.dev/documentation/examples/)
 
 
-#### Examples
 
-* [AMP Poll](https://amp.dev/documentation/examples/interactivity-dynamic-content/poll/preview/?format=websites)
+## Roadmap
+
+> Axate will be partnering with CMS and technology providers in the near future.<br />
+> For more information about being a technology partner, or any other technical queries, please contact <a href="mailto:dev@axate.com?subject=Integrate with Axate">dev@axate.com</a>
