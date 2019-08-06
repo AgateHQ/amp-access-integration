@@ -8,13 +8,12 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 
   <link type="text/css" rel="stylesheet" href="./axate.css" />
-
   <link type="text/css" rel="stylesheet" href="./main.css" />
 
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
   <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
   <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
-  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+  <!-- <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script> -->
 
   <!-- AMP Axate -->
   <script id="amp-access" type="application/json">
@@ -45,6 +44,7 @@
       -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
       animation: -amp-start 8s steps(1, end) 0s 1 normal both
     }
+
     @-webkit-keyframes -amp-start {
       from {
         visibility: hidden
@@ -53,6 +53,7 @@
         visibility: visible
       }
     }
+
     @-moz-keyframes -amp-start {
       from {
         visibility: hidden
@@ -61,6 +62,7 @@
         visibility: visible
       }
     }
+
     @-ms-keyframes -amp-start {
       from {
         visibility: hidden
@@ -69,6 +71,7 @@
         visibility: visible
       }
     }
+
     @-o-keyframes -amp-start {
       from {
         visibility: hidden
@@ -77,6 +80,7 @@
         visibility: visible
       }
     }
+
     @keyframes -amp-start {
       from {
         visibility: hidden
@@ -85,7 +89,8 @@
         visibility: visible
       }
     }
-  </style><noscript>
+  </style>
+  <noscript>
     <style amp-boilerplate>
       body {
         -webkit-animation: none;
@@ -97,38 +102,18 @@
   </noscript>
 
   <script async src="https://cdn.ampproject.org/v0.js"></script>
-  <!-- WebPack's JS Bundle -->
-  <script src="./main.js"></script>
+  
+  <script src="./main.js"></script><!-- WebPack's JS Bundle -->
 
 </head>
 
 <body>
 
-    <form class="amp-access-axate__toggle-form" method="GET" action="https://staging.agate.io/amp/set_threshold" target="_top">
-      <fieldset>
-
-        <input name="amount" type="radio" value="100" id="toggle-threshold-100" checked />
-        <label for="toggle-threshold-100" aria-hidden="true"><span></span></label>
-
-        <input name="amount" type="radio" value="0" id="toggle-threshold-0" />
-        <label for="toggle-threshold-0" aria-hidden="true"><span></span></label>
-
-      
-        <input type="hidden" name="canonical_url" value="CANONICAL_URL" data-amp-replace="CANONICAL_URL" />
-        <input type="hidden" name="canonical_hostname" value="CANONICAL_HOSTNAME" data-amp-replace="CANONICAL_HOSTNAME" />
-        <input type="hidden" name="document_referer" type="hidden" data-amp-replace="DOCUMENT_REFERRER" />
-        <input type="hidden" name="external_referer" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
-        <input type="hidden" name="" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
-      </fieldset>
-      <input class="amp-access-axate__button amp-access-axate__button--thin" type="submit" value="OK" />
-    </form>
 
   <header>
-
     <div class="brand-logo">
       PublisherLogo
     </div>
-
   </header>
 
   <main role="main">
@@ -136,15 +121,14 @@
     <article>
 
       <figure>
-        <amp-img src="images/hero@1x.jpg" srcset="images/hero@1x.jpg 1x, images/hero@2x.jpg 2x" layout="responsive" width="360"
-          placeholder
+        <amp-img src="images/hero@1x.jpg" srcset="images/hero@1x.jpg 1x, images/hero@2x.jpg 2x" layout="responsive"
+          width="360" placeholder
           alt="Curabitur convallis, urna quis pulvinar feugiat, purus diam posuere turpis, sit amet tincidunt purus justo et mi."
           height="216">
         </amp-img>
       </figure>
 
       <div class="content-container">
-
         <header>
           <h1 itemprop="headline">Lorem Ipsum Test</h1>
           <time class="header-time" itemprop="datePublished" datetime="2015-09-14 13:00">September 14, 2015</time>
@@ -162,6 +146,8 @@
             <p class="brand">PublisherName News Reporter<p>
           </div>
         </div>
+
+
 
         <div amp-access="NOT error AND NOT access" amp-access-hide>
           <p class="standfirst">
@@ -205,7 +191,6 @@
             Mauris sem est, accumsan sed tincidunt ut, sagittis vel arcu.
             Nullam in libero nisi.
           </p>
-
           <p>
             Sed pharetra semper fringilla. Nulla fringilla, neque eget
             varius suscipit, mi turpis congue odio, quis dignissim nisi
@@ -237,18 +222,16 @@
             Integer suscipit iaculis elit nec mollis. Vestibulum eget arcu
             nec lectus finibus rutrum vel sed orci.
           </p>
-
           <figure>
-            <amp-img class="full-bleed" placeholder src="images/sea@1x.jpg" srcset="images/sea@1x.jpg 1x, images/sea@2x.jpg 2x"
-              layout="responsive" width="360" alt="Fusce pretium tempor justo, vitae consequat dolor maximus eget."
-              height="216">
+            <amp-img class="full-bleed" placeholder src="images/sea@1x.jpg"
+              srcset="images/sea@1x.jpg 1x, images/sea@2x.jpg 2x" layout="responsive" width="360"
+              alt="Fusce pretium tempor justo, vitae consequat dolor maximus eget." height="216">
             </amp-img>
             <figcaption>
               Fusce pretium tempor justo, vitae consequat dolor maximus eget.
             </figcaption>
           </figure>
-          <hr>
-
+          <hr />
           <p>
             Cum sociis natoque penatibus et magnis dis parturient montes,
             nascetur ridiculus mus. Nulla et viverra turpis. Fusce
@@ -261,7 +244,6 @@
             Ut elementum velit fermentum felis volutpat sodales in non libero.
             Aliquam erat volutpat.
           </p>
-
           <p>
             Morbi at velit vitae eros congue congue venenatis non dui.
             Sed lacus sem, feugiat sed elementum sed, maximus sed lacus.
@@ -273,6 +255,10 @@
             torquent per conubia nostra, per inceptos himenaeos.
           </p>
         </div>
+
+
+
+
 
         <!-- 
           Axate AMP
@@ -320,16 +306,9 @@
               </main>
             </template>
           </div>
-
           <a class="amp-access-axate__article-link" href="#">Jump to article</a>
           <div amp-access="NOT error AND loggedIn">
             <template amp-access-template type="amp-mustache">
-
-
-                {{CANONICAL_HOSTNAME}} - HELLO
-                {{READER_ID}}
-                {{DOCUMENT_REFERRER}}
-            
               <main class="amp-access-axate__notice">
                 {{#notice}}
                 <h5 class="amp-access-axate__notice__logo">Axate</h5>
@@ -337,86 +316,109 @@
                 <p>{{description}}</p>
                 {{#type}}
                 {{#is_amount_gt_threshold}}
-                <div>Wallet Amount Greater Than Threshold</div>
-                <button 
-                  on="tap:amp-access.login-authorise-charge-true" 
-                  class="amp-access-axate__button" role="button">
-                  Continue Reading
-                </button>
+                <div class="amp-access-axate__notice-text">
+                  <h5>You have chosen to authorise every charge</h5>
+                  <p>
+                    This article is {{publisher.article_cost}} but you will never pay more than {{publisher.cap_cost}}
+                    per week for &#x7B;publication.name&#x7D;.
+                  </p>
+                </div>
+                <div class="amp-access-axate__toggle-container">
+                  <p class="amp-access-axate__toggle-text">
+                    <span>Charge me automatically</span>
+                  </p>
+                  <input class="amp-access-axate__toggle-checkbox" id="authorise-charge" type="checkbox" />
+                  <label class="amp-access-axate__toggle-label" for="authorise-charge">
+                  </label>
+                  <div class="amp-access-axate__toggle-button-container">
+                    <button class="amp-access-axate__button amp-access-axate__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = OFF">
+                      Continue Reading
+                    </button>
+                    <button class="amp-access-axate__button amp-access-axate__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-false"
+                      title="Autocharge = ON">
+                      Continue Reading
+                    </button>
+                  </div>
+                </div>
                 {{/is_amount_gt_threshold}}
-
                 {{#is_insuf_balance}}
                 <code>Insufficient Balance Warning/Notice</code>
                 {{/is_insuf_balance}}
-
                 {{#is_new_pricing}}
                 <code>Updated Publication Pricing</code>
                 {{/is_new_pricing}}
-
                 <!-- Begin: Reader is new to Axate and this publication -->
                 {{#is_new_publication}}
-
-
-
-                <button on="tap:amp-access.login-set-threshold-yes" class="amp-access-axate__button" role="button">
-                  Auto Charge
-                </button>
-                <button on="tap:amp-access.login-set-threshold-no" class="amp-access-axate__button" role="button">
-                  Manually Charge
-                </button>
+                <div class="amp-access-axate__notice-text">
+                </div>
+                <div class="amp-access-axate__toggle-container">
+                  <p class="amp-access-axate__toggle-text">
+                    <span>Charge me automatically for &#x7B;publisher.name&#x7D; from now on</span>
+                  </p>
+                  <input class="amp-access-axate__toggle-checkbox" id="set-threshold-toggle" type="checkbox" checked />
+                  <label class="amp-access-axate__toggle-label" for="set-threshold-toggle">
+                  </label>
+                  <div class="amp-access-axate__toggle-button-container">
+                    <button class="amp-access-axate__button amp-access-axate__button--thin "
+                      data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes"
+                      title="Autocharge = ON">
+                      Confirm &amp Continue Reading for {{publisher.article_cost}}
+                    </button>
+                    <button class="amp-access-axate__button amp-access-axate__button--thin "
+                      data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no"
+                      title="Autocharge = OFF">
+                      Confirm &amp Continue Reading for {{publisher.article_cost}}
+                    </button>
+                  </div>
+                </div>
                 {{/is_new_publication}}
-                <!-- Begin: Reader is new to Axate and this publication -->
-
                 {{#is_show_finish_no_funds_notice}}
-                <!-- Show Finish Notice - Unfunded -->
                 <button on="tap:amp-access.login-top-up" class="amp-access-axate__button amp-access-axate__button--thin"
                   role="button">
                   Add funds
                 </button>
-
                 <small><code>[TODO - Request &#x7B;publication.name&#x7D;]</code> is published independently of
                   Axate.</small>
                 {{/is_show_finish_no_funds_notice}}
-
-
                 {{#is_show_finish_notice}}
-                <form class="amp-access-axate__toggle-form" method="GET" action="https://staging.agate.io/amp/set_threshold" target="_top">
-                  <fieldset>
-
-                    <input name="amount" type="radio" value="100" id="toggle-threshold-100" checked />
-                    <label for="toggle-threshold-100" aria-hidden="true"><span></span></label>
-
-                    <input name="amount" type="radio" value="0" id="toggle-threshold-0" />
-                    <label for="toggle-threshold-0" aria-hidden="true"><span></span></label>
-
-                  
-                    <input type="hidden" name="canonical_url" value="CANONICAL_URL" data-amp-replace="CANONICAL_URL" />
-                    <input type="hidden" name="canonical_hostname" value="CANONICAL_HOSTNAME" data-amp-replace="CANONICAL_HOSTNAME" />
-                    <input type="hidden" name="document_referer" type="hidden" data-amp-replace="DOCUMENT_REFERRER" />
-                    <input type="hidden" name="external_referer" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
-                    <input type="hidden" name="" type="hidden" data-amp-replace="EXTERNAL_REFERRER" />
-                  </fieldset>
-                  <input class="amp-access-axate__button amp-access-axate__button--thin" type="submit" value="OK" />
-                </form>
-                <!--
-                  Not yet implemented
-                  - Personal Data Sharig Checkbox
-                -->
-                <small>&#x7B;&#x7B;publication.name&#x7D;&#x7D; is published independently of
-                  Axate.</small>
+                <div class="amp-access-axate__notice-text amp-access-axate__notice-bold">
+                  <h5>Tap OK to pay {{publisher.article_cost}}</h5>
+                  <p>You’ll never pay more than {{publisher.cap_cost}} per week for &#x7B;publication.name&#x7D;.</p>
+                  <p>Do you want to approve all charges on this site?</p>
+                </div>
+                <div class="amp-access-axate__toggle-container amp-access-axate__notice-bold">
+                  <p class="amp-access-axate__toggle-text">
+                    <strong>Yes, charge me automatically<br /></strong>
+                    <span>Switch off to approve each charge</span>
+                  </p>
+                  <input class="amp-access-axate__toggle-checkbox" id="set-threshold-toggle" type="checkbox" checked />
+                  <label class="amp-access-axate__toggle-label" for="set-threshold-toggle"></label>
+                  <div class="amp-access-axate__toggle-button-container">
+                    <button class="amp-access-axate__button amp-access-axate__button--thin " data-axate-action="toggle-checked" role="button"on="tap:amp-access.login-set-threshold-yes" title="OK - Yes, charge me automatically">
+                      OK
+                    </button>
+                    <button class="amp-access-axate__button amp-access-axate__button--thin "
+                      data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no"
+                      title="OK - No, I would like to manually authorise charges">
+                      OK
+                    </button>
+                  </div>
+                </div>
+                <small>
+                  &#x7B;publication.name&#x7D; is published independently of
+                  Axate.
+                </small>
                 {{/is_show_finish_notice}}
-
-
                 {{#on_subscription}}
                 <code>On Subscription</code>
                 {{/on_subscription}}
-
                 {{/type}}
-
                 {{/notice}}
               </main>
             </template>
           </div>
+
+
 
           <footer>
             <div class="brand-logo">PublisherLogo - Footer</div>
@@ -427,117 +429,163 @@
           <!-- Axate AMP - Component - Wallet -->
           <section amp-access="NOT error AND loggedIn" class="amp-access-axate__container">
             <template amp-access-template type="amp-mustache">
-
-
               {{#wallet}}
+              <!-- Wallet flipper -->
+              <label for="wallet-flip"></label>
+              <input id="wallet-flip" type="checkbox" class="wallet-flipper" />
+              <!-- End Wallet flipper -->
               <section class="amp-access-axate__wallet">
-                <header class="amp-access-axate__header">
-                  <div class="amp-access-axate__balance">
-
-                    <div amp-access="NOT error AND loggedIn">
-                      <template amp-access-template type="amp-mustache">
-                        <div data-axate-debug="messages">
-                          <p data-axate-debug="msg">Gauge</p>
-                          {{#isGaugeEmpty}}<p data-axate-debug="msg">isEmpty</p>{{/isGaugeEmpty}}
-                          {{#isGaugeFull}}<p data-axate-debug="msg">isFull</p>{{/isGaugeFull}}
-                          {{#isGaugeStateOne}}<p data-axate-debug="msg">isStateOne</p>{{/isGaugeStateOne}}
-                          {{#isGaugeStateTwo}}<p data-axate-debug="msg">isStateTwo</p>{{/isStateTwo}}
-                        </div>
-                      </template>
+                <!-- Front of wallet -->
+                <section id="front-face-container" class="flip-face front">
+                  <header class="amp-access-axate__header">
+                    <div class="amp-access-axate__balance">
+                      <div amp-access="NOT error AND loggedIn">
+                        <template amp-access-template type="amp-mustache">
+                          <div data-axate-debug="messages">
+                            <p data-axate-debug="msg">Gauge</p>
+                            {{#isGaugeEmpty}}<p data-axate-debug="msg">isEmpty</p>{{/isGaugeEmpty}}
+                            {{#isGaugeFull}}<p data-axate-debug="msg">isFull</p>{{/isGaugeFull}}
+                            {{#isGaugeStateOne}}<p data-axate-debug="msg">isStateOne</p>{{/isGaugeStateOne}}
+                            {{#isGaugeStateTwo}}<p data-axate-debug="msg">isStateTwo</p>{{/isStateTwo}}
+                          </div>
+                        </template>
+                      </div>
+                      <h4 class="amp-access-axate-logo__container">
+                        Axate
+                      </h4>
+                      <div class="amp-access-axate__balance__container">
+                        <span class="amp-access-axate__balance__amount" ref="balance">
+                          {{wallet.balance}}
+                        </span>
+                        <span class="amp-access-axate__balance__subtitle">
+                          Total balance
+                        </span>
+                      </div>
                     </div>
-
-                    <h4 class="amp-access-axate-logo__container">
-                      Axate
-                    </h4>
-
-                    <div class="amp-access-axate__balance__container">
-                      <span class="amp-access-axate__balance__amount" ref="balance">
-                        {{wallet.balance}}
-                      </span>
-                      <span class="amp-access-axate__balance__subtitle">
-                        Total balance
-                      </span>
-                    </div>
-
-                  </div>
-                  <button on="tap:amp-access.login-top-up"
-                    class="amp-access-axate__button amp-access-axate__button--thin" role="button">
-                    Top up
-                  </button>
-
-                </header>
-                <main class="amp-access-axate__main">
-
-
-                  <div class="amp-access-axate__information">
-
-                    <div class="axate-pricing-container">
-                      <p class="axate-pricing-per-article">
-                        <strong>{{publisher.article_cost}}</strong>
-                        <span>per article</span>
-                      </p>
-                      <p class="axate-pricing-per-week">
-                        <strong>{{publisher.cap_cost}}</strong>
-                        <span>free point/per week</span>
-                      </p>
-                    </div>
-
-                    <div class="axate-gauge-container">
-                      <svg class="axate-gauge" width="120" height="120" viewBox="0 0 120 120">
-                        <circle class="axate-gauge-progress__meter" cx="60" cy="60" r="56" stroke-width="5"></circle>
+                    <button on="tap:amp-access.login-top-up"
+                      class="amp-access-axate__button amp-access-axate__button--thin" role="button">
+                      Top up
+                    </button>
+                  </header>
+                  <main class="amp-access-axate__main">
+                    <div class="amp-access-axate__information">
+                      <div class="axate-pricing-container">
+                        <p class="axate-pricing-per-article">
+                          <strong>{{publisher.article_cost}}</strong>
+                          <span>per article</span>
+                        </p>
+                        <p class="axate-pricing-per-week">
+                          <strong>{{publisher.cap_cost}}</strong>
+                          <span>free point/per week</span>
+                        </p>
+                      </div>
+                      <div class="axate-gauge-container">
+                        <svg class="axate-gauge" width="120" height="120" viewBox="0 0 120 120">
+                          <circle class="axate-gauge-progress__meter" cx="60" cy="60" r="56" stroke-width="5"></circle>
+                          {{#isGaugeEmpty}}
+                          <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
+                            style="stroke-dasharray: 399.992; stroke-dashoffset: 399.992;" />
+                          {{/isGaugeEmpty}}
+                          {{#isGaugeStateOne}}
+                          <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
+                            style="stroke-dasharray: 339.292; stroke-dashoffset: 258.0372;" />
+                          {{/isGaugeStateOne}}
+                          {{#isGaugeStateTwo}}
+                          <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
+                            style="stroke-dasharray: 339.292; stroke-dashoffset: 78.0372;" />
+                          {{/isGaugeStateTwo}}
+                          {{#isGaugeFull}}
+                          <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
+                            style="stroke-dasharray: 0; stroke-dashoffset: 0;" />
+                          {{/isGaugeFull}}
+                        </svg>
+                        <!-- Gauge Text -->
                         {{#isGaugeEmpty}}
-                        <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
-                          style="stroke-dasharray: 399.992; stroke-dashoffset: 399.992;" />
+                        <p class="axate-gauge-inner-text" title=">isEmpty">
+                          <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
+                        </p>
                         {{/isGaugeEmpty}}
                         {{#isGaugeStateOne}}
-                        <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
-                          style="stroke-dasharray: 339.292; stroke-dashoffset: 258.0372;" />
+                        <p class="axate-gauge-inner-text" title="isGaugeStateOne">
+                          <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
+                        </p>
                         {{/isGaugeStateOne}}
                         {{#isGaugeStateTwo}}
-                        <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
-                          style="stroke-dasharray: 339.292; stroke-dashoffset: 78.0372;" />
+                        <p class="axate-gauge-inner-text" title="isGaugeStateTwo">
+                          <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
+                        </p>
                         {{/isGaugeStateTwo}}
                         {{#isGaugeFull}}
-                        <circle class="axate-gauge-progress__value" cx="60" cy="60" r="56" stroke-width="5"
-                          style="stroke-dasharray: 0; stroke-dashoffset: 0;" />
+                        <p class="axate-gauge-inner-text">
+                          <strong>Free</strong><span>{{wallet.freeUntilDate}}</span>
+                        </p>
                         {{/isGaugeFull}}
-                      </svg>
-
-                      <!-- Gauge Text -->
-                      {{#isGaugeEmpty}}
-                      <p class="axate-gauge-inner-text" title=">isEmpty">
-                        <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
-                      </p>
-                      {{/isGaugeEmpty}}
-                      {{#isGaugeStateOne}}
-                      <p class="axate-gauge-inner-text" title="isGaugeStateOne">
-                        <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
-                      </p>
-                      {{/isGaugeStateOne}}
-                      {{#isGaugeStateTwo}}
-                      <p class="axate-gauge-inner-text" title="isGaugeStateTwo">
-                        <strong>{{wallet.remainingUntilFree}}</strong><span>until free</span>
-                      </p>
-                      {{/isGaugeStateTwo}}
-                      {{#isGaugeFull}}
-                      <p class="axate-gauge-inner-text">
-                        <strong>Free</strong><span>{{wallet.freeUntilDate}}</span>
-                      </p>
-                      {{/isGaugeFull}}
-
+                      </div>
                     </div>
+                    <footer>
+                      {{#warning}}
+                      <section ref="warning" class="amp-access-axate__warning">
+                        <p ref="warningText" class="amp-access-axate__warning__text">{{warning}}</p>
+                      </section>
+                      {{/warning}}
+                    </footer>
+                  </main>
+                </section>
+                <!-- End of Front Side -->
 
-                  </div>
-
-                  <footer>
-                    {{#warning}}
-                    <section ref="warning" class="amp-access-axate__warning">
-                      <p ref="warningText" class="amp-access-axate__warning__text">{{warning}}</p>
-                    </section>
-                    {{/warning}}
-                  </footer>
-
-                </main>
+                <!-- Back of wallet -->
+                <section id="front-face-container" class="flip-face back">
+                  <header class="amp-access-axate__header">
+                    <div class="amp-access-axate__balance">
+                      <h4 class="amp-access-axate-logo__container">
+                        Axate
+                      </h4>
+                      <div class="settings-panel">
+                        <ul>
+                          <li class="amp-access-axate__setting-icon__account">
+                            <a data-ui="button" title="Account" href="javascript:alert('DEBUG: Link to accoount page')">
+                              <div></div>
+                              <span>Account</span>
+                            </a>
+                          </li>
+                          <li class="amp-access-axate__setting-icon__help">
+                            <a data-ui="button" title="Help"
+                              href="javascript:alert('DEBUG - Link to account documentation')">
+                              <div></div>
+                              <span>Help</span>
+                            </a>
+                          </li>
+                          <li class="amp-access-axate__setting-icon__feedback">
+                            <a data-ui="button" title="Help " href="mailto:support@axate.com?subject=Report a bug">
+                              <div></div>
+                              <span>Feedback</span>
+                            </a>
+                          </li>
+                          <li class="amp-access-axate__setting-icon__log-out">
+                            <a data-ui="button" title="Log out" href="#" on="tap:amp-access.login-sign-out">
+                              <div></div>
+                              <span>Log out</span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </header>
+                  <main class="amp-access-axate__main">
+                    <div class="section_publication_name">
+                      <h3>&#x7B;publication.name&#x7D;</h3>
+                    </div>
+                    <div class="section_cost">
+                      <p>Free point/week:</p>
+                      <span class="currency_amount">{{publisher.cap_cost}}</span>
+                    </div>
+                    <p class="section_smalltext">(updates on Mon Aug 12 2019)</p>
+                    <p class="section_description">
+                      Once you spend {{publisher.cap_cost}} in a week your free reading continues until Mon Aug 12 2019.
+                    </p>
+                  </main>
+                </section>
+                <!-- End of Back Side -->
 
               </section>
               {{/wallet}}
@@ -545,15 +593,7 @@
 
               <footer class="amp-access-axate__footer">
                 {{#wallet}}
-                <a ref="logout" href="#" on="tap:amp-access.login-sign-out" class="amp-access-axate__footer__logout">
-                  Logout
-                </a>
-
-                <a class="amp-access-axate__article-link" href="#">Jump to article</a>
-
-                <a ref="account" target="_blank"
-                  href="https://account-staging.agate.io/my-agate/account?jwt_token={{jwt_token}}"
-                  class="amp-access-axate__footer__account">My Account</a>
+                <a class="amp-access-axate__footer__center" href="#">Go back to article</a>
                 {{/wallet}}
               </footer>
             </template>

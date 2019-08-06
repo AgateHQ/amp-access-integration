@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="16px" viewBox="0 0 15 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 56.3 (81716) - https://sketch.com -->
+    <title>Shape 2</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Agate_Wallet_Flip" transform="translate(-213.000000, -64.000000)" fill="#BEBEBE">
+            <g id="Group-5" transform="translate(198.000000, 49.000000)">
+                <g id="Shape-2" transform="translate(15.000000, 15.000000)">
+                    <path d="M8.4375,0 L6.5625,0 L6.5625,9.41176471 L8.4375,9.41176471 L8.4375,0 L8.4375,0 Z M11.775,2.29647059 L10.415625,3.66117647 C12.0375,4.64941176 13.125,6.42823529 13.125,8.47058824 C13.125,11.5858824 10.603125,14.1176471 7.5,14.1176471 C4.396875,14.1176471 1.875,11.5858824 1.875,8.47058824 C1.875,6.42823529 2.9625,4.64941176 4.575,3.65176471 L3.225,2.29647059 C1.275,3.65176471 0,5.91058824 0,8.47058824 C0,12.6305882 3.35625,16 7.5,16 C11.64375,16 15,12.6305882 15,8.47058824 C15,5.91058824 13.725,3.65176471 11.775,2.29647059 L11.775,2.29647059 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
