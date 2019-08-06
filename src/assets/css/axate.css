@@ -1,0 +1,738 @@
+/**
+ * Axate AMP - Manual/Custom Integration - Alpha
+ */
+
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
+
+
+
+[data-axate-debug="messages"] { 
+  pointer-events: none;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  font: 10px monospace;
+}
+
+[data-axate-debug="msg"] {
+  background: dodgerblue;
+  opacity: .75;
+  color: white;
+  padding: 5px 10px;
+  margin: 0 0 5px 0;
+}
+
+[amp-access="error"] {
+  background: firebrick;
+}
+
+
+
+
+/**
+ * Walet Handle
+ */
+.axate__wallet-handle {
+  z-index: 9999;
+  position: fixed;
+  top: 55px;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 0 4px 4px 0;
+}
+
+.axate__wallet-handle a {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  display: block;
+  top: 0; 
+  left: 0;
+  border-radius: 0 4px 4px 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='22' viewBox='0 0 121 113' xmlns='http%3A//www.w3.org/2000/svg'%3E%3Cg fill='%23FFF' fill-rule='evenodd'%3E%3Cpath d='M120.74 98.596c0 7.664-6.215 13.88-13.88 13.88-7.668 0-13.883-6.216-13.883-13.88 0-7.668 6.215-13.883 13.882-13.883 7.666 0 13.881 6.215 13.881 13.883M49.868 87.471H30.2l28.368-52.29 27.587 50.847c4.195-6.41 11.322-10.7 19.48-11.002L68.4 6.388A11.189 11.189 0 0058.568.536a11.18 11.18 0 00-9.831 5.852L1.576 93.326a11.18 11.18 0 00.217 11.052 11.187 11.187 0 009.613 5.467h38.462c6.177 0 11.186-5.009 11.186-11.186 0-6.178-5.01-11.188-11.186-11.188'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 24px; 
+}
+
+.axate__wallet-handle .status__default {
+  background-color: #1BB580;
+}
+.axate__wallet-handle > .status__free {
+  /* TODO - Add free point background image */
+}
+.axate__wallet-handle .status__warning, 
+.axate__wallet-handle .status__balance-low {
+  background-color: #F0AD4E;
+}
+.axate__wallet-handle .status__error {
+  background-color: #D9534F;
+}
+
+
+
+.amp-access-axate__container {
+  background: #333B4D;
+  font-family: 'Source Sans Pro', sans-serif;
+  color:white;
+  text-align: center;
+  overflow: hidden;
+}
+
+
+input#wallet-flip {
+  display: none;
+}
+label[for="wallet-flip"] {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none; 
+  z-index: 10;
+  width: 22px;
+  height: 22px;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='15px' height='16px' viewBox='0 0 15 16' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3C/defs%3E%3Cg id='wallet_260x360' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' fill-opacity='0.7'%3E%3Cg id='wallet' transform='translate(-773.000000, -390.000000)' fill='%23FFFFFF'%3E%3Cpath d='M786.23053,398.784 C786.261371,398.528 786.284502,398.272 786.284502,398 C786.284502,397.728 786.261371,397.472 786.23053,397.216 L787.857424,395.896 C788.003921,395.776 788.042473,395.56 787.949949,395.384 L786.407869,392.616 C786.315344,392.44 786.107163,392.376 785.937534,392.44 L784.017645,393.24 C783.616704,392.92 783.184922,392.656 782.714588,392.456 L782.421592,390.336 C782.398461,390.144 782.236543,390 782.043783,390 L778.959623,390 C778.766863,390 778.604945,390.144 778.581814,390.336 L778.288818,392.456 C777.818484,392.656 777.386702,392.928 776.985761,393.24 L775.065872,392.44 C774.888532,392.368 774.688062,392.44 774.595537,392.616 L773.053457,395.384 C772.953222,395.56 772.999485,395.776 773.145982,395.896 L774.772876,397.216 C774.742035,397.472 774.718904,397.736 774.718904,398 C774.718904,398.264 774.742035,398.528 774.772876,398.784 L773.145982,400.104 C772.999485,400.224 772.960933,400.44 773.053457,400.616 L774.595537,403.384 C774.688062,403.56 774.896243,403.624 775.065872,403.56 L776.985761,402.76 C777.386702,403.08 777.818484,403.344 778.288818,403.544 L778.581814,405.664 C778.604945,405.856 778.766863,406 778.959623,406 L782.043783,406 C782.236543,406 782.398461,405.856 782.421592,405.664 L782.714588,403.544 C783.184922,403.344 783.616704,403.072 784.017645,402.76 L785.937534,403.56 C786.114874,403.632 786.315344,403.56 786.407869,403.384 L787.949949,400.616 C788.042473,400.44 788.003921,400.224 787.857424,400.104 L786.23053,398.784 L786.23053,398.784 Z M780.501703,400.8 C779.013596,400.8 777.803063,399.544 777.803063,398 C777.803063,396.456 779.013596,395.2 780.501703,395.2 C781.98981,395.2 783.200343,396.456 783.200343,398 C783.200343,399.544 781.98981,400.8 780.501703,400.8 L780.501703,400.8 Z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 22px; 
+}
+input#wallet-flip + label[for="wallet-flip"] {
+  background-image: url("data:image/svg+xml,%3Csvg width='14px' height='14px' viewBox='0 0 14 14' version='1.1' xmlns='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg transform='translate(-232.000000, -15.000000)' fill='%23FFFFFF'%3E%3Cpolygon points='246 16.41 244.59 15 239 20.59 233.41 15 232 16.41 237.59 22 232 27.59 233.41 29 239 23.41 244.59 29 246 27.59 240.41 22'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.amp-access-axate__wallet {
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  transition: 0.6s transform; 
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+.amp-access-axate__wallet .flip-face {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+.amp-access-axate__wallet .flip-face.front {
+	z-index: 2;
+	transform: rotateY(0deg);  
+}
+.amp-access-axate__wallet .flip-face.back {
+	z-index: 1;
+	transform: rotateY(180deg); 
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+
+input#wallet-flip:checked ~ .amp-access-axate__wallet {
+	transform: rotateY(180deg);
+}
+input#wallet-flip:checked ~ .amp-access-axate__wallet .front { }
+input#wallet-flip:checked ~ .amp-access-axate__wallet .back { }
+
+
+
+/* Wallet Back */
+.back .settings-panel {
+	display: block;
+	background: #2E3646;
+}
+.back .settings-panel > ul {
+	text-align: center;
+	list-style: none;
+	display: block;
+	clear: both;
+	float: left;
+	width: 100%;
+	position: relative;
+	padding: 5px 0 23px 0;
+	margin: 0 0 0 0;
+	background: #2E3646;
+	border-bottom: 1px solid rgba(217, 217, 217, 0.15);
+}
+.back .settings-panel > ul li {
+	display: inline-block;
+	width: 45px;
+	padding: 7.5px;
+	overflow: hidden;
+}
+.back .settings-panel > ul li a {
+	cursor: pointer;
+}
+.back .settings-panel > ul li a > * {
+	pointer-events: none;
+}
+.back .settings-panel > ul li a,
+.back .settings-panel > ul li a span {
+	display: block;
+	font-size: 12px;
+	color: white;
+	text-decoration: none;
+}
+.back .settings-panel > ul li a span {
+	width: 100%;
+	text-align: center;
+	display: block;
+	left: 0;
+	right: 0;
+	position: relative;
+	padding-top: 5px;
+}
+.back .settings-panel > ul li a div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 45px;
+	width: 45px;
+	height: 45px;
+	background: #3d4557;
+}
+.back .settings-panel > ul li a div:hover {
+	background: #515868;
+}
+.back .settings-panel > ul li a div:hover svg g {
+	fill: white;
+}
+.back .settings-panel > ul li a div > svg {
+	width: 17px;
+	height: 17px;
+	position: absolute;
+}
+
+
+.back .settings-panel > ul li a div {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 17px; 
+}
+.back .settings-panel > ul li.amp-access-axate__setting-icon__account a div {
+  background-size: 17px; 
+  background-image: url("https://axate-amp.s3.eu-west-2.amazonaws.com/images/icon-settings-account.svg");
+}
+.back .settings-panel > ul li.amp-access-axate__setting-icon__help a div {
+  background-size: 17px; 
+  background-image: url("https://axate-amp.s3.eu-west-2.amazonaws.com/images/icon-settings-help.svg");
+}
+.back .settings-panel > ul li.amp-access-axate__setting-icon__feedback a div {
+  background-size: 17px; 
+  background-image: url("https://axate-amp.s3.eu-west-2.amazonaws.com/images/icon-settings-feedback.svg");
+}
+.back .settings-panel > ul li.amp-access-axate__setting-icon__log-out a div {
+  background-size: 17px; 
+  background-image: url("https://axate-amp.s3.eu-west-2.amazonaws.com/images/icon-settings-log-out.svg");
+}
+
+
+.back .amp-access-axate__main {
+  text-align: left;
+  padding: 0 40px 0 20px;
+  float: left;
+}
+.back .amp-access-axate__main .currency_amount {
+  color: #1bb580;   
+}
+.back .amp-access-axate__main .section_smalltext {
+  font-size: 12px;
+  color: #bebebe;
+}
+
+
+
+
+
+
+.amp-access-axate__main {
+  padding: 2.5rem .5rem;
+}
+
+.amp-access-axate__header {
+  background: #2E3646;
+  text-align: center;
+  border-bottom: 1px solid #595E6A;
+  width: 100%;
+  padding: 0.5rem 0 0 0;
+}
+.amp-access-axate__header button {
+  margin: 0;
+  top: 20px;
+  padding: .5rem 2.5rem;
+  position: relative;
+}
+
+.amp-access-axate__footer {
+  border-top: 1px solid #595E6A;
+  padding: 1rem 1.5rem;
+  background: #333B4D; 
+  display: flex;
+  align-items: flex-end;
+}
+
+
+
+.amp-access-axate__information {
+  display: flex;
+}
+
+
+
+.axate-pricing-container {
+  position: relative;
+  display: block;
+  flex: 1;
+  margin-top: 0rem;
+}
+.axate-pricing-container > p > * {
+  display: block;
+  clear: both;
+}
+.axate-pricing-container p {
+  
+}
+.axate-pricing-container p strong {
+  color: #1bb580;
+  font-size: 1.25rem;
+}
+.axate-pricing-container p span {
+  font-size: 1rem;
+  color: rgba(255,255,255,.75);
+  font-size: .85rem;
+}
+
+
+.axate-gauge-container {
+  position: relative;
+  display: block;
+  flex: 1;
+}
+
+.axate-gauge-container svg {
+  width: 135px;
+  height: 135px;
+  border-radius: 135px;
+  transform: rotate(-90deg);
+  background:#2E3546;
+}
+.axate-gauge-container .axate-gauge-inner-text {
+  color: rgba(255, 255, 255, 1);
+  text-align: center;
+  position: absolute;
+  top: 0; 
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.axate-gauge-container .axate-gauge-inner-text strong {
+  clear: both; 
+  display: block;
+  padding-top: 25px;
+  font-size: 22px;
+  color: #1bb580;
+}
+.axate-gauge-container .axate-gauge-inner-text span {
+  clear: both; 
+  display: block;
+  color: rgba(255,255,255,.75);
+}
+
+
+.axate-gauge-progress__meter, 
+.axate-gauge-progress__value {
+	fill: none;
+}
+
+.axate-gauge-container .axate-gauge-progress__meter {
+	stroke: #2E3546;
+}
+
+.axate-gauge-container .axate-gauge-progress__value {
+	stroke: #1BB580;
+	stroke-linecap: round;
+}
+
+
+
+
+.amp-access-axate__container p {
+  margin: 1rem 0 0 0;
+}
+
+.amp-access-axate__container p.sub-text {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #7F848F;
+}
+
+.amp-access-axate__container p.highlight {
+  color: #1BB580;
+}
+
+.amp-access-axate__gauge {
+  margin: 2rem 0 1rem 0;
+}
+
+.amp-access-axate__footer__brand {
+  margin:0;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: left;
+}
+
+
+
+/* Jump to article utility */
+.amp-access-axate__article-link {
+  padding: 15px;
+  color: rgba(0,0,0,.5);
+  padding: 15px;
+}
+.amp-access-axate__container .amp-access-axate__article-link {
+  color: rgba(255, 255, 255, 1);
+}
+
+
+/* Notice */
+.amp-access-axate__notice {
+  font: 100% 'Source Sans Pro', sans-serif;
+  margin: .75rem; 
+  padding: 1rem; 
+  text-align: center;
+  box-shadow: 0 0 10px -6px rgba(0,0,0,.25);
+  border: 1px solid rgba(0,0,0,.075);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.amp-access-axate__notice h5.amp-access-axate__notice__logo {
+  display: inline-block;
+  width: 81px;
+  justify-content: space-between;
+  height: 0; 
+  padding-top: 16px;
+  margin: .75rem;
+  background-size: 81px;
+  background-repeat: no-repeat;
+  background-image: url('https://axate-amp.s3.eu-west-2.amazonaws.com/images/logo-axate-dark-transparent.svg');
+  overflow: hidden;
+}
+
+.amp-access-axate__notice .amp-access-axate__notice-text {
+  position: relative;
+  font-size: 14px;
+  width: 100%;
+  display: inline-block;
+}
+.amp-access-axate__notice .amp-access-axate__notice-text h5 {
+  font-size: 16px;
+  margin: 1rem 0;
+}
+
+.amp-access-axate__notice h2 {
+  font-size: 20px;
+  text-align: left;
+  display: block;
+  margin: 0 0 1rem 0;
+  width: 100%;
+
+}
+.amp-access-axate__notice p {
+  text-align: left;
+  display: block;
+  margin: 0 0 1rem 0;
+  width: 100%;
+}
+.amp-access-axate__notice small {
+  text-align: left;
+  display: block;
+  font-size: 11px;
+  color: #acacac;
+}
+
+
+.amp-access-axate__notice footer p {
+  margin-top: 1rem;
+  font-size: 1rem;
+}
+.amp-access-axate__notice footer a {
+ text-decoration: underline;
+ cursor: pointer;
+}
+.amp-access-axate__footer__left {
+  flex: 1;
+  text-align: left;
+  color: rgba(255,255,255,.5);
+}
+.amp-access-axate__footer__center {
+  flex: 1;
+  text-align: center;
+  color: rgba(255,255,255,.5);
+}
+.amp-access-axate__footer__right {
+  flex: 1;
+  text-align: right;
+  color: rgba(255,255,255,.5);
+}
+
+
+.amp-access-axate-logo__container {
+  display: inline-block;
+  width: 81px;
+  height: 0; 
+  padding-top: 16px;
+  margin: 1rem; 
+  background-size: 81px;
+  background-repeat: no-repeat;
+  background-image: url('https://axate-amp.s3.eu-west-2.amazonaws.com/images/logo-axate-light-transparent.svg');
+  overflow: hidden;
+}
+
+
+.amp-access-axate__balance__container {
+}
+.amp-access-axate__balance__amount {
+  font-size: 45px;
+  clear: both;
+  display: block;
+  margin: 0;
+}
+.amp-access-axate__balance__subtitle {
+  font-size: 1rem;
+  display: block;
+  color: rgba(255,255,255,.5);
+  clear: both;
+}
+
+
+
+/* Buttons */
+
+.amp-access-axate__button {
+  opacity: 0.9;
+  transition: 0.4s;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem;
+  background: #1BB580;
+  color: white;
+  border-radius: 2rem;
+  border: none;
+  align-items: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  margin: .5rem 0 .75rem 0;
+  padding: .5rem 2.5rem;
+  position: relative;
+}
+
+.amp-access-axate__button:hover, 
+.amp-access-axate__button:active {
+  opacity: 1; 
+}
+
+.amp-access-axate__button--thin {
+  width: auto;
+}
+
+.amp-access-axate__button--danger {
+  background: #D75452;
+}
+
+.amp-access-axate__button--secondary {
+  background: #6f7490;
+}
+
+
+
+/* Toggle */
+.amp-access-axate__toggle-container {
+  display: block;
+}
+input.amp-access-axate__toggle-checkbox[type=checkbox] {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+label.amp-access-axate__toggle-label {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  text-indent: -9999px;
+	width: 55px;
+	height: 26px;
+	background-color: #d0001b;
+	display: block;
+	border-radius: 50px;
+  position: relative;
+  transition: 0.3s;
+  float: left;
+  margin: 5px 0 0 0;
+}
+
+label.amp-access-axate__toggle-label::before {
+  z-index: 2;
+  content: 'QWERTYUIOP';
+  top: 0; 
+  left: 0;
+  position: absolute;
+  width: 55px;
+  height:  26px;
+  display: block;
+  /* outline: 1px solid purple; */
+  /* background: purple; */
+  /* color: purple; */
+}
+
+label.amp-access-axate__toggle-label:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 20px;
+	transition: 0.3s;
+}
+
+p.amp-access-axate__toggle-text {
+  float: right;
+  width: 75%;
+  font-size: 80%;  
+  display: block;
+}
+p.amp-access-axate__toggle-text strong, 
+p.amp-access-axate__toggle-text span {
+  width: 100%;
+  display: inline-block;
+  clear: both;
+}
+
+
+input.amp-access-axate__toggle-checkbox[type="checkbox"]:checked + label.amp-access-axate__toggle-label {
+  background-color: #1fb580;
+}
+input.amp-access-axate__toggle-checkbox[type="checkbox"]:checked + label.amp-access-axate__toggle-label:after {
+	left: calc(100% - 3px);
+	transform: translateX(-100%);
+}
+label.amp-access-axate__toggle-label:active:after {
+	width: 30px;
+}
+.amp-access-axate__toggle-button-container {
+  display: block;
+  text-align: center;
+  clear: both;
+}
+.amp-access-axate__toggle-button-container[data-axate-action] {
+  text-align: center;
+}
+.amp-access-axate__toggle-button-container [data-axate-action="toggle-checked"] {
+  display: none;
+}
+.amp-access-axate__toggle-button-container [data-axate-action="toggle-unchecked"] {
+  display: inline-block;
+}
+
+input.amp-access-axate__toggle-checkbox:checked ~ .amp-access-axate__toggle-button-container [data-axate-action="toggle-unchecked"] {
+  display: none;
+}
+input.amp-access-axate__toggle-checkbox:checked ~ .amp-access-axate__toggle-button-container [data-axate-action="toggle-checked"] {
+  display: inline-block;
+}
+
+
+
+
+
+
+/**
+ * DEBUG OPTIONS
+ - Toggle any of the following on or off to demo styles and comprimises closer to the current wallet and notice implwemntation 
+ */
+
+
+/* Share date with publication small print (purely visual) */
+/* .amp-access-axate__toggle-button-container::before {
+  outline: 1px solid red;
+  content: "Small print can live here, but it's purely decorative.";
+  position: relative;
+  margin: 10px 0;
+  display: block;
+  font-size: 12px;
+  color: #acacac;
+} */
+
+
+
+
+.amp-access-axate__notice-text,
+.amp-access-axate__toggle-container {
+  position: relative;
+  padding: 0 15px;
+  width: 100%;
+  display: inline-block;
+}
+.amp-access-axate__toggle-container .amp-access-axate__toggle-button-container  {
+  /* Note: settig background colour is super hacky */
+  margin: 0 -15px;
+  padding: 10px 0 10px 0;
+}
+
+
+
+/* DEBUG - Uncomment out for background colour on notice */
+.amp-access-axate__notice-text.amp-access-axate__notice-bold,
+.amp-access-axate__toggle-container.amp-access-axate__notice-bold {
+  background: rgba(27,181,128,.25);
+}
+.amp-access-axate__toggle-container.amp-access-axate__notice-bold .amp-access-axate__toggle-button-container  {
+  /* Note: settig background colour is super hacky */
+  background: rgba(255, 255, 255, 1);
+}
+
+
+/* Pricing */
+
+.amp-access-axate__pricing {
+  background: #505766; 
+  padding: 1.75rem 0 0.75rem 0;
+  border-radius: 0.25rem;
+  display: flex;
+}
+.amp-access-axate__pricing__item{
+      width: 50%;
+      text-align: center;
+}
+
+.amp-access-axate__pricing__item--first {
+  border-right: 1px solid #2E3646;
+}
+.amp-access-axate__pricing__item__amount {
+  display: inline-block;
+}
+
+.amp-access-axate__pricing__item__price {
+  font-weight: 600;
+}
+
+/* Warning */
+
+.amp-access-axate__warning {
+  background:#D75452;
+  padding: 1.5rem;
+  margin: 1rem 0; 
+  color:#fff;
+}
+p.amp-access-axate__warning__text {
+  margin: 0rem; 
+}
+
