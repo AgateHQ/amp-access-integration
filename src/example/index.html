@@ -319,7 +319,7 @@
                   <h5>You have chosen to authorise every charge</h5>
                   <p>
                     This article is {{publisher.article_cost}} but you will never pay more than {{publisher.cap_cost}}
-                    per week for &#x7B;publication.name&#x7D;.
+                    per week for {{publicationName}}.
                   </p>
                 </div>
                 <div class="amp-access-axate__toggle-container">
@@ -376,13 +376,13 @@
                   role="button">
                   Add funds
                 </button>
-                <small><code>[TODO - Request &#x7B;publication.name&#x7D;]</code> is published independently of
+                <small>{{publicationName}} is published independently of
                   Axate.</small>
                 {{/is_show_finish_no_funds_notice}}
                 {{#is_show_finish_notice}}
                 <div class="amp-access-axate__notice-text amp-access-axate__notice-bold">
                   <h5>Tap OK to pay {{publisher.article_cost}}</h5>
-                  <p>You’ll never pay more than {{publisher.cap_cost}} per week for &#x7B;publication.name&#x7D;.</p>
+                  <p>You’ll never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.</p>
                   <p>Do you want to approve all charges on this site?</p>
                 </div>
                 <div class="amp-access-axate__toggle-container amp-access-axate__notice-bold">
@@ -404,7 +404,7 @@
                   </div>
                 </div>
                 <small>
-                  &#x7B;publication.name&#x7D; is published independently of
+                  {{publicationName}} is published independently of
                   Axate.
                 </small>
                 {{/is_show_finish_notice}}
