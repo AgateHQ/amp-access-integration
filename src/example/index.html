@@ -308,6 +308,8 @@
           <a class="amp-access-axate__article-link" href="#">Jump to article</a>
           <div amp-access="NOT error AND loggedIn">
             <template amp-access-template type="amp-mustache">
+
+              {{#isNotice}}
               <main class="amp-access-axate__notice">
                 {{#notice}}
                 <h5 class="amp-access-axate__notice__logo">Axate</h5>
@@ -414,6 +416,9 @@
                 {{/type}}
                 {{/notice}}
               </main>
+
+              {{/isNotice}}
+
             </template>
           </div>
 
@@ -542,14 +547,14 @@
                       <div class="settings-panel">
                         <ul>
                           <li class="amp-access-axate__setting-icon__account">
-                            <a data-ui="button" title="Account" href="javascript:alert('DEBUG: Link to accoount page')">
+                            <a data-ui="button" title="Account" href="https://{{accountUrl}}/my-agate/account" target="_blank">
                               <div></div>
                               <span>Account</span>
                             </a>
                           </li>
                           <li class="amp-access-axate__setting-icon__help">
                             <a data-ui="button" title="Help"
-                              href="javascript:alert('DEBUG - Link to account documentation')">
+                              href="mailto&su=I+have+feedback+or+a+question+(My+ID+is:+{{READER_ID}})&to=support@axate.com" target="_blank">
                               <div></div>
                               <span>Help</span>
                             </a>
@@ -572,7 +577,7 @@
                   </header>
                   <main class="amp-access-axate__main">
                     <div class="section_publication_name">
-                      <h3>&#x7B;publication.name&#x7D;</h3>
+                      <h3>{{publicationName}}</h3>
                     </div>
                     <div class="section_cost">
                       <p>Free point/week:</p>
