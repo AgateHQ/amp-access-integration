@@ -31,7 +31,7 @@ module.exports = {
       { from: path.resolve(__dirname, '../src/example/index.html'), to: 'debug-001.html' },
       { from: path.resolve(__dirname, '../src/example/index.html'), to: 'debug-002.html' },
       { from: path.resolve(__dirname, '../src/assets/css'), to: 'css' },
-      { from: path.resolve(__dirname, '../src/assets/images'), to: 'images' },
+      { from: path.resolve(__dirname, '../src/assets/images'), to: 'images' }, 
     ]),
   ]
 }

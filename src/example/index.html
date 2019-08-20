@@ -10,6 +10,8 @@
   <link type="text/css" rel="stylesheet" href="./axate.css" />
   <link type="text/css" rel="stylesheet" href="./main.css" />
 
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+
   <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
   <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
   <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
@@ -48,6 +50,7 @@
       from {
         visibility: hidden
       }
+
       to {
         visibility: visible
       }
@@ -57,6 +60,7 @@
       from {
         visibility: hidden
       }
+
       to {
         visibility: visible
       }
@@ -66,6 +70,7 @@
       from {
         visibility: hidden
       }
+
       to {
         visibility: visible
       }
@@ -75,6 +80,7 @@
       from {
         visibility: hidden
       }
+
       to {
         visibility: visible
       }
@@ -84,6 +90,7 @@
       from {
         visibility: hidden
       }
+
       to {
         visibility: visible
       }
@@ -100,8 +107,6 @@
     </style>
   </noscript>
 
-  <script async src="https://cdn.ampproject.org/v0.js"></script>
-  
   <script src="./main.js"></script><!-- WebPack's JS Bundle -->
 
 </head>
@@ -332,10 +337,13 @@
                   <label class="amp-access-axate__toggle-label" for="authorise-charge">
                   </label>
                   <div class="amp-access-axate__toggle-button-container">
-                    <button class="amp-access-axate__button amp-access-axate__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = OFF">
+                    <button class="amp-access-axate__button amp-access-axate__button--thin"
+                      data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-true"
+                      title="Autocharge = OFF">
                       Continue Reading
                     </button>
-                    <button class="amp-access-axate__button amp-access-axate__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-false"
+                    <button class="amp-access-axate__button amp-access-axate__button--thin"
+                      data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-false"
                       title="Autocharge = ON">
                       Continue Reading
                     </button>
@@ -395,7 +403,9 @@
                   <input class="amp-access-axate__toggle-checkbox" id="set-threshold-toggle" type="checkbox" checked />
                   <label class="amp-access-axate__toggle-label" for="set-threshold-toggle"></label>
                   <div class="amp-access-axate__toggle-button-container">
-                    <button class="amp-access-axate__button amp-access-axate__button--thin " data-axate-action="toggle-checked" role="button"on="tap:amp-access.login-set-threshold-yes" title="OK - Yes, charge me automatically">
+                    <button class="amp-access-axate__button amp-access-axate__button--thin "
+                      data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes"
+                      title="OK - Yes, charge me automatically">
                       OK
                     </button>
                     <button class="amp-access-axate__button amp-access-axate__button--thin "
@@ -547,20 +557,21 @@
                       <div class="settings-panel">
                         <ul>
                           <li class="amp-access-axate__setting-icon__account">
-                            <a data-ui="button" title="Account" href="https://{{accountUrl}}/my-agate/account" target="_blank">
+                            <a data-ui="button" title="Account" href="https://{{accountUrl}}/my-agate/account"
+                              target="_blank">
                               <div></div>
                               <span>Account</span>
                             </a>
                           </li>
                           <li class="amp-access-axate__setting-icon__help">
                             <a data-ui="button" title="Help"
-                              href="mailto&su=I+have+feedback+or+a+question+(My+ID+is:+{{READER_ID}})&to=support@axate.com" target="_blank">
+                              href="mailto:support@axate.com?subject=I have feedback or a question (My ID is: {{wallet.id}})">
                               <div></div>
                               <span>Help</span>
                             </a>
                           </li>
                           <li class="amp-access-axate__setting-icon__feedback">
-                            <a data-ui="button" title="Help " href="mailto:support@axate.com?subject=Report a bug">
+                            <a data-ui="button" title="Feedback" href="mailto:support@axate.com?subject=Report a bug">
                               <div></div>
                               <span>Feedback</span>
                             </a>
