@@ -44,7 +44,7 @@ div(id="axate")
 				p.
 					We recently ditched banner ads on our site in favour of a more sustainable, less intrusive solution.
 				p.
-					Just create a wallet with our payment partner Agate and you'll be good to go. 
+					Just create a wallet with our payment partner Agate and you'll be good to go.
 					Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week
 				button(on="tap:amp-access.login-sign-up" class="axate-amp__button" role="button" ref="buttonLogin").
 					Pay per article
@@ -61,23 +61,23 @@ div(amp-access="NOT error AND loggedIn")
 		| {{#isNotice}}
 		main(class="axate-amp__notice")
 			| {{#notice}}
-			h5(class="axate-amp__notice__logo") Axate 
+			h5(class="axate-amp__notice__logo") Axate
 			h2 {{title}}
 			p {{description}}
 				| {{#type}}
 				| {{#is_amount_gt_threshold}}
 				div(class="axate-amp__notice-text")
 					h5 You have chosen to authorise every charge
-					p.
+					p(class="axate-amp__notice-threshold").
 						This article is {{publisher.article_cost}} but you will never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.
 					div(class="axate-amp__toggle-container")
 						p(class="axate-amp__toggle-text")
 							span Charge me automatically
-							input(class="axate-amp__toggle-checkbox" id="authorise-charge" type="checkbox")
-							label(class="axate-amp__toggle-label" for="authorise-charge")
-							div(class="axate-amp__toggle-button-container")
-								button(class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = OFF") Continue Reading
-								button(class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-false" title="Autocharge = ON") Continue Reading
+						input(class="axate-amp__toggle-checkbox" id="authorise-charge" type="checkbox")
+						label(class="axate-amp__toggle-label" for="authorise-charge")
+						div(class="axate-amp__toggle-button-container")
+							button(class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = OFF") Continue Reading
+							button(class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-false" title="Autocharge = ON") Continue Reading
 					| {{/is_amount_gt_threshold}}
 					| {{#is_insuf_balance}}
 					code Insufficient Balance Warning/Notice
@@ -94,7 +94,7 @@ div(amp-access="NOT error AND loggedIn")
 						input(class="axate-amp__toggle-checkbox" id="set-threshold-toggle" type="checkbox" checked)
 						label(class="axate-amp__toggle-label" for="set-threshold-toggle")
 						div(class="axate-amp__toggle-button-container")
-							button(class="axate-amp__button axate-amp__button--thin" 
+							button(class="axate-amp__button axate-amp__button--thin"
 						data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes"
 						title="Autocharge = ON") Confirm &amp; Continue Reading for {{publisher.article_cost}}
 						button(class="axate-amp__button axate-amp__button--thin"
@@ -158,10 +158,10 @@ div(amp-access="NOT error AND loggedIn")
 								div(class="axate-amp__information")
 									div(class="axate-pricing-container")
 										p(class="axate-pricing-per-article")
-											strong {{publisher.article_cost}} 
-												span per article
+											strong {{publisher.article_cost}}
+											span per article
 										p(class="axate-pricing-per-week")
-										strong {{publisher.cap_cost}} 
+											strong {{publisher.cap_cost}}
 											span free point/per week
 									div(class="axate-gauge-container")
 										svg(class="axate-gauge" width="120" height="120" viewBox="0 0 120 120")
@@ -222,12 +222,12 @@ div(amp-access="NOT error AND loggedIn")
 					main(class="axate-amp__main")
 						div(class="axate-amp__section_publication_name")
 							h3 {{publicationName}}
-							div(class="axate-amp__section_cost")
-								p Free point/week:
-								span(class="axate-amp__currency_amount") {{publisher.cap_cost}}
-								p(class="axate-amp__section_smalltext") (updates on Mon Aug 12 2019)
-								p(class="axate-amp__section_description").
-									Once you spend {{publisher.cap_cost}} in a week your free reading continues until Mon Aug 12 2019.
+						div(class="axate-amp__section_cost")
+							p Free point/week:
+							span(class="axate-amp__currency_amount") {{publisher.cap_cost}}
+							p(class="axate-amp__section_smalltext") (updates on Mon Aug 12 2019)
+							p(class="axate-amp__section_description").
+								Once you spend {{publisher.cap_cost}} in a week your free reading continues until Mon Aug 12 2019.
 
 			| {{/wallet}}
 
