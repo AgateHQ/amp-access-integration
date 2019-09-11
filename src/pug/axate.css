@@ -1,13 +1,10 @@
 /**
  * Axate AMP - Manual/Custom Integration - Alpha
  */
-
- /* *:hover {
+/* *:hover {
    outline: 1px dotted rgba(255,0,0,.75);
  } */
-
  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap');
-
  [data-axate-debug="messages"] {
    pointer-events: none;
    position: fixed;
@@ -15,7 +12,6 @@
    right: 15px;
    font: 10px monospace;
  }
-
  [data-axate-debug="msg"] {
    background: dodgerblue;
    opacity: .75;
@@ -23,17 +19,12 @@
    padding: 5px 10px;
    margin: 0 0 5px 0;
  }
-
  [amp-access="error"] {
    background: firebrick;
  }
-
-
-
-
  /**
-  * Walet Handle
-  */
+   * Walet Handle
+   */
  .axate__wallet-handle {
    z-index: 9999;
    position: fixed;
@@ -43,7 +34,6 @@
    height: 36px;
    border-radius: 0 4px 4px 0;
  }
-
  .axate__wallet-handle a {
    width: 36px;
    height: 36px;
@@ -57,12 +47,10 @@
    background-repeat: no-repeat;
    background-size: 24px;
  }
-
  .axate__wallet-handle .axate-amp__status__default {
    background-color: #1BB580;
  }
  .axate__wallet-handle > .axate-amp__status__free {
-   /* TODO - Add free point background image */
  }
  .axate__wallet-handle .axate-amp__status__warning,
  .axate__wallet-handle .axate-amp__status__balance-low {
@@ -71,19 +59,14 @@
  .axate__wallet-handle .axate-amp__status__error {
    background-color: #D9534F;
  }
-
-
-
-.axate-amp__container {
+ .axate-amp__container {
    background: #333B4D;
    font-family: 'Source Sans Pro', sans-serif;
-   color:white;
+   color: white;
    text-align: center;
    overflow: hidden;
    position: relative;
  }
-
-
  input#axate-amp__wallet-flip {
    display: none;
  }
@@ -108,7 +91,6 @@
  input#axate-amp__wallet-flip + label[for="axate-amp__wallet-flip"] {
    background-image: url("data:image/svg+xml,%3Csvg width='14px' height='14px' viewBox='0 0 14 14' version='1.1' xmlns='http://www.w3.org/1999/xlink'%3E%3Cg stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg transform='translate(-232.000000, -15.000000)' fill='%23FFFFFF'%3E%3Cpolygon points='246 16.41 244.59 15 239 20.59 233.41 15 232 16.41 237.59 22 232 27.59 233.41 29 239 23.41 244.59 29 246 27.59 240.41 22'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
  }
-
  .axate-amp__wallet {
    -webkit-perspective: 1000;
    perspective: 1000;
@@ -131,16 +113,11 @@
    top: 0;
    width: 100%;
  }
-
-
  input#axate-amp__wallet-flip:checked ~ .axate-amp__wallet {
    transform: rotateY(180deg);
  }
- input#axate-amp__wallet-flip:checked ~ .axate-amp__wallet .axate-amp__front { }
- input#axate-amp__wallet-flip:checked ~ .axate-amp__wallet .axate-amp__back { }
-
-
-
+ input#axate-amp__wallet-flip:checked ~ .axate-amp__wallet .axate-amp__front {}
+ input#axate-amp__wallet-flip:checked ~ .axate-amp__wallet .axate-amp__back {}
  /* Wallet Back */
  .axate-amp__back .axate-amp__settings-panel {
    display: block;
@@ -208,8 +185,6 @@
    height: 17px;
    position: absolute;
  }
-
-
  .axate-amp__back .axate-amp__settings-panel > ul li a div {
    background-position: center;
    background-repeat: no-repeat;
@@ -231,37 +206,27 @@
    background-size: 17px;
    background-image: url("https://axate-amp.s3.eu-west-2.amazonaws.com/images/icon-settings-log-out.svg");
  }
-
-
  .axate-amp__back .axate-amp__main {
    text-align: left;
    padding: 0 40px 0 20px;
    float: left;
  }
-
  .axate-amp__back .axate-amp__main .axate-amp__currency_amount {
    color: #1bb580;
  }
-
  .axate-amp__back .axate-amp__main .axate-amp__section_smalltext {
    font-size: 12px;
    color: #bebebe;
  }
-
-
-
-
-
-
  .axate-amp__main {
    padding: 2.5rem .5rem;
    background: #333B4D;
+   border-top: 1px solid#595E6A;
  }
-
  .axate-amp__header {
    background: #2E3646;
    text-align: center;
-   border-bottom: 1px solid #595E6A;
+   /* border-bottom: 1px solid cyan; #595E6A; */
    width: 100%;
    padding: 0.5rem 0 0 0;
  }
@@ -271,7 +236,6 @@
    padding: .5rem 2.5rem;
    position: relative;
  }
-
  .axate-amp__footer {
    border-top: 1px solid #595E6A;
    padding: 1rem 1.5rem;
@@ -279,18 +243,13 @@
    display: flex;
    align-items: flex-end;
  }
-
-.axate-amp__footer a {
-  font-weight: normal;
-  text-decoration: underline;
-}
-
+ .axate-amp__footer a {
+   font-weight: normal;
+   text-decoration: underline;
+ }
  .axate-amp__information {
    display: flex;
  }
-
-
-
  .axate-pricing-container {
    position: relative;
    display: block;
@@ -301,33 +260,28 @@
    display: block;
    clear: both;
  }
- .axate-pricing-container p {
-
- }
+ .axate-pricing-container p {}
  .axate-pricing-container p strong {
    color: #1bb580;
    font-size: 1.25rem;
  }
  .axate-pricing-container p span {
    font-size: 1rem;
-   color: rgba(255,255,255,.75);
+   color: rgba(255, 255, 255, .75);
    font-size: .85rem;
    line-height: normal;
  }
-
-
  .axate-gauge-container {
    position: relative;
    display: block;
    flex: 1;
  }
-
  .axate-gauge-container svg {
    width: 135px;
    height: 135px;
    border-radius: 135px;
    transform: rotate(-90deg);
-   background:#2E3546;
+   background: #2E3546;
  }
  .axate-gauge-container .axate-gauge-inner-text {
    color: rgba(255, 255, 255, 1);
@@ -348,25 +302,19 @@
  .axate-gauge-container .axate-gauge-inner-text span {
    clear: both;
    display: block;
-   color: rgba(255,255,255,.75);
+   color: rgba(255, 255, 255, .75);
  }
-
-
  .axate-gauge-progress__meter,
  .axate-gauge-progress__value {
    fill: none;
  }
-
  .axate-gauge-container .axate-gauge-progress__meter {
    stroke: #2E3546;
  }
-
  .axate-gauge-container .axate-gauge-progress__value {
    stroke: #1BB580;
    stroke-linecap: round;
  }
-
-
  .axate-amp__section_publication_name h3 {
    font: 100% 'Source Sans Pro', sans-serif;
    font-size: 1.17em;
@@ -374,62 +322,51 @@
    padding: 0;
    margin: 1em 0px;
  }
-
  .axate-amp__container p {
    margin: 1rem 0 0 0;
    color: #fff;
  }
-
  .axate-amp__container p.sub-text {
    margin-top: 0.5rem;
    font-size: 0.85rem;
    color: #7F848F;
  }
-
  .axate-amp__container p.highlight {
    color: #1BB580;
  }
-
  .axate-amp__gauge {
    margin: 2rem 0 1rem 0;
  }
-
  .axate-amp__footer__brand {
-   margin:0;
+   margin: 0;
    font-size: 1.2rem;
    color: white;
    text-decoration: none;
    font-weight: 400;
    text-align: left;
  }
-
-
-
  /* Jump to article utility */
  .axate-amp__article-link {
    padding: 15px;
-   color: rgba(0,0,0,.5);
+   color: rgba(0, 0, 0, .5);
    padding: 15px;
  }
  .axate-amp__container .axate-amp__article-link {
    color: rgba(255, 255, 255, 1);
  }
-
-
  /* Notice */
  .axate-amp__notice {
    font: 100% 'Source Sans Pro', sans-serif;
    margin: .75rem;
    padding: 1rem;
    text-align: center;
-   box-shadow: 0 0 10px -6px rgba(0,0,0,.25);
-   border: 1px solid rgba(0,0,0,.075);
+   box-shadow: 0 0 10px -6px rgba(0, 0, 0, .25);
+   border: 1px solid rgba(0, 0, 0, .075);
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
    background-color: transparent;
  }
-
  .axate-amp__notice h5.axate-amp__notice__logo {
    display: inline-block;
    width: 81px;
@@ -442,7 +379,6 @@
    background-image: url('https://axate-amp.s3.eu-west-2.amazonaws.com/images/logo-axate-dark-transparent.svg');
    overflow: hidden;
  }
-
  .axate-amp__notice .axate-amp__notice-text {
    position: relative;
    font-size: 14px;
@@ -454,7 +390,6 @@
    margin: 1rem 0;
    color: #000;
  }
-
  .axate-amp__notice h2 {
    font-size: 20px;
    text-align: left;
@@ -463,7 +398,6 @@
    padding: 0px;
    width: 100%;
  }
-
  .axate-amp__notice p {
    text-align: left;
    display: block;
@@ -473,52 +407,44 @@
    font-size: 1rem;
    color: #fff;
  }
-
-.axate-amp__notice p.axate-amp__notice-threshold {
-  color: #000;
-}
-
+ .axate-amp__notice p.axate-amp__notice-threshold {
+   color: #000;
+ }
  .axate-amp__notice small {
    text-align: left;
    display: block;
    font-size: 11px;
    color: #acacac;
  }
-
-.axate-amp__notice footer,
-.axate-amp__header footer {
-  padding: 0px;
-  background-color: transparent;
-}
-
+ .axate-amp__notice footer,
+ .axate-amp__header footer {
+   padding: 0px;
+   background-color: transparent;
+ }
  .axate-amp__notice footer p {
    margin-top: 1rem;
    font-size: 1rem;
  }
-
  .axate-amp__notice footer a {
-  text-decoration: underline;
-  cursor: pointer;
-  color: #fff;
+   text-decoration: underline;
+   cursor: pointer;
+   color: #fff;
  }
-
  .axate-amp__footer__left {
    flex: 1;
    text-align: left;
-   color: rgba(255,255,255,.5);
+   color: rgba(255, 255, 255, .5);
  }
  .axate-amp__footer__center {
    flex: 1;
    text-align: center;
-   color: rgba(255,255,255,.5);
+   color: rgba(255, 255, 255, .5);
  }
  .axate-amp__footer__right {
    flex: 1;
    text-align: right;
-   color: rgba(255,255,255,.5);
+   color: rgba(255, 255, 255, .5);
  }
-
-
  .amp-access-axate-logo__container {
    display: inline-block;
    width: 81px;
@@ -530,10 +456,7 @@
    background-image: url('https://axate-amp.s3.eu-west-2.amazonaws.com/images/logo-axate-light-transparent.svg');
    overflow: hidden;
  }
-
-
- .axate-amp__balance__container {
- }
+ .axate-amp__balance__container {}
  .axate-amp__balance__amount {
    font-size: 45px;
    clear: both;
@@ -543,14 +466,10 @@
  .axate-amp__balance__subtitle {
    font-size: 1rem;
    display: block;
-   color: rgba(255,255,255,.5);
+   color: rgba(255, 255, 255, .5);
    clear: both;
  }
-
-
-
  /* Buttons */
-
  .axate-amp__button {
    opacity: 0.9;
    transition: 0.4s;
@@ -568,26 +487,19 @@
    padding: .5rem 2.5rem;
    position: relative;
  }
-
  .axate-amp__button:hover,
  .axate-amp__button:active {
    opacity: 1;
  }
-
  .axate-amp__button--thin {
    width: auto;
  }
-
  .axate-amp__button--danger {
    background: #D75452;
  }
-
  .axate-amp__button--secondary {
    background: #6f7490;
  }
-
-
-
  /* Toggle */
  .axate-amp__toggle-container {
    display: block;
@@ -613,21 +525,16 @@
    float: left;
    margin: 5px 0 0 0;
  }
-
  label.axate-amp__toggle-label::before {
    z-index: 2;
-   content: 'QWERTYUIOP';
+   content: '';
    top: 0;
    left: 0;
    position: absolute;
    width: 55px;
-   height:  26px;
+   height: 26px;
    display: block;
-   /* outline: 1px solid purple; */
-   /* background: purple; */
-   /* color: purple; */
  }
-
  label.axate-amp__toggle-label:after {
    content: '';
    position: absolute;
@@ -639,7 +546,6 @@
    border-radius: 20px;
    transition: 0.3s;
  }
-
  p.axate-amp__toggle-text {
    float: right;
    width: 75%;
@@ -653,8 +559,6 @@
    clear: both;
    color: #000;
  }
-
-
  input.axate-amp__toggle-checkbox[type="checkbox"]:checked + label.axate-amp__toggle-label {
    background-color: #1fb580;
  }
@@ -679,7 +583,6 @@
  .axate-amp__toggle-button-container [data-axate-action="toggle-unchecked"] {
    display: inline-block;
  }
-
  input.axate-amp__toggle-checkbox:checked ~ .axate-amp__toggle-button-container [data-axate-action="toggle-unchecked"] {
    display: none;
  }
@@ -687,93 +590,58 @@
    display: inline-block;
  }
 
-
-
-
-
-
- /**
-  * DEBUG OPTIONS
-  - Toggle any of the following on or off to demo styles and comprimises closer to the current wallet and notice implwemntation
-  */
-
-
- /* Share date with publication small print (purely visual) */
- /* .axate-amp__toggle-button-container::before {
-   outline: 1px solid red;
-   content: "Small print can live here, but it's purely decorative.";
-   position: relative;
-   margin: 10px 0;
-   display: block;
-   font-size: 12px;
-   color: #acacac;
- } */
-
-
-
-
- .axate-amp__notice-text,
+ .axate-amp__notice-text,x
  .axate-amp__toggle-container {
    position: relative;
    padding: 0 15px;
    width: 100%;
    display: inline-block;
  }
- .axate-amp__toggle-container .axate-amp__toggle-button-container  {
-   /* Note: settig background colour is super hacky */
+ .axate-amp__toggle-container .axate-amp__toggle-button-container {
+   /* Hacky */
    margin: 0 -15px;
    padding: 10px 0 10px 0;
  }
-
-.axate-amp__notice-text p {
-  color: #000;
-}
-
-
- /* DEBUG - Uncomment out for background colour on notice */
+ .axate-amp__notice-text p {
+   color: #000;
+ }
+ /* Note - Uncomment notice background colour */
  .axate-amp__notice-text.axate-amp__notice-bold,
  .axate-amp__toggle-container.axate-amp__notice-bold {
-   background: rgba(27,181,128,.25);
+   background: rgba(27, 181, 128, .25);
  }
- .axate-amp__toggle-container.axate-amp__notice-bold .axate-amp__toggle-button-container  {
-   /* Note: settig background colour is super hacky */
+ .axate-amp__toggle-container.axate-amp__notice-bold .axate-amp__toggle-button-container {
+   /* Hacky */
    background: rgba(255, 255, 255, 1);
  }
-
-
  /* Pricing */
-
  .axate-amp__pricing {
    background: #505766;
    padding: 1.75rem 0 0.75rem 0;
    border-radius: 0.25rem;
    display: flex;
  }
- .axate-amp__pricing__item{
-       width: 50%;
-       text-align: center;
+ .axate-amp__pricing__item {
+   width: 50%;
+   text-align: center;
  }
-
  .axate-amp__pricing__item--first {
    border-right: 1px solid #2E3646;
  }
  .axate-amp__pricing__item__amount {
    display: inline-block;
  }
-
  .axate-amp__pricing__item__price {
    font-weight: 600;
  }
-
  /* Warning */
-
  .axate-amp__warning {
-   background:#D75452;
+   background: #D75452;
    padding: 1.5rem;
    margin: 1rem 0;
-   color:#fff;
+   color: #fff;
  }
-
  p.axate-amp__warning__text {
    margin: 0rem;
  }
+ 

@@ -1,22 +1,23 @@
 //- Axate AMP
 
-//- Axate AMP Stylesheet
 
-style
+//- As you already have many of the same AMP features we use 
+//- included in your AMP template, I've stripped them out of this include
+
+
+//- Axate AMP Stylesheet
+//- Note: it would be best to include this CSS as is
+style(amp-custom)
 	include axate.css
 
-link(type='text/css' rel='stylesheet' href='https://agate-amp.s3.eu-west-2.amazonaws.com/css/main.css')
+script(async, src="https://cdn.ampproject.org/v0.js")
 
-//- AMP Init - https://amp.dev/documentation/
-script(async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0.js")
-
-//- AMP Components - https://amp.dev/documentation/components/
-script(async src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
-script(async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js")
-script(async custom-element="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js")
+script(async, async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
+script(async, custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js")
+script(async, custom-element='amp-mustache', src='https://cdn.ampproject.org/v0/amp-mustache-0.2.js')
 
 //- AMP Access - https://amp.dev/documentation/components/amp-access/
-script(id="amp-access" type="application/json").
+script(id='amp-access', type='application/json').
 	{
 		"noPingback": true,
 		"authorization": "https://staging.agate.io/api/authorisation?domain=CANONICAL_URL&rid=READER_ID&url=CANONICAL_URL&premium=true",
@@ -35,62 +36,3 @@ script(id="amp-access" type="application/json").
 			"user": false
 		}
 	}
-
-	
-style(amp-boilerplate type="text/css").
-	body {
-		-webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-		-moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-		-ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
-		animation: -amp-start 8s steps(1, end) 0s 1 normal both
-	}
-	@-webkit-keyframes -amp-start {
-		from {
-			visibility: hidden
-		}
-		to {
-			visibility: visible
-		}
-	}
-	@-moz-keyframes -amp-start {
-		from {
-			visibility: hidden
-		}
-		to {
-			visibility: visible
-		}
-	}
-	@-ms-keyframes -amp-start {
-		from {
-			visibility: hidden
-		}
-		to {
-			visibility: visible
-		}
-	}
-	@-o-keyframes -amp-start {
-		from {
-			visibility: hidden
-		}
-		to {
-			visibility: visible
-		}
-	}
-	@keyframes -amp-start {
-		from {
-			visibility: hidden
-		}
-		to {
-			visibility: visible
-		}
-	}
-
-noscript
-	style(amp-boilerplate).
-		body {
-			-webkit-animation: none;
-			-moz-animation: none;
-			-ms-animation: none;
-			animation: none
-		}
-
