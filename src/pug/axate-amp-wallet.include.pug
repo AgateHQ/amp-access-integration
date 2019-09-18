@@ -90,7 +90,7 @@ div(amp-access='NOT error AND loggedIn')
           div.axate-amp__notice-text
           div.axate-amp__toggle-container
           p.axate-amp__toggle-text
-            span Charge me automatically for &#x7B;publisher.name&#x7D; from now on
+            span Charge me automatically for {{publisher.name}} from now on
             input.axate-amp__toggle-checkbox(id='set-threshold-toggle', type='checkbox', checked)
             label.axate-amp__toggle-label(for='set-threshold-toggle')
             div.axate-amp__toggle-button-container
@@ -104,7 +104,7 @@ div(amp-access='NOT error AND loggedIn')
           | {{#is_show_finish_notice}}
           div.axate-amp__notice-text axate-amp__notice-bold
             h5 Tap OK to pay {{publisher.article_cost}}
-            p You’ll never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.
+            p You’ll never pay more than {{publisher.cap_cost}} per week for {{publisher.name}}.
             p Do you want to approve all charges on this site?
             div.axate-amp__toggle-container axate-amp__notice-bold
             p.axate-amp__toggle-text
