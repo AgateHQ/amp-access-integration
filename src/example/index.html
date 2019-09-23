@@ -362,20 +362,22 @@
 										<h5>Tap OK to pay {{publisher.article_cost}}</h5>
 										<p>You’ll never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.</p>
 										<p>Do you want to approve all charges on this site?</p>
-										<div class="axate-amp__toggle-container">axate-amp__notice-bold</div>
-										<p class="axate-amp__toggle-text"><strong>Yes, charge me automatically</strong><br>
+										<div class="axate-amp__toggle-container axate-amp__notice-bold">
+										  <p class="axate-amp__toggle-text"><strong>Yes, charge me automatically</strong><br>
 											<span>
-												Switch off to approve each charge</span></p><input class="axate-amp__toggle-checkbox"
+                        Switch off to approve each charge</span></p>
+                        <input class="axate-amp__toggle-checkbox"
 											id="set-threshold-toggle" type="checkbox" checked><label class="axate-amp__toggle-label"
 											for="set-threshold-toggle"></label>
-										<div class="axate-amp__toggle-button-container">
-											<button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="OK - Yes, charge me automatically">
-												OK
-											</button>
-											<button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="OK - No, I would like to manually authorise charges">
-												OK
-											</button>
-										</div>
+                      <div class="axate-amp__toggle-button-container">
+                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="OK - Yes, charge me automatically">
+                          OK
+                        </button>
+                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="OK - No, I would like to manually authorise charges">
+                          OK
+                        </button>
+                      </div>
+                    </div>
 										<small>{{publicationName}} is published independently of Axate.</small>
 									</div>
 									{{/is_show_finish_notice}}
