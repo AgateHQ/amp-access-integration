@@ -327,11 +327,21 @@
 										</div>
 									</div>
 									{{/is_amount_gt_threshold}}
-									{{#is_insuf_balance}}
-									<code>Insufficient Balance Warning/Notice</code>
-									{{/is_insuf_balance}}
-									{{#is_new_pricing}}
-									<code>Updated Publication Pricing</code>
+                  {{#is_insuf_balance}} 
+                    <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
+                      Add funds
+                    </button>
+                    <a class="axate-amp__status__balance-low" href="#axate"></a>
+									{{/is_insuf_balance}} 
+							    {{#is_new_pricing}}
+                    <p>Publication Pricing Updated</p>
+                    <div class="axate-amp__toggle-button-container"><button class="axate-amp__button axate-amp__button--thin"
+                        data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes"
+                        title="Autocharge = ON">Confirm &amp;
+                        Continue Reading for {{publisher.article_cost}}</button></div><button
+                      class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button"
+                      on="tap:amp-access.login-set-threshold-no" title="Autocharge = OFF">Confirm &amp;
+                      Continue Reading for {{publisher.article_cost}}</button>
 									{{/is_new_pricing}}
 									{{#is_new_publication}}
 									<div class="axate-amp__notice-text"></div>
