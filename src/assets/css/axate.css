@@ -33,7 +33,7 @@
    width: 36px;
    height: 36px;
    border-radius: 0 4px 4px 0;
- }
+  }
  .axate__wallet-handle a {
    width: 36px;
    height: 36px;
@@ -47,6 +47,18 @@
    background-repeat: no-repeat;
    background-size: 24px;
  }
+
+ .axate__wallet-handle a:before {
+  content: '';
+  position: absolute;
+  top: calc(10px * -1); 
+  left: calc(10px * -1); 
+  right: calc(10px * -1); 
+  bottom: calc(10px * -1); 
+  border: 1px solid rgba(0,0,0,0);
+}
+
+
  .axate__wallet-handle .axate-amp__status__default {
    background-color: #1BB580;
  }
