@@ -40,6 +40,16 @@ module.exports = {
     }),
     new CopyPlugin([
       { from: path.resolve(__dirname, '../src/example/index.html'), to: 'index.html' },
+
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-1.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-2.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-3.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-4.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-5.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-6.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-7.html' },
+      { from: path.resolve(__dirname, '../src/example/index.html'), to: 'page-8.html' },
+
       { from: path.resolve(__dirname, '../src/assets/images'), to: 'images' },
       { from: path.resolve(__dirname, '../src/assets/css'), to: 'css' },
     ]),
