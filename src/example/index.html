@@ -270,16 +270,27 @@
 				-->
 				<!-- Axate AMP - Component - Wallet Handle -->
 				<div class="axate__wallet-handle">
-					<div amp-access="NOT error"><template amp-access-template type="amp-mustache">{{^notice}}<a
-								class="axate-amp__status__default" href="#axate"></a>{{/notice}}
+					<div amp-access="NOT error">
+						<template amp-access-template type="amp-mustache">
+							{{^notice}}
+							<a class="axate-amp__status__default" href="#axate"></a>
+							{{/notice}}
 							{{#notice}}
 							{{#type}}
-							{{^is_insuf_balance}}<a class="axate-amp__status__default" href="#axate"></a>{{/is_insuf_balance}}
-							{{#is_insuf_balance}}<a class="axate-amp__status__balance-low" href="#axate"></a>{{/is_insuf_balance}}
+							{{#is_insuf_balance}}
+							<a class="axate-amp__status__balance-low" href="#axate"></a>
+							{{/is_insuf_balance}}
+							{{#is_show_finish_no_funds_notice}}
+							<a class="axate-amp__status__balance-nil" href="#axate"></a>
+							{{/is_show_finish_no_funds_notice}}
 							{{/type}}
-							{{/notice}}</template>
-						<div amp-access="error"><template amp-access-template type="amp-mustache"><a
-									class="axate-amp__status__error" href="#axate" amp-access="error"></a></template></div>
+							{{/notice}}
+						</template>
+						<div amp-access="error">
+							<template amp-access-template type="amp-mustache">
+								<a class="axate-amp__status__error" href="#axate" amp-access="error"></a>
+							</template>
+						</div>
 					</div>
 				</div>
 				<div id="axate">
@@ -318,10 +329,10 @@
 											class="axate-amp__toggle-checkbox" id="authorise-charge" type="checkbox"><label
 											class="axate-amp__toggle-label" for="authorise-charge"></label>
 										<div class="axate-amp__toggle-button-container">
-											<button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = OFF">
+											<button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-false" title="Autocharge = OFF">
 												Continue Reading
 											</button>
-											<button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-false" title="Autocharge = ON">
+											<button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = ON">
 												Continue Reading
 											</button>
 										</div>
@@ -329,7 +340,7 @@
 									{{/is_amount_gt_threshold}}
                   {{#is_insuf_balance}} 
                     <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
-                      Add funds
+                    	Add funds
                     </button>
                     <a class="axate-amp__status__balance-low" href="#axate"></a>
 									{{/is_insuf_balance}} 

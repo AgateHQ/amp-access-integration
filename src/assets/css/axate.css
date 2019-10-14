@@ -68,7 +68,8 @@
  .axate__wallet-handle .axate-amp__status__balance-low {
    background-color: #F0AD4E;
  }
- .axate__wallet-handle .axate-amp__status__error {
+ .axate__wallet-handle .axate-amp__status__error,
+ .axate__wallet-handle .axate-amp__status__balance-nil {
    background-color: #D9534F;
  }
  .axate-amp__container {
