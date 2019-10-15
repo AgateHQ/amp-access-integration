@@ -300,6 +300,7 @@
    color: rgba(255, 255, 255, 1);
    text-align: center;
    position: absolute;
+   padding-top: 25px;
    top: 0;
    right: 0;
    bottom: 0;
@@ -308,7 +309,6 @@
  .axate-gauge-container .axate-gauge-inner-text strong {
    clear: both;
    display: block;
-   padding-top: 16px;
    font-size: 22px;
    color: #1bb580;
  }
@@ -317,6 +317,11 @@
    display: block;
    color: rgba(255, 255, 255, .75);
  }
+
+ .axate-gauge-container .axate-gauge-inner-text.axate-gauge-inner-free {
+  padding-top: 14px;
+ }
+
  .axate-gauge-progress__meter,
  .axate-gauge-progress__value {
    fill: none;
