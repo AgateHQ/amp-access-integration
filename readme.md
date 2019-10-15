@@ -8,7 +8,7 @@
 ## Axate AMP Sample Code
 
 > Please note: these docs are actively in development, and are a work in progress
-> If there are any changes or requests you have for this code sample, please let us know at dev@agate.io, [file an issue](https://github.com/AgateHQ/axate-amp-sample-code/issues/new) or [create make a PR](https://github.com/AgateHQ/axate-amp-sample-code/compare).  
+> If there are any changes or requests you have for this code sample, please let us know at dev@agate.io, [file an issue](https://github.com/AgateHQ/axate-amp-sample-code/issues/new) or [create a PR](https://github.com/AgateHQ/axate-amp-sample-code/compare).  
 
 ### Instructions
 
