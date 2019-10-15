@@ -23,16 +23,24 @@ Use this sample code as a starting point for your own custom Axate or AMP integr
 * `yarn` or `npm install`
 * `yarn start` or `npm run start`
 
-
 _If you'd like to deploy an instance to S3, we use the BBC's [`webpack-s3-uploader`](https://github.com/bbc/webpack-s3-uploader).  
 See it's documentation and `webpack/prod.config.js`._
-
 
 
 ### [Axate AMP Live Demo](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html)
 
 > Please view with a mobile aspect ratio or with: [Google Chrome's Device Mode](https://developers.google.com/web/tools/chrome-devtools/device-mode/), [Firefox's Responsive Design Mode](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_Mode) or [Safari's Responsive Design Mode (38min video)](https://developer.apple.com/videos/play/wwdc2015/505/)
 
+
+
+### Usage
+
+This demo contains 9 dummy articles for testing wallet authorisation and wallet depletion:
+
+* Homepage/Index: [`/index.html`](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html)
+* Pages 1-8: [`/page-1.html`](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html) to [`/page-8.html`](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html)
+
+For more information on using Axate, see [Integrating witb Axate](https://github.com/AgateHQ/axate-developer-docs/blob/master/docs/readme.md)
 
 
 
