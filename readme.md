@@ -40,7 +40,7 @@ This demo contains 9 dummy articles for testing wallet authorisation and wallet 
 * Homepage/Index: [`/index.html`](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html)
 * Pages 1-8: [`/page-1.html`](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html) to [`/page-8.html`](https://axate-amp.s3.eu-west-2.amazonaws.com/index.html)
 
-For more information on using Axate, see [Integrating witb Axate](https://github.com/AgateHQ/axate-developer-docs/blob/master/docs/readme.md)
+For more information on using Axate, see [Integrating with Axate](https://github.com/AgateHQ/axate-developer-docs/blob/master/docs/readme.md)
 
 
 
