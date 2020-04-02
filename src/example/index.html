@@ -25,7 +25,7 @@
                 "sign-in": "https://accounts-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
                 "sign-out": "https://staging.agate.io/api/amp_logout?url=SOURCE_URL&url_from=SOURCE_URL",
                 "sign-up": "https://accounts-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=localhost&url_from=SOURCE_URL",
-                "top-up": "https://account-staging.agate.io/top-up?domain=localhost&from=SOURCE_URL",
+                "top-up": "https://account-staging.agate.io/top-up?domain=localhost&url_from=SOURCE_URL",
                 "dismiss": "https://staging.agate.io/amp/dismiss?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
                 "set-threshold-yes": "https://staging.agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=100",
                 "set-threshold-no": "https://staging.agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=0",
@@ -237,142 +237,144 @@
                 </div><a class="axate-amp__article-link" href="#">Jump to article</a>
                 <div amp-access="NOT error AND loggedIn">
                     <template amp-access-template type="amp-mustache">
-                        {{#isNotice}}
-                        <main class="axate-amp__notice">
-                            {{#notice}}
-                            <h5 class="axate-amp__notice__logo">Axate</h5>
-                            <h2>{{title}}</h2>
-                            <p>
-                                {{description}}
-                                {{#type}}
-                                    {{#is_amount_gt_threshold}}
-                                        <div class="axate-amp__notice-text">
-                                            <h5>You have chosen to authorise every charge</h5>
-                                            <p class="axate-amp__notice-threshold">This article is {{publisher.article_cost}} but you will never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.</p>
-                                            <div class="axate-amp__toggle-container">
-                                                <p class="axate-amp__toggle-text"><span>Charge me automatically</span></p>
-                                                <input class="axate-amp__toggle-checkbox" id="authorise-charge" type="checkbox">
-                                                <label class="axate-amp__toggle-label" for="authorise-charge"></label>
-                                                <div class="axate-amp__toggle-button-container">
-                                                    <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-false" title="Autocharge = OFF">
-                                                        Continue Reading
-                                                    </button>
-                                                    <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = ON">
-                                                        Continue Reading
-                                                    </button>
+                        {{^dismissed}}
+                            {{#isNotice}}
+                            <main class="axate-amp__notice">
+                                {{#notice}}
+                                <h5 class="axate-amp__notice__logo">Axate</h5>
+                                <h2>{{title}}</h2>
+                                <p>
+                                    {{description}}
+                                    {{#type}}
+                                        {{#is_amount_gt_threshold}}
+                                            <div class="axate-amp__notice-text">
+                                                <h5>You have chosen to authorise every charge</h5>
+                                                <p class="axate-amp__notice-threshold">This article is {{publisher.article_cost}} but you will never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.</p>
+                                                <div class="axate-amp__toggle-container">
+                                                    <p class="axate-amp__toggle-text"><span>Charge me automatically</span></p>
+                                                    <input class="axate-amp__toggle-checkbox" id="authorise-charge" type="checkbox">
+                                                    <label class="axate-amp__toggle-label" for="authorise-charge"></label>
+                                                    <div class="axate-amp__toggle-button-container">
+                                                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-authorise-charge-false" title="Autocharge = OFF">
+                                                            Continue Reading
+                                                        </button>
+                                                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-authorise-charge-true" title="Autocharge = ON">
+                                                            Continue Reading
+                                                        </button>
+                                                    </div>
                                                 </div>
+                                                {{#publisher.pay_if_you_can}}
+                                                    {{^access}}
+                                                        <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                    {{/access}}
+                                                {{/publisher.pay_if_you_can}}
                                             </div>
+                                        {{/is_amount_gt_threshold}}
+                                        
+                                        {{#is_insuf_balance}}
+                                            <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
+                                                Add funds
+                                            </button>
+
                                             {{#publisher.pay_if_you_can}}
                                                 {{^access}}
                                                     <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
                                                 {{/access}}
                                             {{/publisher.pay_if_you_can}}
-                                        </div>
-                                    {{/is_amount_gt_threshold}}
-                                    
-                                    {{#is_insuf_balance}}
-                                        <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
-                                            Add funds
-                                        </button>
+                                            <a class="axate-amp__status__balance-low" href="#axate"></a>
+                                        {{/is_insuf_balance}}
 
-                                        {{#publisher.pay_if_you_can}}
-                                            {{^access}}
-                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
-                                            {{/access}}
-                                        {{/publisher.pay_if_you_can}}
-                                        <a class="axate-amp__status__balance-low" href="#axate"></a>
-                                    {{/is_insuf_balance}}
+                                        {{#is_new_pricing}}
+                                            <p>Publication Pricing Updated</p>
+                                            <div class="axate-amp__toggle-button-container">
+                                                <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="Autocharge = ON">Confirm &amp; Continue Reading for {{publisher.article_cost}}</button>
+                                            </div>
+                                            <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="Autocharge = OFF">Confirm &amp; Continue Reading for {{publisher.article_cost}}</button>
+                                        
+                                            {{#publisher.pay_if_you_can}}
+                                                {{^access}}
+                                                    <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                {{/access}}
+                                            {{/publisher.pay_if_you_can}}
+                                        {{/is_new_pricing}}
 
-                                    {{#is_new_pricing}}
-                                        <p>Publication Pricing Updated</p>
-                                        <div class="axate-amp__toggle-button-container">
-                                            <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="Autocharge = ON">Confirm &amp; Continue Reading for {{publisher.article_cost}}</button>
-                                        </div>
-                                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="Autocharge = OFF">Confirm &amp; Continue Reading for {{publisher.article_cost}}</button>
-                                    
-                                        {{#publisher.pay_if_you_can}}
-                                            {{^access}}
-                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
-                                            {{/access}}
-                                        {{/publisher.pay_if_you_can}}
-                                    {{/is_new_pricing}}
+                                        {{#is_new_publication}}
+                                            <div class="axate-amp__notice-text">
+                                                <div class="axate-amp__toggle-container">
+                                                    <p class="axate-amp__toggle-text">
+                                                        <span>Charge me automatically for {{publisher.name}} from now on</span>
+                                                        <input class="axate-amp__toggle-checkbox" id="set-threshold-toggle" type="checkbox" checked>
+                                                        <label class="axate-amp__toggle-label" for="set-threshold-toggle"></label>
+                                                        <div class="axate-amp__toggle-button-container">
+                                                            <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="Autocharge = ON">
+                                                                Confirm &amp; Continue Reading for {{publisher.article_cost}}
+                                                            </button>
+                                                        </div>
+                                                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="Autocharge = OFF">
+                                                            Confirm &amp; Continue Reading for {{publisher.article_cost}}
+                                                        </button>
+                                                    </p>
+                                                </div>
+                                                {{#publisher.pay_if_you_can}}
+                                                    {{^access}}
+                                                        <button class="axate-amp__button axate-amp__button--thin bg-grey" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                    {{/access}}
+                                                {{/publisher.pay_if_you_can}}
+                                            </div>
+                                        {{/is_new_publication}}
 
-                                    {{#is_new_publication}}
-                                        <div class="axate-amp__notice-text">
-                                            <div class="axate-amp__toggle-container">
-                                                <p class="axate-amp__toggle-text">
-                                                    <span>Charge me automatically for {{publisher.name}} from now on</span>
+                                        {{#is_show_finish_no_funds_notice}}
+                                            <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
+                                                Add funds
+                                            </button>
+                                            {{#publisher.pay_if_you_can}}
+                                                {{^access}}
+                                                    <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                {{/access}}
+                                            {{/publisher.pay_if_you_can}}
+                                            <small>
+                                                {{publicationName}} is published independently of Axate.
+                                            </small>
+                                        {{/is_show_finish_no_funds_notice}}
+
+                                        {{#is_show_finish_notice}}
+                                            <div class="axate-amp__notice-text">
+                                                <h5>Tap OK to pay {{publisher.article_cost}}</h5>
+                                                <p>You’ll never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.</p>
+                                                <p>Do you want to approve all charges on this site?</p>
+                                                <div class="axate-amp__toggle-container axate-amp__notice-bold">
+                                                    <p class="axate-amp__toggle-text"><strong>Yes, charge me automatically</strong>
+                                                        <br>
+                                                        <span>Switch off to approve each charge</span></p>
                                                     <input class="axate-amp__toggle-checkbox" id="set-threshold-toggle" type="checkbox" checked>
                                                     <label class="axate-amp__toggle-label" for="set-threshold-toggle"></label>
                                                     <div class="axate-amp__toggle-button-container">
-                                                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="Autocharge = ON">
-                                                            Confirm &amp; Continue Reading for {{publisher.article_cost}}
+                                                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="OK - Yes, charge me automatically">
+                                                            OK
+                                                        </button>
+                                                        <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="OK - No, I would like to manually authorise charges">
+                                                            OK
                                                         </button>
                                                     </div>
-                                                    <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="Autocharge = OFF">
-                                                        Confirm &amp; Continue Reading for {{publisher.article_cost}}
-                                                    </button>
-                                                </p>
-                                            </div>
-                                            {{#publisher.pay_if_you_can}}
-                                                {{^access}}
-                                                    <button class="axate-amp__button axate-amp__button--thin bg-grey" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
-                                                {{/access}}
-                                            {{/publisher.pay_if_you_can}}
-                                        </div>
-                                    {{/is_new_publication}}
-
-                                    {{#is_show_finish_no_funds_notice}}
-                                        <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
-                                            Add funds
-                                        </button>
-                                        {{#publisher.pay_if_you_can}}
-                                            {{^access}}
-                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
-                                            {{/access}}
-                                        {{/publisher.pay_if_you_can}}
-                                        <small>
-                                            {{publicationName}} is published independently of Axate.
-                                        </small>
-                                    {{/is_show_finish_no_funds_notice}}
-
-                                    {{#is_show_finish_notice}}
-                                        <div class="axate-amp__notice-text">
-                                            <h5>Tap OK to pay {{publisher.article_cost}}</h5>
-                                            <p>You’ll never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.</p>
-                                            <p>Do you want to approve all charges on this site?</p>
-                                            <div class="axate-amp__toggle-container axate-amp__notice-bold">
-                                                <p class="axate-amp__toggle-text"><strong>Yes, charge me automatically</strong>
-                                                    <br>
-                                                    <span>Switch off to approve each charge</span></p>
-                                                <input class="axate-amp__toggle-checkbox" id="set-threshold-toggle" type="checkbox" checked>
-                                                <label class="axate-amp__toggle-label" for="set-threshold-toggle"></label>
-                                                <div class="axate-amp__toggle-button-container">
-                                                    <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="OK - Yes, charge me automatically">
-                                                        OK
-                                                    </button>
-                                                    <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="OK - No, I would like to manually authorise charges">
-                                                        OK
-                                                    </button>
                                                 </div>
+                                                {{#publisher.pay_if_you_can}}
+                                                    {{^access}}
+                                                        <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                    {{/access}}
+                                                {{/publisher.pay_if_you_can}}
+                                                <small>{{publicationName}} is published independently of Axate.</small>
                                             </div>
-                                            {{#publisher.pay_if_you_can}}
-                                                {{^access}}
-                                                    <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
-                                                {{/access}}
-                                            {{/publisher.pay_if_you_can}}
-                                            <small>{{publicationName}} is published independently of Axate.</small>
-                                        </div>
-                                    {{/is_show_finish_notice}}
-                                
-                                    {{#on_subscription}}
-                                        <code>On Subscription</code>
-                                    {{/on_subscription}}
-                                {{/type}}
-                            </p>
-                            {{/notice}}
-                        </main>
-                        {{/isNotice}}
+                                        {{/is_show_finish_notice}}
+                                    
+                                        {{#on_subscription}}
+                                            <code>On Subscription</code>
+                                        {{/on_subscription}}
+                                    {{/type}}
+                                </p>
+                                {{/notice}}
+                            </main>
+                            {{/isNotice}}
+                        {{/dismissed}}
                     </template>
                     <section class="axate-amp__container" amp-access="NOT error AND loggedIn">
                         <template amp-access-template type="amp-mustache">{{#wallet}}
