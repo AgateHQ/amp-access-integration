@@ -275,9 +275,11 @@
                                             Add funds
                                         </button>
 
-                                        <button class="axate-amp__button axate-amp__button--thin bg-grey" on="tap:amp-access.login-dismiss">
-                                            No thanks
-                                        </button>
+                                        {{#publisher.pay_if_you_can}}
+                                            {{^access}}
+                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                            {{/access}}
+                                        {{/publisher.pay_if_you_can}}
                                         <a class="axate-amp__status__balance-low" href="#axate"></a>
                                     {{/is_insuf_balance}}
 
@@ -287,6 +289,12 @@
                                             <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-checked" role="button" on="tap:amp-access.login-set-threshold-yes" title="Autocharge = ON">Confirm &amp; Continue Reading for {{publisher.article_cost}}</button>
                                         </div>
                                         <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="Autocharge = OFF">Confirm &amp; Continue Reading for {{publisher.article_cost}}</button>
+                                    
+                                        {{#publisher.pay_if_you_can}}
+                                            {{^access}}
+                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                            {{/access}}
+                                        {{/publisher.pay_if_you_can}}
                                     {{/is_new_pricing}}
 
                                     {{#is_new_publication}}
@@ -318,6 +326,11 @@
                                         <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
                                             Add funds
                                         </button>
+                                        {{#publisher.pay_if_you_can}}
+                                            {{^access}}
+                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                            {{/access}}
+                                        {{/publisher.pay_if_you_can}}
                                         <small>
                                             {{publicationName}} is published independently of Axate.
                                         </small>
@@ -343,6 +356,11 @@
                                                     </button>
                                                 </div>
                                             </div>
+                                            {{#publisher.pay_if_you_can}}
+                                                {{^access}}
+                                                    <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                {{/access}}
+                                            {{/publisher.pay_if_you_can}}
                                             <small>{{publicationName}} is published independently of Axate.</small>
                                         </div>
                                     {{/is_show_finish_notice}}
