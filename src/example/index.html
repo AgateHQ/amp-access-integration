@@ -22,10 +22,10 @@
 			"noPingback": true,
 			"authorization": "https://staging.agate.io/api/authorisation?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&premium=true",
 			"login": {
-				"sign-in": "https://account-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
+				"sign-in": "https://accounts-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
 				"sign-out": "https://staging.agate.io/api/amp_logout?url=SOURCE_URL&url_from=SOURCE_URL",
-				"sign-up": "https://account-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=localhost&url_from=SOURCE_URL",
-        "top-up": "https://account-staging.agate.io/top-up?domain=localhost&from=SOURCE_URL",
+				"sign-up": "https://accounts-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=localhost&url_from=SOURCE_URL",
+        "top-up": "https://accounts-staging.agate.io/top-up?domain=localhost&from=SOURCE_URL",
         "dismiss": "https://staging.agate.io/amp/dismiss?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
 				"set-threshold-yes": "https://staging.agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=100",
 				"set-threshold-no": "https://staging.agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=0",
@@ -301,8 +301,10 @@
 								<p>Help us to keep reporting on the issues that matter to you with Axate’s pay-per-article digital wallet.
 								</p>
 								<p>Just create a wallet with our payment partner Agate and you'll be good to go.
-									Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p><button
-									class="axate-amp__button" on="tap:amp-access.login-sign-up" role="button">Pay per article</button>
+                  Pay {{publisher.article_cost}} per article, no more that {{publisher.cap_cost}} per week</p>
+                  <button class="axate-amp__button" on="tap:amp-access.login-sign-up" role="button">Pay per article</button>
+                  <button class="axate-amp__button bg-grey" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                  
 								<footer>
 									<p>Already have an account? <a on="tap:amp-access.login-sign-in">Login here</a>.
 									</p>
@@ -343,7 +345,8 @@
                     <button class="axate-amp__button axate-amp__button--thin" on="tap:amp-access.login-top-up" role="button">
                     	Add funds
                     </button>
-                    <button class="axate-amp__button axate-amp__button--thin bg-grey" on="tap:amp-access.dismiss" role="button">
+
+                    <button class="axate-amp__button axate-amp__button--thin bg-grey" on="tap:amp-access.login-dismiss">
                       No thanks
                     </button>
                     <a class="axate-amp__status__balance-low" href="#axate"></a>
