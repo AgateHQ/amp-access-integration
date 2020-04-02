@@ -262,6 +262,11 @@
                                                     </button>
                                                 </div>
                                             </div>
+                                            {{#publisher.pay_if_you_can}}
+                                                {{^access}}
+                                                    <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                {{/access}}
+                                            {{/publisher.pay_if_you_can}}
                                         </div>
                                     {{/is_amount_gt_threshold}}
                                     
