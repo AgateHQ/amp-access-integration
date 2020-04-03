@@ -198,13 +198,15 @@
                 <div class="axate__wallet-handle">
                     <div amp-access="NOT error">
                         <template amp-access-template type="amp-mustache">
-                            {{^notice}}
-                            <a class="axate-amp__status__default" href="#axate"></a>
-                            {{/notice}} {{#notice}} {{#type}} {{#is_insuf_balance}}
-                            <a class="axate-amp__status__balance-low" href="#axate"></a>
-                            {{/is_insuf_balance}} {{#is_show_finish_no_funds_notice}}
-                            <a class="axate-amp__status__balance-nil" href="#axate"></a>
-                            {{/is_show_finish_no_funds_notice}} {{/type}} {{/notice}}
+                            {{^notice.type.is_insuf_balance}}{{^notice.type.is_show_finish_no_funds_notice}}
+                                <a class="axate-amp__status__default" href="#axate"></a>
+                            {{/notice.type.is_show_finish_no_funds_notice}}{{/notice.type.is_insuf_balance}}
+                            {{#notice.type.is_insuf_balance}}
+                                <a class="axate-amp__status__balance-low" href="#axate"></a>
+                            {{/notice.type.is_insuf_balance}}
+                            {{#notice.type.is_show_finish_no_funds_notice}}
+                                <a class="axate-amp__status__balance-nil" href="#axate"></a>
+                            {{/notice.type.is_show_finish_no_funds_notice}}
                         </template>
                         <div amp-access="error">
                             <template amp-access-template type="amp-mustache">
