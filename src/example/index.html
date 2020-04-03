@@ -15,6 +15,8 @@
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
     <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+    <script async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js"></script>
+    <script async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js"></script>
 
     <!-- AMP Axate -->
     <script id="amp-access" type="application/json">
@@ -107,6 +109,11 @@
 
 <body>
 
+    <!-- Scrolls here when article is unlocked  -->
+    <a class="target-anchor" id="scrollHereWhenUnlocked">
+        <amp-position-observer layout="nodisplay"></amp-position-observer>
+    </a>
+
     <header>
         <div class="brand-logo">
             PublisherLogo
@@ -190,7 +197,6 @@
                         Morbi at velit vitae eros congue congue venenatis non dui. Sed lacus sem, feugiat sed elementum sed, maximus sed lacus. Integer accumsan magna in sagittis pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse ac nisl efficitur ligula aliquam lacinia eu in magna. Vestibulum non felis odio. Ut consectetur venenatis felis aliquet maximus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
                     </p>
                 </div>
-
                 <!-- 
 					Axate AMP
 				-->
@@ -224,7 +230,7 @@
                                 <button class="axate-amp__button" on="tap:amp-access.login-sign-up" role="button">{{notice.ctaButtonText}}</button>
                                 {{#publisher.pay_if_you_can}}
                                     {{^access}}
-                                        <button class="axate-amp__button bg-grey" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                        <button class="axate-amp__button bg-grey" on="tap:amp-access.login-dismiss,scrollHereWhenUnlocked.scrollTo(duration=200)" role="button">No thanks</button>
                                     {{/access}}
                                 {{/publisher.pay_if_you_can}}
 
@@ -263,7 +269,7 @@
                                             </div>
                                             {{#publisher.pay_if_you_can}}
                                                 {{^access}}
-                                                    <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                    <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss,scrollHereWhenUnlocked.scrollTo(duration=200)" role="button">No thanks</button>
                                                 {{/access}}
                                             {{/publisher.pay_if_you_can}}
                                         </div>
@@ -276,7 +282,7 @@
 
                                         {{#publisher.pay_if_you_can}}
                                             {{^access}}
-                                                <button class="axate-amp__button bg-grey" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                <button class="axate-amp__button bg-grey" on="tap:amp-access.login-dismiss,scrollHereWhenUnlocked.scrollTo(duration=200)" role="button">No thanks</button>
                                             {{/access}}
                                         {{/publisher.pay_if_you_can}}
                                         <a class="axate-amp__status__balance-low" href="#axate"></a>
@@ -291,7 +297,7 @@
                                     
                                         {{#publisher.pay_if_you_can}}
                                             {{^access}}
-                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss,scrollHereWhenUnlocked.scrollTo(duration=200)" role="button">No thanks</button>
                                             {{/access}}
                                         {{/publisher.pay_if_you_can}}
                                     {{/notice.type.is_new_pricing}}
@@ -308,14 +314,14 @@
                                                             {{notice.ctaButtonText}}
                                                         </button>
                                                     </div>
-                                                    <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no" title="Autocharge = OFF">
+                                                    <button class="axate-amp__button axate-amp__button--thin" data-axate-action="toggle-unchecked" role="button" on="tap:amp-access.login-set-threshold-no;tap:scrollHereWhenUnlocked.scrollTo(duration=200)" title="Autocharge = OFF">
                                                         {{notice.ctaButtonText}}
                                                     </button>
                                                 </p>
                                             </div>
                                             {{#publisher.pay_if_you_can}}
                                                 {{^access}}
-                                                    <button class="axate-amp__button axate-amp__button--thin bg-grey" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                    <button class="axate-amp__button axate-amp__button--thin bg-grey" on="tap:amp-access.login-dismiss,scrollHereWhenUnlocked.scrollTo(duration=200)" role="button">No thanks</button>
                                                 {{/access}}
                                             {{/publisher.pay_if_you_can}}
                                         </div>
@@ -327,7 +333,7 @@
                                         </button>
                                         {{#publisher.pay_if_you_can}}
                                             {{^access}}
-                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
+                                                <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss,scrollHereWhenUnlocked.scrollTo(duration=200)" role="button">No thanks</button>
                                             {{/access}}
                                         {{/publisher.pay_if_you_can}}
                                         <small>
