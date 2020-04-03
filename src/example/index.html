@@ -248,8 +248,6 @@
                                     
                                     {{#notice.type.is_amount_gt_threshold}}
                                         <div class="axate-amp__notice-text">
-                                            <h5>You have chosen to authorise every charge</h5>
-                                            <p class="axate-amp__notice-threshold">This article is {{publisher.article_cost}} but you will never pay more than {{publisher.cap_cost}} per week for {{publicationName}}.</p>
                                             <div class="axate-amp__toggle-container">
                                                 <p class="axate-amp__toggle-text"><span>Charge me automatically</span></p>
                                                 <input class="axate-amp__toggle-checkbox" id="authorise-charge" type="checkbox">
@@ -456,8 +454,8 @@
                                         </div>
                                         <div class="axate-amp__section_cost">
                                             <p>Free point/week:</p><span class="axate-amp__currency_amount">{{publisher.cap_cost}}</span>
-                                            <p class="axate-amp__section_smalltext">(updates on Mon Aug 12 2019)</p>
-                                            <p class="axate-amp__section_description">Once you spend {{publisher.cap_cost}} in a week your free reading continues until Mon Aug 12 2019.
+                                            <p class="axate-amp__section_smalltext">(updates on {{wallet.freeUntilDate}})</p>
+                                            <p class="axate-amp__section_description">Once you spend {{publisher.cap_cost}} in a week your free reading continues until {{wallet.freeUntilDate}}.
                                             </p>
                                         </div>
                                     </main>
