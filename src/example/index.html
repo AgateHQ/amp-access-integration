@@ -22,9 +22,9 @@
             "noPingback": true,
             "authorization": "https://staging.agate.io/api/authorisation?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&premium=true",
             "login": {
-                "sign-in": "https://accounts-staging.agate.io/my-agate/sign-in?rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
+                "sign-in": "https://accounts-staging.agate.io/sign-on?rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
                 "sign-out": "https://staging.agate.io/api/amp_logout?url=SOURCE_URL&url_from=SOURCE_URL",
-                "sign-up": "https://accounts-staging.agate.io/my-agate/sign-up?publication_name=localhost&pub_id=localhost&url_from=SOURCE_URL",
+                "sign-up": "https://accounts-staging.agate.io/sign-on?publication_name=localhost&pub_id=localhost&url_from=SOURCE_URL",
                 "top-up": "https://accounts-staging.axate.io/payment-details?domain=localhost&url_from=SOURCE_URL",
                 "dismiss": "https://staging.agate.io/amp/dismiss?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
                 "set-threshold-yes": "https://staging.agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=100",
@@ -359,11 +359,6 @@
                                                         </button>
                                                     </div>
                                                 </div>
-                                                {{#publisher.pay_if_you_can}}
-                                                    {{^access}}
-                                                        <button class="axate-amp__button bg-grey axate-amp__button--thin" on="tap:amp-access.login-dismiss" role="button">No thanks</button>
-                                                    {{/access}}
-                                                {{/publisher.pay_if_you_can}}
                                                 <small>{{publicationName}} is published independently of Axate.</small>
                                             </div>
                                         {{/is_show_finish_notice}}
