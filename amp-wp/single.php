@@ -1,113 +1,20 @@
-<!doctype html>
-<html ⚡>
+<?php
+/**
+ * Single view template.
+ * see: https://amp-wp.org/documentation/how-the-plugin-works/classic-templates/
+ * @package AMP
+ */
 
-<head>
-    <meta charset="utf-8">
-    <title>Lorem Ipsum | PublisherName</title>
-    <link rel="canonical" href="amp-access-agate.html">
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+/**
+ * Context.
+ *
+ * @var AMP_Post_Template $this
+ */
 
-    <!-- Please replace with href="https://axate-amp.s3.eu-west-2.amazonaws.com/axate.css" -->
-    <link  type="text/css" rel="stylesheet" href="./axate.css" />
+$this->load_parts( [ 'html-start' ] );
+?>
 
-    <!-- Please remove, this is only for the demo page -->
-    <style amp-custom>
-        body {
-            margin: 0;
-            font-family: 'Georgia', Serif;
-        }
-
-        .brand-logo {
-            font-family: 'Open Sans';
-        }
-
-        header, .standfirst, .article-body {
-            padding: 15px;
-        }
-
-        .full-bleed {
-            margin: 0 -15px;
-        }
-
-        figure {
-            margin: 0;
-        }
-
-        figcaption {
-            color: #6f757a;
-            padding: 15px 0;
-            font-size: .9em;
-        }
-
-        .author {
-            display: flex;
-            align-items: center;
-
-            background: #f4f4f4;
-            padding: 0 15px;
-
-            font-size: .8em;
-
-            border: solid #dcdcdc;
-            border-width: 1px 0;
-        }
-
-        .header-time {
-            color: #a8a3ae;
-            font-family: 'Roboto';
-            font-size: 12px;
-        }
-
-        .author p {
-            margin: 5px;
-        }
-
-        .byline {
-            font-family: 'Roboto';
-            display: inline-block;
-        }
-
-        .byline p {
-            line-height: normal;
-        }
-
-        .byline .brand {
-            color: #6f757a;
-        }
-
-        .standfirst {
-            color: #6f757a;
-        }
-
-        .mailto {
-            text-decoration: none;
-        }
-
-        #author-avatar {
-            margin: 10px;
-            border: 5px solid #fff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        h1 {
-            margin: 5px 0;
-            font-weight: normal;
-        }
-
-
-
-        hr {
-            margin: 0;
-        }
-
-        amp-img {
-            background-color: #f4f4f4;
-        }
-    </style>
-
-    <script async src="https://cdn.ampproject.org/v0.js"></script>
+<?php $this->load_parts( [ 'header' ] ); ?>
 
     <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
     <script async custom-element="amp-access" src="https://cdn.ampproject.org/v0/amp-access-0.1.js"></script>
@@ -119,17 +26,17 @@
     <script id="amp-access" type="application/json">
         {
             "noPingback": true,
-            "authorization": "https://staging.agate.io/api/authorisation?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&premium=true",
+            "authorization": "https://axate.io/api/authorisation?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&premium=true",
             "login": {
-                "sign-in": "https://accounts-staging.axate.io/sign-on?rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&isIframe=true",
-                "sign-out": "https://staging.agate.io/api/amp_logout?url=SOURCE_URL&url_from=SOURCE_URL",
-                "sign-up": "https://accounts-staging.axate.io/sign-on?publication_name=localhost&pub_id=localhost&url_from=SOURCE_URL&isIframe=true",
-                "top-up": "https://accounts-staging.axate.io/payment-details?domain=localhost&url_from=SOURCE_URL&isIframe=true",
-                "dismiss": "https://staging.agate.io/amp/dismiss?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
-                "set-threshold-yes": "https://staging.agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=100",
-                "set-threshold-no": "https://staging.agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=0",
-                "authorise-charge-true": "https://staging.agate.io/amp/authorise_charge?charge_automatically=true&domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
-                "authorise-charge-false": "https://staging.agate.io/amp/authorise_charge?charge_automatically=false&domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL" },
+                "sign-in": "https://accounts.axate.io/sign-on?rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&isIframe=true",
+                "sign-out": "https://agate.io/api/amp_logout?url=SOURCE_URL&url_from=SOURCE_URL",
+                "sign-up": "https://accounts.axate.io/sign-on?publication_name=localhost&pub_id=localhost&url_from=SOURCE_URL&isIframe=true",
+                "top-up": "https://accounts.axate.io/payment-details?domain=localhost&url_from=SOURCE_URL&isIframe=true",
+                "dismiss": "https://agate.io/amp/dismiss?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
+                "set-threshold-yes": "https://agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=100",
+                "set-threshold-no": "https://agate.io/amp/set_threshold?domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL&amount=0",
+                "authorise-charge-true": "https://agate.io/amp/authorise_charge?charge_automatically=true&domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL",
+                "authorise-charge-false": "https://agate.io/amp/authorise_charge?charge_automatically=false&domain=SOURCE_URL&rid=READER_ID&url=SOURCE_URL&url_from=SOURCE_URL" },
                 "authorizationFallbackResponse": { "error": true, "user": false
             }
         }
@@ -199,34 +106,22 @@
         </style>
     </noscript>
 
-    <script src="./main.js"></script>
-    <!-- WebPack's JS Bundle -->
+<article class="amp-wp-article">
+	<header class="amp-wp-article-header">
+		<h1 class="amp-wp-title"><?php echo $this->get( 'post_title' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h1>
+		<?php
+		/**
+		 * Filters the template parts loaded in the header area of the AMP legacy post template.
+		 *
+		 * @since 0.4
+		 * @param string[] Templates to load.
+		 */
+		$this->load_parts( apply_filters( 'amp_post_article_header_meta', [ 'meta-author', 'meta-time' ] ) );
+		?>
+	</header>
 
-</head>
-
-<body>
-
-    <!-- Scrolls here when article is unlocked  -->
-    <a class="target-anchor" id="scrollHereWhenUnlocked">
-        <amp-position-observer layout="nodisplay"></amp-position-observer>
-    </a>
-
-    <header>
-        <div class="brand-logo">
-            PublisherLogo
-        </div>
-    </header>
-
-    <main role="main">
-
-        <article>
-
-            
-
-            <div class="content-container">
-        
-         
-                <div amp-access="NOT error AND NOT access" amp-access-hide>
+	<?php $this->load_parts( [ 'featured-image' ] ); ?>
+                  <div amp-access="NOT error AND NOT access" amp-access-hide>
                     <p class="standfirst">
                         Standfirst - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus luctus nunc ut elit cursus, et imperdiet diam vehicula.
                     </p>
@@ -245,35 +140,22 @@
                     </template>
                 </div>
 
-                <!-- Publishers Premium Content -->
-                <div amp-access="access" amp-access-hide class="article-body" itemprop="articleBody">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ullamcorper turpis vel commodo scelerisque. Phasellus luctus nunc ut elit cursus, et imperdiet diam vehicula. Duis et nisi sed urna blandit bibendum et sit amet erat. Suspendisse potenti. Curabitur consequat volutpat arcu nec elementum. Etiam a turpis ac libero varius condimentum. Maecenas sollicitudin felis aliquam tortor vulputate, ac posuere velit semper.
-                    </p>
-                    <p>
-                        Fusce pretium tempor justo, vitae consequat dolor maximus eget. Aliquam iaculis tincidunt quam sed maximus. Suspendisse faucibus ornare sodales. Nullam id dolor vitae arcu consequat ornare a et lectus. Sed tempus eget enim eget lobortis. Mauris sem est, accumsan sed tincidunt ut, sagittis vel arcu. Nullam in libero nisi.
-                    </p>
-                    <p>
-                        Sed pharetra semper fringilla. Nulla fringilla, neque eget varius suscipit, mi turpis congue odio, quis dignissim nisi nulla at erat. Duis non nibh vel erat vehicula hendrerit eget vel velit. Donec congue augue magna, nec eleifend dui porttitor sed. Cras orci quam, dignissim nec elementum ac, bibendum et purus. Ut elementum mi eget felis ultrices tempus. Maecenas nec sodales ex. Phasellus ultrices, purus non egestas ullamcorper, felis lorem ultrices nibh, in tristique mauris justo sed ante. Nunc commodo purus feugiat metus bibendum consequat. Duis finibus urna ut ligula auctor, sed vehicula ex aliquam. Sed sed augue auctor, porta turpis ultrices, cursus diam. In venenatis aliquet porta. Sed volutpat fermentum quam, ac molestie nulla porttitor ac. Donec porta risus ut enim pellentesque, id placerat elit ornare.
-                    </p>
-                    <p>
-                        Curabitur convallis, urna quis pulvinar feugiat, purus diam posuere turpis, sit amet tincidunt purus justo et mi. Donec sapien urna, aliquam ut lacinia quis, varius vitae ex. Maecenas efficitur iaculis lorem, at imperdiet orci viverra in. Nullam eu erat eu metus ultrices viverra a sit amet leo. Pellentesque est felis, pulvinar mollis sollicitudin et, suscipit eget massa. Nunc bibendum non nunc et consequat. Quisque auctor est vel leo faucibus, non faucibus magna ultricies. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum tortor lacus, bibendum et enim eu, vehicula placerat erat. Nullam gravida rhoncus accumsan. Integer suscipit iaculis elit nec mollis. Vestibulum eget arcu nec lectus finibus rutrum vel sed orci.
-                    </p>
-                    <figure>
-                        <amp-img class="full-bleed" placeholder src="images/sea@1x.jpg" srcset="images/sea@1x.jpg 1x, images/sea@2x.jpg 2x" layout="responsive" width="360" alt="Fusce pretium tempor justo, vitae consequat dolor maximus eget." height="216">
-                        </amp-img>
-                        <figcaption>
-                            Fusce pretium tempor justo, vitae consequat dolor maximus eget.
-                        </figcaption>
-                    </figure>
-                    <hr />
-                    <p>
-                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla et viverra turpis. Fusce viverra enim eget elit blandit, in finibus enim blandit. Integer fermentum eleifend felis non posuere. In vulputate et metus at aliquam. Praesent a varius est. Quisque et tincidunt nisi. Nam porta urna at turpis lacinia, sit amet mattis eros elementum. Etiam vel mauris mattis, dignissim tortor in, pulvinar arcu. In molestie sem elit, tincidunt venenatis tortor aliquet sodales. Ut elementum velit fermentum felis volutpat sodales in non libero. Aliquam erat volutpat.
-                    </p>
-                    <p>
-                        Morbi at velit vitae eros congue congue venenatis non dui. Sed lacus sem, feugiat sed elementum sed, maximus sed lacus. Integer accumsan magna in sagittis pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse ac nisl efficitur ligula aliquam lacinia eu in magna. Vestibulum non felis odio. Ut consectetur venenatis felis aliquet maximus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-                    </p>
-                </div>
+	<div class="amp-wp-article-content" amp-access="access" amp-access-hide itemprop="articleBody">
+		<?php echo $this->get( 'post_amp_content' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	</div>
+
+	<footer class="amp-wp-article-footer">
+		<?php
+		/**
+		 * Filters the template parts to load in the footer area of the AMP legacy post template.
+		 *
+		 * @since 0.4
+		 * @param string[] Templates to load.
+		 */
+		$this->load_parts( apply_filters( 'amp_post_article_footer_meta', [ 'meta-taxonomy', 'meta-comments-link' ] ) );
+		?>
+	</footer>
+</article>
                 <!-- 
 					Axate AMP
 				-->
@@ -559,12 +441,7 @@
                     </section>
                 </div>
                 <!-- Axate AMP - End -->
+<?php $this->load_parts( [ 'footer' ] ); ?>
 
-            </div>
-        </article>
-
-    </main>
-
-</body>
-
-</html>
+<?php
+$this->load_parts( [ 'html-end' ] );
